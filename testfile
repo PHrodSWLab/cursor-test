@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Chapter 1: 寄生蟲的解剖學 | 獠牙與慈悲</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; background: transparent; }
@@ -15,6 +16,352 @@
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       overflow: hidden; box-shadow: none; border-radius: 8px;
     }
+
+    /* ===== GAME MENU LAYER ===== */
+    #game-menu {
+      --menu-bg: #030510;
+      --menu-ink: #e8e0f0;
+      --menu-gold: #fbbf24;
+      --menu-purple: #a855f7;
+      --menu-cyan: #06b6d4;
+      --menu-red: #ef4444;
+      --menu-amber: #f59e0b;
+      position: absolute;
+      inset: 0;
+      z-index: 12050;
+      overflow: hidden;
+      background: var(--menu-bg);
+      color: var(--menu-ink);
+      font-family: 'Noto Serif TC', serif;
+    }
+    #game-menu.hidden { display: none; }
+
+    #menu-starfield {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    #menu-app {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    #menu-app::-webkit-scrollbar { width: 6px; }
+    #menu-app::-webkit-scrollbar-thumb { background: rgba(251,191,36,0.3); border-radius: 4px; }
+
+    #game-menu .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 56px 20px 40px;
+      position: relative;
+    }
+    #game-menu .hero-glyph {
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: 1;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(251,191,36,0.5));
+      animation: menu-wolf-float 4s ease-in-out infinite;
+    }
+    @keyframes menu-wolf-float {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    #game-menu .hero-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--menu-gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.75;
+    }
+    #game-menu .hero-title {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fbbf24 0%, #f0abfc 50%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+    #game-menu .hero-sub {
+      font-size: clamp(12px, 1.8vw, 16px);
+      color: rgba(232,224,240,0.55);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    #game-menu .progress-ring-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 50px;
+      padding: 12px 20px;
+      backdrop-filter: blur(10px);
+    }
+    #game-menu .progress-ring-wrap svg { width: 42px; height: 42px; }
+    #game-menu .pr-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 4; }
+    #game-menu .pr-fill {
+      fill: none;
+      stroke: var(--menu-gold);
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-dasharray: 126;
+      stroke-dashoffset: 126;
+      transition: stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1);
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+    #game-menu .pr-info h4 { font-size: 14px; font-weight: 700; color: var(--menu-ink); }
+    #game-menu .pr-info p {
+      font-size: 11px;
+      color: rgba(232,224,240,0.5);
+      font-family: 'Space Mono', monospace;
+      margin-top: 3px;
+    }
+
+    #game-menu .divider {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--menu-gold), transparent);
+      margin: 0 auto 32px;
+      opacity: 0.4;
+    }
+
+    #game-menu .starmap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 18px 34px;
+    }
+
+    #game-menu .part-block {
+      margin-bottom: 38px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    #game-menu .part-block.visible { opacity: 1; transform: translateY(0); }
+
+    #game-menu .part-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    #game-menu .part-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 900;
+      font-family: 'Space Mono', monospace;
+      border: 2px solid;
+      flex-shrink: 0;
+    }
+    #game-menu .part-header-text h3 { font-size: clamp(15px, 2.2vw, 19px); font-weight: 700; }
+    #game-menu .part-header-text p {
+      font-size: 11px;
+      color: rgba(232,224,240,0.45);
+      font-family: 'Space Mono', monospace;
+      margin-top: 2px;
+      letter-spacing: 1px;
+    }
+
+    #game-menu .part-1 .part-badge { border-color: var(--menu-red); color: var(--menu-red); background: rgba(239,68,68,0.1); }
+    #game-menu .part-2 .part-badge { border-color: var(--menu-amber); color: var(--menu-amber); background: rgba(245,158,11,0.1); }
+    #game-menu .part-3 .part-badge { border-color: var(--menu-purple); color: var(--menu-purple); background: rgba(168,85,247,0.12); }
+    #game-menu .part-4 .part-badge { border-color: var(--menu-cyan); color: var(--menu-cyan); background: rgba(6,182,212,0.1); }
+    #game-menu .part-1 .part-header-text h3 { color: var(--menu-red); }
+    #game-menu .part-2 .part-header-text h3 { color: var(--menu-amber); }
+    #game-menu .part-3 .part-header-text h3 { color: var(--menu-purple); }
+    #game-menu .part-4 .part-header-text h3 { color: var(--menu-cyan); }
+
+    #game-menu .chapters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    #game-menu .ch-card {
+      position: relative;
+      border-radius: 12px;
+      padding: 18px 16px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    #game-menu .ch-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    #game-menu .ch-card:hover { transform: translateY(-3px); }
+    #game-menu .ch-card:hover::before { opacity: 1; }
+    #game-menu .ch-card.done {
+      border-color: rgba(251,191,36,0.25);
+      background: rgba(120,83,15,0.12);
+    }
+    #game-menu .ch-card.done::before {
+      background: radial-gradient(ellipse at top left, rgba(251,191,36,0.08), transparent);
+    }
+    #game-menu .ch-card.current {
+      border-color: rgba(168,85,247,0.45);
+      background: rgba(88,28,135,0.15);
+      box-shadow: 0 0 24px rgba(168,85,247,0.12);
+    }
+    #game-menu .ch-card.current::before {
+      background: radial-gradient(ellipse at top left, rgba(168,85,247,0.12), transparent);
+    }
+    #game-menu .ch-card.locked {
+      opacity: 0.38;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    #game-menu .ch-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      color: rgba(232,224,240,0.35);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    #game-menu .ch-icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 9px;
+    }
+    #game-menu .ch-icon { font-size: 24px; line-height: 1; }
+    #game-menu .ch-status { font-size: 16px; }
+    #game-menu .ch-title {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 5px;
+      color: var(--menu-ink);
+    }
+    #game-menu .ch-subtitle {
+      font-size: 10px;
+      color: rgba(232,224,240,0.4);
+      line-height: 1.5;
+      font-family: 'Space Mono', monospace;
+    }
+    #game-menu .ch-prog {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.05);
+      overflow: hidden;
+      border-radius: 0 0 12px 12px;
+    }
+    #game-menu .ch-prog-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 1.2s ease;
+    }
+    #game-menu .done .ch-prog-fill { background: var(--menu-gold); width: 100%; }
+    #game-menu .current .ch-prog-fill { background: var(--menu-purple); width: 50%; animation: menu-pulse 2s ease-in-out infinite; }
+    #game-menu .locked .ch-prog-fill { width: 0; }
+    @keyframes menu-pulse { 0%,100%{opacity:0.5;} 50%{opacity:1;} }
+    #game-menu .ch-card.done .ch-star {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 9px;
+      color: var(--menu-gold);
+      opacity: 0.6;
+    }
+
+    #game-menu .course-info {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px 30px;
+      text-align: center;
+    }
+    #game-menu .course-info h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--menu-gold);
+      margin-bottom: 12px;
+    }
+    #game-menu .course-info p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: rgba(232,224,240,0.55);
+      margin-bottom: 10px;
+    }
+    #game-menu .info-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    #game-menu .info-pill {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 7px 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: rgba(232,224,240,0.6);
+      letter-spacing: 0.5px;
+    }
+    #game-menu .info-pill span { color: var(--menu-gold); font-weight: 700; }
+
+    #game-menu footer {
+      text-align: center;
+      padding: 18px 20px 28px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: rgba(232,224,240,0.25);
+      letter-spacing: 1px;
+    }
+    #game-menu footer strong { color: rgba(251,191,36,0.45); }
+
+    #menu-tooltip {
+      position: absolute;
+      background: rgba(0,0,0,0.95);
+      border: 1px solid rgba(251,191,36,0.3);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--menu-ink);
+      pointer-events: none;
+      z-index: 13000;
+      max-width: 220px;
+      line-height: 1.6;
+      display: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+    #menu-tooltip.show { display: block; }
 
     /* ===== AMBIENT PARTICLE LAYER ===== */
     #particle-canvas {
@@ -377,6 +724,15 @@
       .drag-card.touch-dragging { width: 180px; }
     }
 
+    @media (max-width: 680px) {
+      #game-menu .chapters-grid { grid-template-columns: repeat(2, 1fr); }
+      #game-menu .hero { padding: 42px 14px 28px; }
+    }
+
+    @media (max-width: 420px) {
+      #game-menu .chapters-grid { grid-template-columns: 1fr; }
+    }
+
     @media (min-width: 1025px) {
       #game-container { border-radius: 12px; }
     }
@@ -384,6 +740,53 @@
 </head>
 <body>
   <div id="game-container">
+    <div id="game-menu">
+      <canvas id="menu-starfield"></canvas>
+      <div id="menu-app">
+        <header class="hero">
+          <div class="hero-glyph">🐺</div>
+          <div class="hero-tag">完整課程地圖</div>
+          <h1 class="hero-title">獠牙與慈悲</h1>
+          <p class="hero-sub">讓善良都能裝上獠牙</p>
+
+          <div class="progress-ring-wrap">
+            <div style="position:relative;width:48px;height:48px;flex-shrink:0;">
+              <svg viewBox="0 0 48 48">
+                <circle class="pr-track" cx="24" cy="24" r="20"></circle>
+                <circle class="pr-fill" id="menu-pr-fill" cx="24" cy="24" r="20"></circle>
+              </svg>
+              <div id="menu-pr-pct" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--menu-gold);">0%</div>
+            </div>
+            <div class="pr-info">
+              <h4 id="menu-pr-title">尚未開始</h4>
+              <p id="menu-pr-sub">完成 0 / 12 章節</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="divider"></div>
+        <main class="starmap" id="menu-starmap"></main>
+
+        <section class="course-info">
+          <h2>關於這門課程</h2>
+          <p>《獠牙與慈悲》是一套針對曾經歷職場情緒傷害或有毒關係的成人設計的互動式自我成長課程。透過十二個章節的漸進式學習，你將從「辨識寄生蟲」到「建立自己的守護者身份」，完成一段真實的內在轉化旅程。</p>
+          <p>每個章節都是一個獨立的互動體驗，包含理論學習、情境測試、反思練習，以及可追蹤的成長數值系統。</p>
+          <div class="info-pills">
+            <div class="info-pill"><span>12</span> 個互動章節</div>
+            <div class="info-pill"><span>4</span> 個旅程階段</div>
+            <div class="info-pill"><span>130+</span> 個學習場景</div>
+            <div class="info-pill">每章 <span>15-25</span> 分鐘</div>
+            <div class="info-pill">適合 <span>20-35</span> 歲</div>
+          </div>
+        </section>
+
+        <footer>
+          <strong>獠牙與慈悲</strong> &nbsp;·&nbsp; 讓善良都能裝上獠牙 &nbsp;·&nbsp; 🐺
+        </footer>
+      </div>
+      <div id="menu-tooltip"></div>
+    </div>
+
     <div id="loading-overlay">
       <div class="loading-wolf">
         <div class="wolf-ear left"></div>
@@ -1923,6 +2326,252 @@
     }
 
     /* ================================================================
+       GAME MENU (course map)
+       ================================================================ */
+    var MENU_PARTS = [
+      { id: 1, label: 'Part 1', name: '覺醒', sub: 'Awakening · 識別危險',
+        chapters: [
+          { n: 1, icon: '🦠', title: '寄生蟲解剖學', sub: 'FAR 系統 · 識別剝削模式', file: 'chapter-01-parasite-anatomy.html', key: 'chapter1_completed' },
+          { n: 2, icon: '🛡️', title: '隱喻盾牌', sub: '語言病毒 · 免疫系統建立', file: 'chapter-02-metaphor-shield.html', key: 'chapter2_completed' },
+          { n: 3, icon: '🤫', title: '權力反轉', sub: '沈默技術 · 真空製造', file: 'chapter-03-power-reversal.html', key: 'chapter3_completed' }
+        ] },
+      { id: 2, label: 'Part 2', name: '整合', sub: 'Reconstruction · 重建系統',
+        chapters: [
+          { n: 4, icon: '🔋', title: '能量守恆', sub: '三箱分類 · 能量邊界', file: 'chapter-04-energy-conservation.html', key: 'chapter4_completed' },
+          { n: 5, icon: '🔄', title: '系統思維', sub: '負循環解碼 · 框架重組', file: 'chapter-05-systems-thinking.html', key: 'chapter5_completed' },
+          { n: 6, icon: '👑', title: '位階重組', sub: 'Sub-comm · 無聲影響力', file: 'chapter-06-rank-reconstruction.html', key: 'chapter6_completed' }
+        ] },
+      { id: 3, label: 'Part 3', name: '試煉', sub: 'Trial · 面對黑暗面',
+        chapters: [
+          { n: 7, icon: '😈', title: '黑暗誘惑', sub: '復仇陷阱 · 靈魂測試', file: 'chapter-07-dark-temptation.html', key: 'chapter7_completed' },
+          { n: 8, icon: '🌗', title: '陰影整合', sub: '創傷根源 · 故事重寫', file: 'chapter-08-shadow-integration.html', key: 'chapter8_completed' },
+          { n: 9, icon: '🐺', title: '守護者誕生', sub: '多重結局 · 獠牙統一', file: 'chapter-09-guardian-birth.html', key: 'chapter9_completed' }
+        ] },
+      { id: 4, label: 'Part 4', name: '傳承', sub: 'Legacy · 影響力擴展',
+        chapters: [
+          { n: 10, icon: '🤝', title: '狼群建立', sub: '盟友識別 · 領袖動力學', file: 'chapter-10-pack-building.html', key: 'chapter10_completed' },
+          { n: 11, icon: '💼', title: '叢林商業', sub: '談判框架 · 說不的藝術', file: 'chapter-11-jungle-business.html', key: 'chapter11_completed' },
+          { n: 12, icon: '🌟', title: '遺產訓練', sub: 'Ikigai · 守護者宣言', file: 'chapter-12-legacy-training.html', key: 'chapter12_completed' }
+        ] }
+    ];
+
+    var _menuBootRequested = false;
+    var _menuTooltipEl = null;
+    var _menuStars = [];
+    var _menuStarAnimId = null;
+
+    function initMenuStarfield() {
+      var menu = document.getElementById('game-menu');
+      var canvas = document.getElementById('menu-starfield');
+      if (!menu || !canvas) return;
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      function resize() {
+        canvas.width = menu.clientWidth;
+        canvas.height = menu.clientHeight;
+      }
+
+      function initStars() {
+        _menuStars = [];
+        var total = 160;
+        for (var i = 0; i < total; i++) {
+          _menuStars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.4 + 0.2,
+            o: Math.random(),
+            s: Math.random() * 0.005 + 0.002,
+            d: Math.random() < 0.5 ? 1 : -1
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        _menuStars.forEach(function(s) {
+          s.o += s.s * s.d;
+          if (s.o > 1 || s.o < 0.1) s.d *= -1;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + s.o + ')';
+          ctx.fill();
+        });
+        _menuStarAnimId = requestAnimationFrame(draw);
+      }
+
+      resize();
+      initStars();
+      if (_menuStarAnimId) cancelAnimationFrame(_menuStarAnimId);
+      draw();
+      window.addEventListener('resize', function() {
+        resize();
+        initStars();
+      });
+    }
+
+    function stopMenuStarfield() {
+      if (_menuStarAnimId) {
+        cancelAnimationFrame(_menuStarAnimId);
+        _menuStarAnimId = null;
+      }
+    }
+
+    function getMenuProgress() {
+      var done = [];
+      MENU_PARTS.forEach(function(part) {
+        part.chapters.forEach(function(ch) {
+          if (localStorage.getItem(ch.key) === 'true') done.push(ch.n);
+        });
+      });
+      return done;
+    }
+
+    function getMenuCardState(chN, done) {
+      if (done.indexOf(chN) !== -1) return 'done';
+      if (chN === 1) return 'current';
+      if (done.indexOf(chN - 1) !== -1) return 'current';
+      return 'locked';
+    }
+
+    function moveMenuTooltip(e) {
+      var menu = document.getElementById('game-menu');
+      if (!menu || !_menuTooltipEl) return;
+      var rect = menu.getBoundingClientRect();
+      var x = e.clientX - rect.left + 16;
+      var y = e.clientY - rect.top + 16;
+      var maxX = Math.max(8, rect.width - 240);
+      var maxY = Math.max(8, rect.height - 100);
+      _menuTooltipEl.style.left = Math.max(8, Math.min(x, maxX)) + 'px';
+      _menuTooltipEl.style.top = Math.max(8, Math.min(y, maxY)) + 'px';
+    }
+
+    function hideMenuTooltip() {
+      if (_menuTooltipEl) _menuTooltipEl.classList.remove('show');
+    }
+
+    function showMenuTooltip(e, ch, state) {
+      if (!_menuTooltipEl) return;
+      var msgMap = {
+        done: '✦ 已完成<br><strong>' + ch.title + '</strong><br><span style="color:rgba(255,255,255,0.45);font-size:11px;">點擊重新體驗</span>',
+        current: '◉ 當前章節<br><strong>' + ch.title + '</strong><br><span style="color:var(--menu-purple);font-size:11px;">點擊開始</span>',
+        locked: '🔒 尚未解鎖<br><strong>' + ch.title + '</strong><br><span style="color:rgba(255,255,255,0.4);font-size:11px;">完成前一章節後解鎖</span>'
+      };
+      _menuTooltipEl.innerHTML = msgMap[state] || '';
+      _menuTooltipEl.classList.add('show');
+      moveMenuTooltip(e);
+    }
+
+    function launchChapterOneFromMenu() {
+      if (_menuBootRequested) return;
+      _menuBootRequested = true;
+      hideMenuTooltip();
+      stopMenuStarfield();
+
+      var menu = document.getElementById('game-menu');
+      if (menu) menu.classList.add('hidden');
+
+      var overlay = document.getElementById('loading-overlay');
+      if (overlay) {
+        overlay.classList.remove('fade-out');
+        overlay.style.display = 'flex';
+      }
+
+      init();
+    }
+
+    function renderGameMenu() {
+      var done = getMenuProgress();
+      var total = 12;
+      var pct = Math.round((done.length / total) * 100);
+      var menuApp = document.getElementById('menu-app');
+
+      var fill = document.getElementById('menu-pr-fill');
+      var pctEl = document.getElementById('menu-pr-pct');
+      var subEl = document.getElementById('menu-pr-sub');
+      var titleEl = document.getElementById('menu-pr-title');
+      if (fill) fill.style.strokeDashoffset = String(126 - (126 * (pct / 100)));
+      if (pctEl) pctEl.textContent = pct + '%';
+      if (subEl) subEl.textContent = '完成 ' + done.length + ' / 12 章節';
+      if (titleEl) {
+        titleEl.textContent = pct === 0 ? '尚未開始' : pct === 100 ? '🎉 課程完成！' : pct < 50 ? '旅程進行中' : '即將完成';
+      }
+
+      var map = document.getElementById('menu-starmap');
+      if (!map) return;
+      map.innerHTML = '';
+
+      MENU_PARTS.forEach(function(part) {
+        var block = document.createElement('div');
+        block.className = 'part-block part-' + part.id;
+        block.innerHTML =
+          '<div class="part-header">' +
+            '<div class="part-badge">' + part.id + '</div>' +
+            '<div class="part-header-text">' +
+              '<h3>' + part.label + '：' + part.name + '</h3>' +
+              '<p>' + part.sub + '</p>' +
+            '</div>' +
+          '</div>' +
+          '<div class="chapters-grid" id="menu-grid-' + part.id + '"></div>';
+        map.appendChild(block);
+
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              block.classList.add('visible');
+              io.disconnect();
+            }
+          });
+        }, { threshold: 0.1, root: menuApp || null });
+        io.observe(block);
+
+        var grid = block.querySelector('#menu-grid-' + part.id);
+        part.chapters.forEach(function(ch) {
+          var state = getMenuCardState(ch.n, done);
+          var statusIcon = state === 'done' ? '✦' : state === 'current' ? '◉' : '🔒';
+          var statusColor = state === 'done' ? 'var(--menu-gold)' : state === 'current' ? 'var(--menu-purple)' : 'rgba(255,255,255,0.2)';
+
+          var card = document.createElement('a');
+          card.className = 'ch-card ' + state;
+          card.href = '#';
+          card.innerHTML =
+            (state === 'done' ? '<div class="ch-star">✦ ✦ ✦</div>' : '') +
+            '<div class="ch-num">Chapter ' + ('0' + ch.n).slice(-2) + '</div>' +
+            '<div class="ch-icon-row">' +
+              '<div class="ch-icon">' + ch.icon + '</div>' +
+              '<div class="ch-status" style="color:' + statusColor + ';">' + statusIcon + '</div>' +
+            '</div>' +
+            '<div class="ch-title">' + ch.title + '</div>' +
+            '<div class="ch-subtitle">' + ch.sub + '</div>' +
+            '<div class="ch-prog"><div class="ch-prog-fill"></div></div>';
+
+          card.addEventListener('mouseenter', function(e) { showMenuTooltip(e, ch, state); });
+          card.addEventListener('mousemove', moveMenuTooltip);
+          card.addEventListener('mouseleave', hideMenuTooltip);
+
+          card.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (state === 'locked') return;
+            SFX.click();
+            if (ch.n === 1) {
+              launchChapterOneFromMenu();
+            } else {
+              showToast('此單檔版本目前僅整合 Chapter 1');
+            }
+          });
+
+          grid.appendChild(card);
+        });
+      });
+    }
+
+    function initGameMenu() {
+      _menuTooltipEl = document.getElementById('menu-tooltip');
+      renderGameMenu();
+      initMenuStarfield();
+    }
+
+    /* ================================================================
        INITIALIZATION
        ================================================================ */
     function init() {
@@ -1976,7 +2625,7 @@
       loadScene(GameState.currentScene);
     }
 
-    window.addEventListener('DOMContentLoaded', init);
+    window.addEventListener('DOMContentLoaded', initGameMenu);
 
     // Handle visibility change — pause/resume particle system
     document.addEventListener('visibilitychange', function() {
