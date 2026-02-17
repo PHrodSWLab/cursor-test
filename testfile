@@ -1041,6 +1041,369 @@
     #game-container.ch2-mode .stat-bar-fill.shield-bar { background: linear-gradient(90deg, #4CAF50, #66BB6A); }
     #game-container.ch2-mode .stat-bar-fill.battle-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
 
+    /* ===== CHAPTER 3 THEME (container scoped) ===== */
+    #game-container.ch3-mode {
+      background: linear-gradient(135deg, #1e1e2e 0%, #2d1b3d 100%);
+    }
+    #game-container.ch3-mode .progress-fill {
+      background: linear-gradient(90deg, #dc2626 0%, #991b1b 100%);
+    }
+    #game-container.ch3-mode .progress-fill::after {
+      box-shadow: 0 0 10px #dc2626, 0 0 20px #991b1b;
+    }
+    #game-container.ch3-mode #moral-compass {
+      border: 2px solid rgba(220, 38, 38, 0.5);
+    }
+    #game-container.ch3-mode #moral-compass:hover {
+      box-shadow: 0 0 25px rgba(220, 38, 38, 0.3);
+    }
+    #game-container.ch3-mode #moral-compass.pulse-control {
+      animation: pulse-crimson 0.6s ease;
+    }
+    @keyframes pulse-crimson {
+      0%,100% { box-shadow: 0 0 5px rgba(220,38,38,0.2); }
+      50% { box-shadow: 0 0 30px rgba(220,38,38,0.8); }
+    }
+    #game-container.ch3-mode .compass-value.control { color: #dc2626; }
+
+    #game-container.ch3-mode #dialogue-box {
+      border-top: 1px solid rgba(220, 38, 38, 0.3);
+    }
+    #game-container.ch3-mode .dialogue-speaker {
+      color: #dc2626;
+      text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+    }
+    #game-container.ch3-mode .option-button {
+      background: rgba(220, 38, 38, 0.15);
+      border: 2px solid rgba(220, 38, 38, 0.4);
+    }
+    #game-container.ch3-mode .option-button::before {
+      background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.2), transparent);
+    }
+    #game-container.ch3-mode .option-button:hover {
+      background: rgba(220, 38, 38, 0.35);
+      border-color: #dc2626;
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
+    }
+    #game-container.ch3-mode .continue-button {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    }
+    #game-container.ch3-mode .continue-button:hover {
+      box-shadow: 0 8px 30px rgba(220, 38, 38, 0.5);
+    }
+    #game-container.ch3-mode .toast-notification {
+      border: 1px solid rgba(220,38,38,0.4);
+    }
+
+    #game-container.ch3-mode .technique-container,
+    #game-container.ch3-mode .training-container,
+    #game-container.ch3-mode .warning-container,
+    #game-container.ch3-mode .summary-container {
+      width: 100%;
+      height: 100%;
+      padding: 40px 30px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #game-container.ch3-mode .technique-container h2,
+    #game-container.ch3-mode .training-container h2,
+    #game-container.ch3-mode .warning-container h2,
+    #game-container.ch3-mode .summary-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #game-container.ch3-mode .silence-visual {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      background: radial-gradient(circle at center, rgba(220, 38, 38, 0.1), transparent);
+      border-radius: 12px;
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 2px solid rgba(220, 38, 38, 0.3);
+    }
+    #game-container.ch3-mode .eye-icon {
+      font-size: 80px;
+      opacity: 0.8;
+      animation: ch3-stare 3s infinite;
+      text-shadow: 0 0 30px rgba(220, 38, 38, 0.8);
+    }
+    @keyframes ch3-stare {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    #game-container.ch3-mode .technique-card {
+      background: rgba(255,255,255,0.03);
+      border-left: 4px solid #dc2626;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    #game-container.ch3-mode .technique-card:hover {
+      background: rgba(255,255,255,0.06);
+      transform: translateX(5px);
+    }
+    #game-container.ch3-mode .technique-card h3 { color: #dc2626; margin-bottom: 12px; font-size: 18px; }
+
+    #game-container.ch3-mode .step-list {
+      background: rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    #game-container.ch3-mode .step-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    #game-container.ch3-mode .step-item:last-child { border-bottom: none; }
+    #game-container.ch3-mode .step-number {
+      background: #dc2626;
+      color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    #game-container.ch3-mode .step-content { flex: 1; }
+    #game-container.ch3-mode .step-content h4 { color: #dc2626; margin-bottom: 5px; font-size: 15px; }
+    #game-container.ch3-mode .step-content p { font-size: 14px; line-height: 1.6; color: #ccc; }
+
+    #game-container.ch3-mode .interactive-demo {
+      background: rgba(0,0,0,0.5);
+      border: 2px solid #dc2626;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 20px 0;
+    }
+    #game-container.ch3-mode .interactive-demo h3 { color: #dc2626; margin-bottom: 15px; text-align: center; }
+
+    #game-container.ch3-mode .silence-timer {
+      text-align: center;
+      font-size: 72px;
+      font-weight: bold;
+      color: #dc2626;
+      margin: 30px 0;
+      text-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+      font-family: 'Courier New', monospace;
+      transition: all 0.3s ease;
+    }
+    #game-container.ch3-mode .silence-timer.pulse { animation: ch3-timer-pulse 1s ease; }
+    @keyframes ch3-timer-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    #game-container.ch3-mode .pressure-meter {
+      width: 100%;
+      height: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      margin: 20px 0;
+      position: relative;
+    }
+    #game-container.ch3-mode .pressure-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #FFC107, #FF5722, #dc2626);
+      transition: width 0.5s ease;
+    }
+    #game-container.ch3-mode .pressure-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 12px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    }
+
+    #game-container.ch3-mode .scenario-sim {
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    #game-container.ch3-mode .scenario-dialogue {
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      border-radius: 6px;
+      margin: 10px 0;
+      border-left: 3px solid;
+    }
+    #game-container.ch3-mode .scenario-dialogue.attacker { border-color: #F44336; }
+    #game-container.ch3-mode .scenario-dialogue.defender { border-color: #4CAF50; }
+    #game-container.ch3-mode .scenario-dialogue .speaker {
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    #game-container.ch3-mode .scenario-dialogue.attacker .speaker { color: #F44336; }
+    #game-container.ch3-mode .scenario-dialogue.defender .speaker { color: #4CAF50; }
+
+    #game-container.ch3-mode .extinction-phase {
+      background: rgba(220, 38, 38, 0.1);
+      border-left: 4px solid #dc2626;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    #game-container.ch3-mode .extinction-phase h3 { color: #dc2626; margin-bottom: 12px; }
+    #game-container.ch3-mode .extinction-phase .warning {
+      background: rgba(255, 193, 7, 0.2);
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      border-left: 3px solid #FFC107;
+    }
+    #game-container.ch3-mode .extinction-phase .warning strong { color: #FFC107; }
+
+    #game-container.ch3-mode .response-choice {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 15px 0;
+    }
+    #game-container.ch3-mode .choice-option {
+      background: rgba(220, 38, 38, 0.15);
+      border: 2px solid rgba(220, 38, 38, 0.4);
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      font-size: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    #game-container.ch3-mode .choice-option:hover:not(.disabled) {
+      background: rgba(220, 38, 38, 0.25);
+      border-color: #dc2626;
+      transform: translateX(5px);
+    }
+    #game-container.ch3-mode .choice-option.selected {
+      background: rgba(76, 175, 80, 0.3);
+      border-color: #4CAF50;
+      cursor: default;
+      animation: correct-flash 0.5s ease;
+    }
+    #game-container.ch3-mode .choice-option.wrong {
+      background: rgba(244, 67, 54, 0.3);
+      border-color: #F44336;
+      cursor: default;
+      animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    }
+    #game-container.ch3-mode .choice-option.disabled {
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    #game-container.ch3-mode .quiz-feedback {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 15px;
+      border-left: 4px solid;
+      animation: fadeIn 0.5s ease;
+    }
+    #game-container.ch3-mode .quiz-feedback.correct { border-color: #4CAF50; }
+    #game-container.ch3-mode .quiz-feedback.incorrect { border-color: #F44336; }
+    #game-container.ch3-mode .quiz-feedback h4 { margin-bottom: 10px; font-size: 16px; }
+
+    #game-container.ch3-mode .power-vacuum-viz {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      position: relative;
+      background: radial-gradient(circle, rgba(220, 38, 38, 0.2), transparent);
+      border-radius: 12px;
+    }
+    #game-container.ch3-mode .vacuum-text {
+      font-size: 32px;
+      font-weight: bold;
+      color: #dc2626;
+      animation: ch3-vacuum 2s infinite;
+    }
+    @keyframes ch3-vacuum {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(0.8); opacity: 1; }
+    }
+
+    #game-container.ch3-mode .loading-eye {
+      width: 80px;
+      height: 80px;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    #game-container.ch3-mode .loading-eye .eye-outer {
+      width: 70px;
+      height: 40px;
+      border: 3px solid #dc2626;
+      border-radius: 50%;
+      position: absolute;
+      top: 20px;
+      left: 5px;
+      opacity: 0.8;
+    }
+    #game-container.ch3-mode .loading-eye .eye-pupil {
+      width: 16px;
+      height: 16px;
+      background: #dc2626;
+      border-radius: 50%;
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      animation: ch3-eye-look 3s ease-in-out infinite;
+      box-shadow: 0 0 10px #dc2626, 0 0 20px #dc2626;
+    }
+    @keyframes ch3-eye-look {
+      0%, 100% { left: 26px; }
+      25% { left: 38px; }
+      50% { left: 32px; top: 28px; }
+      75% { left: 26px; top: 36px; }
+    }
+    #game-container.ch3-mode .loading-progress-fill {
+      background: linear-gradient(90deg, #dc2626, #991b1b);
+    }
+
+    #game-container.ch3-mode .technique-container::-webkit-scrollbar,
+    #game-container.ch3-mode .training-container::-webkit-scrollbar,
+    #game-container.ch3-mode .warning-container::-webkit-scrollbar,
+    #game-container.ch3-mode .summary-container::-webkit-scrollbar { width: 6px; }
+    #game-container.ch3-mode .technique-container::-webkit-scrollbar-thumb,
+    #game-container.ch3-mode .training-container::-webkit-scrollbar-thumb,
+    #game-container.ch3-mode .warning-container::-webkit-scrollbar-thumb,
+    #game-container.ch3-mode .summary-container::-webkit-scrollbar-thumb { background: rgba(220, 38, 38, 0.4); border-radius: 3px; }
+
+    #game-container.ch3-mode .stat-bar-fill.control-bar { background: linear-gradient(90deg, #dc2626, #b91c1c); }
+    #game-container.ch3-mode .stat-bar-fill.silence-bar { background: linear-gradient(90deg, #dc2626, #991b1b); }
+    #game-container.ch3-mode .stat-bar-fill.pattern-bar { background: linear-gradient(90deg, #F44336, #FF5722); }
+    #game-container.ch3-mode .stat-bar-fill.extinction-bar { background: linear-gradient(90deg, #FFC107, #FF9800); }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       #game-container { margin: 0 auto; border-radius: 0; }
@@ -1080,6 +1443,22 @@
       #game-container.ch2-mode .shield-container h2,
       #game-container.ch2-mode .battle-container h2,
       #game-container.ch2-mode .summary-container h2 { font-size: 18px; margin-bottom: 12px; }
+
+      #game-container.ch3-mode .technique-container,
+      #game-container.ch3-mode .training-container,
+      #game-container.ch3-mode .warning-container,
+      #game-container.ch3-mode .summary-container { padding: 25px 15px; }
+      #game-container.ch3-mode .silence-timer { font-size: 48px; }
+      #game-container.ch3-mode .choice-option { font-size: 13px; padding: 12px; }
+      #game-container.ch3-mode .silence-visual { height: 180px; }
+      #game-container.ch3-mode .eye-icon { font-size: 60px; }
+      #game-container.ch3-mode .power-vacuum-viz { height: 140px; }
+      #game-container.ch3-mode .vacuum-text { font-size: 24px; }
+      #game-container.ch3-mode .step-content p { font-size: 13px; }
+      #game-container.ch3-mode .technique-container h2,
+      #game-container.ch3-mode .training-container h2,
+      #game-container.ch3-mode .warning-container h2,
+      #game-container.ch3-mode .summary-container h2 { font-size: 18px; margin-bottom: 12px; }
     }
 
     @media (max-width: 380px) {
@@ -1337,9 +1716,12 @@
       }
 
       function createParticle() {
-        var isCh2 = false;
+        var isCh2 = false, isCh3 = false;
         var container = document.getElementById('game-container');
-        if (container) isCh2 = container.classList.contains('ch2-mode');
+        if (container) {
+          isCh2 = container.classList.contains('ch2-mode');
+          isCh3 = container.classList.contains('ch3-mode');
+        }
         return {
           x: Math.random() * (canvas ? canvas.width : 800),
           y: Math.random() * (canvas ? canvas.height : 600),
@@ -1347,7 +1729,7 @@
           vy: -Math.random() * 0.4 - 0.1,
           size: Math.random() * 2 + 0.5,
           alpha: Math.random() * 0.4 + 0.1,
-          hue: isCh2 ? (Math.random() > 0.5 ? 270 : 330) : (Math.random() > 0.5 ? 230 : 270)
+          hue: isCh2 ? (Math.random() > 0.5 ? 270 : 330) : isCh3 ? (Math.random() > 0.5 ? 0 : 350) : (Math.random() > 0.5 ? 230 : 270)
         };
       }
 
@@ -2863,6 +3245,20 @@
       }
     }
 
+    function launchChapterThreeFromMenu() {
+      if (_menuBootRequested) return;
+      _menuBootRequested = true;
+      hideMenuTooltip();
+      stopMenuStarfield();
+
+      var menu = document.getElementById('game-menu');
+      if (menu) menu.classList.add('hidden');
+
+      if (Chapter3App && typeof Chapter3App.start === 'function') {
+        Chapter3App.start();
+      }
+    }
+
     function renderGameMenu() {
       var done = getMenuProgress();
       var total = 12;
@@ -2940,8 +3336,10 @@
               launchChapterOneFromMenu();
             } else if (ch.n === 2) {
               launchChapterTwoFromMenu();
+            } else if (ch.n === 3) {
+              launchChapterThreeFromMenu();
             } else {
-              showToast('此單檔版本目前僅整合 Chapter 1-2');
+              showToast('此單檔版本目前僅整合 Chapter 1-3');
             }
           });
 
@@ -3870,6 +4268,1034 @@
         ch2SetupModeUI();
         ch2BuildLoadingOverlay();
         ch2Init();
+      }
+
+      return { start: start };
+    })();
+
+    /* ================================================================
+       CHAPTER 3 APP (integrated, namespaced)
+       ================================================================ */
+    var Chapter3App = (function() {
+      var ch3ActiveTypeInterval = null;
+      var ch3ActiveSilenceInterval = null;
+      var ch3GameStarted = false;
+
+      var ch3GameState = {
+        currentScene: 0,
+        totalScenes: 12,
+        playerData: {
+          kindness: 50,
+          power: 20,
+          control: 0,
+          xp: 0,
+          leveledUp: false,
+          silenceMastery: 0,
+          patternInterruptScore: 0,
+          extinctionKnowledge: 0,
+          choices: [],
+          chapter2Completed: false
+        },
+        _transitioning: false,
+        saveProgress: function() {
+          try {
+            localStorage.setItem('ch3_progress', JSON.stringify(this.playerData));
+            localStorage.setItem('ch3_scene', String(this.currentScene));
+          } catch (e) {}
+        },
+        loadProgress: function() {
+          try {
+            var saved = localStorage.getItem('ch3_progress');
+            if (saved) {
+              var parsed = JSON.parse(saved);
+              var defaults = {
+                kindness: 50, power: 20, control: 0, xp: 0, leveledUp: false,
+                silenceMastery: 0, patternInterruptScore: 0, extinctionKnowledge: 0,
+                choices: [], chapter2Completed: false
+              };
+              this.playerData = defaults;
+              for (var key in parsed) {
+                if (defaults.hasOwnProperty(key)) this.playerData[key] = parsed[key];
+              }
+              this.currentScene = parseInt(localStorage.getItem('ch3_scene') || '0', 10);
+            }
+          } catch (e) {}
+        },
+        resetProgress: function() {
+          try {
+            localStorage.removeItem('ch3_progress');
+            localStorage.removeItem('ch3_scene');
+            localStorage.removeItem('chapter3_completed');
+            localStorage.removeItem('chapter3_completedAt');
+          } catch (e) {}
+          this.currentScene = 1;
+          this.playerData = {
+            kindness: 50, power: 20, control: 0, xp: 0, leveledUp: false,
+            silenceMastery: 0, patternInterruptScore: 0, extinctionKnowledge: 0,
+            choices: [], chapter2Completed: true
+          };
+          this.updateDisplay();
+          ch3UpdateProgress();
+          var fill = document.getElementById('xp-fill');
+          if (fill) fill.style.width = '0%';
+        },
+        updateStats: function(k, p, c) {
+          this.playerData.kindness = Math.max(0, Math.min(100, this.playerData.kindness + k));
+          this.playerData.power = Math.max(0, Math.min(100, this.playerData.power + p));
+          this.playerData.control = Math.max(0, Math.min(100, this.playerData.control + c));
+          this.updateDisplay(k, p, c);
+          this.saveProgress();
+          SFX.compassPulse();
+        },
+        updateDisplay: function(k, p, c) {
+          var kEl = document.getElementById('kindness-value');
+          var pEl = document.getElementById('power-value');
+          var cEl = document.getElementById('control-value');
+          var compass = document.getElementById('moral-compass');
+          if (!kEl || !pEl || !cEl || !compass) return;
+
+          kEl.textContent = String(this.playerData.kindness);
+          pEl.textContent = String(this.playerData.power);
+          cEl.textContent = String(this.playerData.control);
+
+          if (k && k !== 0) {
+            kEl.classList.remove('changed'); void kEl.offsetWidth; kEl.classList.add('changed');
+            compass.classList.remove('pulse-kindness'); void compass.offsetWidth; compass.classList.add('pulse-kindness');
+            setTimeout(function() { compass.classList.remove('pulse-kindness'); }, 600);
+          }
+          if (p && p !== 0) {
+            pEl.classList.remove('changed'); void pEl.offsetWidth; pEl.classList.add('changed');
+            compass.classList.remove('pulse-power'); void compass.offsetWidth; compass.classList.add('pulse-power');
+            setTimeout(function() { compass.classList.remove('pulse-power'); }, 600);
+          }
+          if (c && c !== 0) {
+            cEl.classList.remove('changed'); void cEl.offsetWidth; cEl.classList.add('changed');
+            compass.classList.remove('pulse-control'); void compass.offsetWidth; compass.classList.add('pulse-control');
+            setTimeout(function() { compass.classList.remove('pulse-control'); }, 600);
+          }
+        }
+      };
+
+      function ch3Container() {
+        return document.getElementById('game-container');
+      }
+
+      function ch3SetSceneCounter() {
+        var sc = document.querySelector('.scene-counter');
+        if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 12';
+      }
+
+      function ch3EnsureControlRow() {
+        var compass = document.getElementById('moral-compass');
+        if (!compass) return;
+        var wisdom = document.getElementById('wisdom-value');
+        if (wisdom && wisdom.parentNode) wisdom.parentNode.remove();
+        if (!document.getElementById('control-value')) {
+          var row = document.createElement('div');
+          row.className = 'compass-row';
+          row.innerHTML = '<span class="compass-label">控制</span><span class="compass-value control" id="control-value">0</span>';
+          compass.appendChild(row);
+        }
+      }
+
+      function ch3SetupModeUI() {
+        var container = ch3Container();
+        if (!container) return;
+        container.classList.remove('ch2-mode');
+        container.classList.add('ch3-mode');
+        ch3SetSceneCounter();
+        ch3EnsureControlRow();
+      }
+
+      function ch3BuildLoadingOverlay() {
+        var overlay = document.getElementById('loading-overlay');
+        if (!overlay) return;
+        overlay.classList.remove('fade-out');
+        overlay.style.display = 'flex';
+        overlay.innerHTML =
+          '<div class="loading-eye">' +
+            '<div class="eye-outer"></div>' +
+            '<div class="eye-pupil"></div>' +
+          '</div>' +
+          '<div class="loading-text">正在載入 Chapter 3...</div>' +
+          '<div class="loading-progress"><div class="loading-progress-fill"></div></div>';
+      }
+
+      function ch3ClearAllTimers() {
+        if (ch3ActiveTypeInterval) { clearInterval(ch3ActiveTypeInterval); ch3ActiveTypeInterval = null; }
+        if (ch3ActiveSilenceInterval) { clearInterval(ch3ActiveSilenceInterval); ch3ActiveSilenceInterval = null; }
+      }
+
+      function ch3AddXP(amount) {
+        ch3GameState.playerData.xp = (ch3GameState.playerData.xp || 0) + amount;
+        var maxXP = 120;
+        var pct = Math.min(100, (ch3GameState.playerData.xp / maxXP) * 100);
+        var fill = document.getElementById('xp-fill');
+        if (fill) fill.style.width = pct + '%';
+        if (ch3GameState.playerData.xp >= maxXP && !ch3GameState.playerData.leveledUp) {
+          ch3GameState.playerData.leveledUp = true;
+          SFX.levelUp();
+          screenFlash('rgba(255, 215, 0, 0.4)', 400);
+          showToast('🎉 等級提升！');
+        }
+      }
+
+      function ch3UpdateProgress() {
+        var progress = (ch3GameState.currentScene / ch3GameState.totalScenes) * 100;
+        var fill = document.querySelector('.progress-fill');
+        if (fill) {
+          if (typeof gsap !== 'undefined') {
+            gsap.to(fill, { width: progress + '%', duration: 0.8, ease: 'power2.out' });
+          } else {
+            fill.style.width = progress + '%';
+          }
+        }
+        var el = document.getElementById('current-scene');
+        if (el) el.textContent = String(ch3GameState.currentScene);
+      }
+
+      function ch3ShowDialogue(opts) {
+        if (ch3ActiveTypeInterval) { clearInterval(ch3ActiveTypeInterval); ch3ActiveTypeInterval = null; }
+
+        var box = document.getElementById('dialogue-box');
+        var speaker = document.getElementById('dialogue-speaker');
+        var textEl = document.getElementById('dialogue-text');
+        var optionsEl = document.getElementById('dialogue-options');
+        if (!box || !speaker || !textEl || !optionsEl) return;
+
+        box.classList.add('active');
+        SFX.dialogueOpen();
+        speaker.textContent = opts.speaker || '';
+        textEl.textContent = '';
+        textEl.classList.remove('typing-done');
+        optionsEl.innerHTML = '';
+
+        var i = 0, skipTyping = false, charCount = 0, typingDone = false;
+        function finishTyping() {
+          if (typingDone) return;
+          typingDone = true;
+          if (ch3ActiveTypeInterval) { clearInterval(ch3ActiveTypeInterval); ch3ActiveTypeInterval = null; }
+          textEl.textContent = opts.text;
+          textEl.classList.add('typing-done');
+
+          if (opts.choices) {
+            opts.choices.forEach(function(c, idx) {
+              var btn = document.createElement('button');
+              btn.className = 'option-button appear';
+              btn.style.animationDelay = (idx * 0.12) + 's';
+              btn.textContent = c.text;
+              btn.addEventListener('mouseenter', function() { SFX.hover(); });
+              btn.addEventListener('click', function() {
+                SFX.click();
+                box.classList.remove('active');
+                if (typeof c.onSelect === 'function') c.onSelect();
+              });
+              optionsEl.appendChild(btn);
+            });
+          } else if (opts.onComplete) {
+            setTimeout(function() {
+              box.classList.remove('active');
+              opts.onComplete();
+            }, opts.autoContinueDelay || 3000);
+          }
+        }
+
+        ch3ActiveTypeInterval = setInterval(function() {
+          if (i < opts.text.length && !skipTyping) {
+            textEl.textContent += opts.text.charAt(i);
+            charCount++;
+            if (charCount % 2 === 0) SFX.typeChar();
+            i++;
+          } else {
+            finishTyping();
+          }
+        }, opts.typeSpeed || 25);
+
+        textEl.addEventListener('click', function skipHandler() {
+          if (!typingDone) {
+            skipTyping = true;
+            finishTyping();
+          }
+          textEl.removeEventListener('click', skipHandler);
+        });
+      }
+
+      function ch3TransitionToScene(n) {
+        if (ch3GameState._transitioning) return;
+        ch3GameState._transitioning = true;
+
+        ch3ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        if (box) box.classList.remove('active');
+        SFX.transition();
+
+        var r = document.getElementById('scene-renderer');
+        if (!r) { ch3GameState._transitioning = false; return; }
+        if (typeof gsap !== 'undefined') {
+          gsap.to(r, {
+            opacity: 0, scale: 0.98, duration: 0.4, ease: 'power2.in',
+            onComplete: function() {
+              ch3GameState.currentScene = n;
+              ch3UpdateProgress();
+              ch3AddXP(5);
+              ch3LoadScene(n);
+              gsap.fromTo(r, { opacity: 0, scale: 1.02 }, {
+                opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out',
+                onComplete: function() { ch3GameState._transitioning = false; }
+              });
+            }
+          });
+        } else {
+          r.style.opacity = '0';
+          setTimeout(function() {
+            ch3GameState.currentScene = n;
+            ch3UpdateProgress();
+            ch3AddXP(5);
+            ch3LoadScene(n);
+            r.style.opacity = '1';
+            ch3GameState._transitioning = false;
+          }, 400);
+        }
+      }
+
+      function ch3BindContinue(btnId, targetScene) {
+        var btn = document.getElementById(btnId);
+        if (btn) {
+          btn.addEventListener('mouseenter', function() { SFX.hover(); });
+          btn.addEventListener('click', function() { SFX.click(); ch3TransitionToScene(targetScene); });
+        }
+      }
+
+      function ch3LoadScene(n) {
+        ch3ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        if (box) box.classList.remove('active');
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '';
+
+        switch (n) {
+          case 1: ch3Scene01Hook(); break;
+          case 2: ch3Scene02FearPhysics(); break;
+          case 3: ch3Scene03SilenceTechnique(); break;
+          case 4: ch3Scene04SilenceDemo(); break;
+          case 5: ch3Scene05EyeLock(); break;
+          case 6: ch3Scene06PatternInterrupt(); break;
+          case 7: ch3Scene07PatternDemo(); break;
+          case 8: ch3Scene08ExtinctionIntro(); break;
+          case 9: ch3Scene09ExtinctionPhase1(); break;
+          case 10: ch3Scene10ExtinctionPhase2(); break;
+          case 11: ch3Scene11FinalTraining(); break;
+          case 12: ch3Scene12Summary(); break;
+          default: ch3GameState.currentScene = 1; ch3Scene01Hook(); break;
+        }
+        ch3GameState.saveProgress();
+      }
+
+      function ch3Scene01Hook() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="technique-container">' +
+          '<div class="silence-visual"><div class="eye-icon">👁️</div></div>' +
+          '<div style="text-align:center;padding:30px;line-height:2;">' +
+            '<p style="font-size:20px;color:#dc2626;margin-bottom:20px;">為什麼你不需要大吼大叫，<br>就能讓欺負你的人背脊發涼？</p>' +
+            '<p style="font-size:16px;color:#ccc;margin-bottom:30px;">因為恐懼來自於<strong style="color:#dc2626;">「不可預測性」</strong>。<br>今天，我們要學習最強大的武器：<strong>沈默</strong>。</p>' +
+          '</div>' +
+        '</div>';
+        setTimeout(function() {
+          ch3ShowDialogue({
+            speaker: '旁白',
+            text: '你已經有了盾牌，能擋下語言攻擊。但如果寄生蟲惱羞成怒，撕下偽善的面具，發起更猛烈的攻擊呢？答案是：用沈默，讓他們感到本能的恐懼。',
+            choices: [{ text: '▶ 學習恐懼的科學', onSelect: function() { ch3TransitionToScene(2); } }]
+          });
+        }, 2000);
+      }
+
+      function ch3Scene02FearPhysics() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="technique-container fade-in">' +
+          '<h2>🧠 恐懼的物理學：預測誤差</h2>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:25px;border-radius:12px;border-left:4px solid #dc2626;margin-bottom:20px;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">寄生蟲的「多巴胺預測模型」</h3>' +
+            '<p style="line-height:1.8;color:#ddd;margin-bottom:15px;">寄生蟲之所以囂張，是因為他們的大腦對你建立了一個穩定的「行為演算法」：</p>' +
+            '<div style="background:rgba(0,0,0,0.3);padding:15px;border-radius:8px;margin:10px 0;">' +
+              '<p style="margin:8px 0;">📥 <strong>輸入：</strong>他按下按鈕 A（情緒勒索/憤怒/指責）</p>' +
+              '<p style="margin:8px 0;">🎯 <strong>預期：</strong>你會給出反應 B（道歉/妥協/解釋）</p>' +
+              '<p style="margin:8px 0;">🎁 <strong>獎勵：</strong>他獲得快感與控制權</p>' +
+            '</div>' +
+            '<p style="line-height:1.8;color:#ddd;margin-top:15px;">這就像巴甫洛夫的狗。<strong style="color:#dc2626;">你被「操作制約」了。</strong></p>' +
+          '</div>' +
+          '<div style="background:rgba(76,175,80,0.1);padding:25px;border-radius:12px;border-left:4px solid #4CAF50;">' +
+            '<h3 style="color:#4CAF50;margin-bottom:15px;">打破預測：黑天鵝效應</h3>' +
+            '<p style="line-height:1.8;color:#ddd;">當他按下按鈕，機器卻<strong>沒有反應</strong>，<br>或者給出了<strong>完全違反邏輯的反應</strong>，<br>他的大腦會出現<strong style="color:#F44336;">「預測誤差」</strong>。<br><br>這會引發杏仁核（恐懼中樞）的警報，產生焦慮與混亂。<br><br><strong style="color:#4CAF50;">未知，才是最大的恐懼。</strong></p>' +
+          '</div>' +
+          '<button class="continue-button" id="ch3-scene02-btn">▶ 學習沈默技術</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene02-btn', 3);
+        ch3GameState.updateStats(0, 5, 5);
+        ch3AddXP(5);
+      }
+
+      function ch3Scene03SilenceTechnique() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="technique-container fade-in">' +
+          '<h2>🤫 狼王的沈默：權力真空技術</h2>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:20px;border-radius:12px;margin-bottom:20px;">' +
+            '<p style="text-align:center;font-size:18px;line-height:1.8;color:#ddd;">在社交博弈中，有一條鐵律：<br><strong style="font-size:24px;color:#dc2626;">誰先填補沈默，誰就處於低位。</strong></p>' +
+          '</div>' +
+          '<div class="technique-card">' +
+            '<h3>📋 原子級操作指令</h3>' +
+            '<div class="step-list">' +
+              '<div class="step-item"><div class="step-number">1</div><div class="step-content"><h4>物理凍結 (Freeze)</h4><p>瞬間停下手邊所有動作（打字、喝水、點頭）。讓身體完全靜止。這種突然的「靜」會打破對方的節奏感。</p></div></div>' +
+              '<div class="step-item"><div class="step-number">2</div><div class="step-content"><h4>視覺鎖定 (Lock)</h4><p>緩慢轉頭，直視他的眼睛。<strong>關鍵瞄準點：鎖定他的眉心（Glabella）。</strong>這比看眼球更具壓迫感，且你不會感到社交焦慮。</p></div></div>' +
+              '<div class="step-item"><div class="step-number">3</div><div class="step-content"><h4>絕對沈默 (The Void)</h4><p>在心裡默數 3 到 5 秒。你的臉部肌肉必須完全放鬆（Poker Face）。不要皺眉（顯示困惑），不要假笑（顯示討好）。</p></div></div>' +
+              '<div class="step-item"><div class="step-number">4</div><div class="step-content"><h4>降維回應 (Drop)</h4><p>使用「下切語調」（句尾音調降低，像是在陳述事實）。平靜且緩慢地說：<br>「我不方便。」/ 「我沒聽懂，你再說一次？」 / 「所以你的意思是...？」</p></div></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="power-vacuum-viz"><div class="vacuum-text">權力真空</div></div>' +
+          '<div style="background:rgba(255,193,7,0.1);padding:20px;border-radius:8px;border-left:4px solid #FFC107;">' +
+            '<h4 style="color:#FFC107;margin-bottom:10px;">⚠️ 心理學機制</h4>' +
+            '<p style="line-height:1.6;">這 3-5 秒的沈默，製造了一個巨大的「權力真空」。<br>人類大腦極度厭惡社交中的真空。在這幾秒鐘裡，寄生蟲的潛意識會瘋狂運轉：<br>「他為什麼不說話？」「我是不是惹毛他了？」「他是不是看穿我了？」<br><br>為了消除這種焦慮，他會本能地開始自我辯解或主動退讓。<br><strong style="color:#FFC107;">就在這一瞬間，攻守易位。</strong></p>' +
+          '</div>' +
+          '<button class="continue-button" id="ch3-scene03-btn">▶ 實戰演練</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene03-btn', 4);
+        ch3GameState.playerData.silenceMastery = Math.min(100, ch3GameState.playerData.silenceMastery + 50);
+        ch3GameState.updateStats(0, 10, 10);
+        ch3AddXP(10);
+      }
+
+      function ch3Scene04SilenceDemo() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="training-container fade-in">' +
+          '<h2>🎯 沈默訓練：倒數計時</h2>' +
+          '<div class="interactive-demo">' +
+            '<h3>情境：寄生蟲正在對你咆哮</h3>' +
+            '<div style="background:rgba(244,67,54,0.2);padding:15px;border-radius:8px;margin:20px 0;"><p style="font-size:16px;font-style:italic;">「你為什麼這麼自私？我們都在等你！你一點團隊精神都沒有！」</p></div>' +
+            '<p style="text-align:center;margin:20px 0;font-size:16px;color:#FFC107;">現在，保持沈默 5 秒。觀察你內心的衝動。</p>' +
+            '<div class="silence-timer" id="ch3-silence-timer">5</div>' +
+            '<div class="pressure-meter"><div class="pressure-fill" id="ch3-pressure-fill"></div><div class="pressure-label">內心壓力</div></div>' +
+            '<button class="continue-button" id="ch3-start-silence">▶ 開始沈默訓練</button>' +
+            '<div id="ch3-silence-result" style="display:none;margin-top:20px;"></div>' +
+          '</div>' +
+        '</div>';
+
+        var startBtn = document.getElementById('ch3-start-silence');
+        if (startBtn) {
+          startBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          startBtn.addEventListener('click', function() { SFX.click(); ch3StartSilenceDemo(); });
+        }
+      }
+
+      function ch3StartSilenceDemo() {
+        var startBtn = document.getElementById('ch3-start-silence');
+        if (startBtn) startBtn.disabled = true;
+
+        var countdown = 5;
+        var pressure = 0;
+        var timer = document.getElementById('ch3-silence-timer');
+        var pressureFill = document.getElementById('ch3-pressure-fill');
+
+        SFX.silence();
+        ch3ActiveSilenceInterval = setInterval(function() {
+          countdown--;
+          if (timer) {
+            timer.textContent = String(countdown);
+            timer.classList.remove('pulse');
+            void timer.offsetWidth;
+            timer.classList.add('pulse');
+          }
+          pressure += 20;
+          SFX.heartbeat();
+          if (pressureFill) {
+            if (typeof gsap !== 'undefined') gsap.to(pressureFill, { width: pressure + '%', duration: 0.5 });
+            else pressureFill.style.width = pressure + '%';
+          }
+
+          if (countdown === 0) {
+            clearInterval(ch3ActiveSilenceInterval);
+            ch3ActiveSilenceInterval = null;
+
+            SFX.correct();
+            screenFlash('rgba(76, 175, 80, 0.2)', 300);
+            ch3AddXP(15);
+            floatFeedback('+15 XP 🤫', 400, 250, '#4CAF50');
+
+            var resultDiv = document.getElementById('ch3-silence-result');
+            if (resultDiv) {
+              resultDiv.innerHTML = '<div style="background:rgba(76,175,80,0.2);padding:20px;border-radius:8px;border-left:4px solid #4CAF50;">' +
+                '<h3 style="color:#4CAF50;margin-bottom:15px;">✓ 訓練完成！</h3>' +
+                '<p style="line-height:1.8;">你感受到了嗎？那股想要辯解、想要填補沈默的衝動？<br>這就是大多數人失敗的原因。<br><br><strong style="color:#4CAF50;">狼王能掌握沈默，是因為他們不害怕別人的不舒服。</strong><br><br>當你能忍受這 5 秒的沈默，你就已經贏了。<br>因為對方正在經歷 10 倍的焦慮。</p>' +
+              '</div><button class="continue-button" id="ch3-silence-continue">▶ 繼續學習</button>';
+              resultDiv.style.display = 'block';
+              var contBtn = document.getElementById('ch3-silence-continue');
+              if (contBtn) {
+                contBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+                contBtn.addEventListener('click', function() { SFX.click(); ch3TransitionToScene(5); });
+              }
+              setTimeout(function() { resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+            }
+            ch3GameState.updateStats(0, 5, 10);
+          }
+        }, 1000);
+      }
+
+      function ch3Scene05EyeLock() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="technique-container fade-in">' +
+          '<h2>👁️ 審視之眼：視覺支配</h2>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:25px;border-radius:12px;border-left:4px solid #dc2626;margin-bottom:20px;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">生物學原理</h3>' +
+            '<p style="line-height:1.8;color:#ddd;">在自然界中，<strong>誰在觀察，誰就處於高位</strong>。<br>看人的一方是審判者，被看的一方是被告。<br><br>這不是凶狠的瞪視，而是<strong style="color:#dc2626;">冷靜的評估</strong>。<br>就像醫生在觀察病毒，動物學家在觀察標本。</p>' +
+          '</div>' +
+          '<div class="technique-card">' +
+            '<h3>🎯 瞄準技術</h3>' +
+            '<div class="step-list">' +
+              '<div class="step-item"><div class="step-number">1</div><div class="step-content"><h4>瞄準點：眉心 (Glabella)</h4><p>鎖定對方的眉心（兩眼之間）。這會讓你看起來極度專注且具備穿透力，同時避免了直視眼球帶來的社交壓力。</p></div></div>' +
+              '<div class="step-item"><div class="step-number">2</div><div class="step-content"><h4>時間差：多看 1.5 秒</h4><p>當對方說完話後，不要馬上接話。保持眼神接觸多 1.5 秒，製造一個微小的壓力真空，然後再開口。</p></div></div>' +
+              '<div class="step-item"><div class="step-number">3</div><div class="step-content"><h4>表情：絕對中性</h4><p>不要皺眉（顯示你受影響），不要微笑（顯示討好）。保持面無表情，像在觀察一個有趣的現象。</p></div></div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="background:rgba(76,175,80,0.1);padding:20px;border-radius:8px;border-left:4px solid #4CAF50;margin-top:20px;">' +
+            '<h4 style="color:#4CAF50;margin-bottom:10px;">💡 心法</h4>' +
+            '<p style="line-height:1.6;">你是面試官，他是求職者。<br>你是審查員，他是待審核的提案。<br>你在評估他的資訊，而不是在尋求他的肯定。</p>' +
+          '</div>' +
+          '<button class="continue-button" id="ch3-scene05-btn">▶ 學習下一個技術</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene05-btn', 6);
+        ch3GameState.playerData.silenceMastery = Math.min(100, ch3GameState.playerData.silenceMastery + 50);
+        ch3GameState.updateStats(0, 5, 10);
+        ch3AddXP(10);
+      }
+
+      function ch3Scene06PatternInterrupt() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="technique-container fade-in">' +
+          '<h2>🔀 行為模式中斷：打破慣性</h2>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:25px;border-radius:12px;border-left:4px solid #dc2626;margin-bottom:20px;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">核心原理</h3>' +
+            '<p style="line-height:1.8;color:#ddd;">如果沈默是防禦，那麼<strong>「模式中斷」就是反擊</strong>。<br><br>你要做的，是對他的情緒勒索給予<strong style="color:#F44336;">「錯誤的反饋」</strong>，<br>讓他原本準備好的劇本無法演下去。</p>' +
+          '</div>' +
+          '<div class="scenario-sim">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">場景 A：當寄生蟲憤怒/指責時</h3>' +
+            '<div class="scenario-dialogue attacker"><div class="speaker">寄生蟲（憤怒）</div><p>「你怎麼可以這樣對我！你太自私了！」</p></div>' +
+            '<div style="background:rgba(244,67,54,0.15);padding:15px;border-radius:6px;margin:10px 0;"><strong style="color:#F44336;">✗ 舊模式：</strong><p style="margin-top:8px;">你也跟著憤怒（對罵），或是恐懼（道歉）。這兩者都給了他能量，因為他在尋求「情緒共振」。</p></div>' +
+            '<div class="scenario-dialogue defender"><div class="speaker">狼王模式：標籤化 (Labeling)</div><p>「你看起來很激動。我等你冷靜下來再談，或者我們先記錄一下你現在的訴求？」</p></div>' +
+            '<div style="background:rgba(76,175,80,0.1);padding:15px;border-radius:6px;margin-top:10px;"><strong style="color:#4CAF50;">效果：</strong><p style="margin-top:8px;">你將他從「情緒腦」強制拉回「邏輯腦」。他的憤怒打在了棉花上，不僅無效，還顯得他像個失控的小丑。</p></div>' +
+          '</div>' +
+          '<div class="scenario-sim">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">場景 B：當寄生蟲賣慘/道德綁架時</h3>' +
+            '<div class="scenario-dialogue attacker"><div class="speaker">寄生蟲（哭訴）</div><p>「我真的好難過...沒有人理解我...」</p></div>' +
+            '<div style="background:rgba(244,67,54,0.15);padding:15px;border-radius:6px;margin:10px 0;"><strong style="color:#F44336;">✗ 舊模式：</strong><p style="margin-top:8px;">給予同情與幫助，說「好啦別難過，我幫你」。</p></div>' +
+            '<div class="scenario-dialogue defender"><div class="speaker">狼王模式：邏輯審計 (Logical Audit)</div><p>「聽起來很困難。那你具體的解決方案是什麼？你需要我幫你做什麼？代價是什麼？」</p></div>' +
+            '<div style="background:rgba(76,175,80,0.1);padding:15px;border-radius:6px;margin-top:10px;"><strong style="color:#4CAF50;">效果：</strong><p style="margin-top:8px;">你把「情感勒索」變成了「商業談判」。寄生蟲最怕談代價，因為他們只想白嫖。當你談錢或談條件，他們會因為無利可圖而閉嘴。</p></div>' +
+          '</div>' +
+          '<button class="continue-button" id="ch3-scene06-btn">▶ 實戰演練</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene06-btn', 7);
+        ch3GameState.playerData.patternInterruptScore = Math.min(100, ch3GameState.playerData.patternInterruptScore + 50);
+        ch3GameState.updateStats(0, 10, 10);
+        ch3AddXP(10);
+      }
+
+      function ch3Scene07PatternDemo() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="training-container fade-in">' +
+          '<h2>🎭 模式中斷訓練</h2>' +
+          '<div class="interactive-demo">' +
+            '<h3>情境：主管在會議中公開指責你</h3>' +
+            '<div class="scenario-dialogue attacker"><div class="speaker">主管（憤怒）</div><p>「這個專案為什麼會延遲？你是怎麼做事的？你有沒有認真在負責？大家都在等你！」</p></div>' +
+            '<p style="text-align:center;margin:20px 0;color:#FFC107;">選擇你的回應策略：</p>' +
+            '<div class="response-choice" id="ch3-response-choice"></div>' +
+            '<div id="ch3-pattern-feedback"></div>' +
+          '</div>' +
+        '</div>';
+
+        var responses = [
+          {
+            text: '「對不起，我會加快進度...」（情緒化道歉）',
+            correct: false,
+            feedback: '✗ 你進入了情緒腦，接受了他的指控。這會讓他認為可以繼續用憤怒控制你。',
+            outcome: { k: -5, p: -5, c: 0 }
+          },
+          {
+            text: '「不是我的錯！是其他部門延誤！」（情緒化反擊）',
+            correct: false,
+            feedback: '✗ 你也進入了情緒腦，升級了衝突。雙方都失去理智。',
+            outcome: { k: -3, p: 3, c: -5 }
+          },
+          {
+            text: '（沈默 3 秒，眼神鎖定）「我們會後私下討論。現在請具體說明你認為的延遲原因和數據。」',
+            correct: true,
+            feedback: '✓ 完美！你保持冷靜，拒絕在公開場合被審判，並要求理性討論。你從「被告」變成了「協商者」。',
+            outcome: { k: 5, p: 10, c: 15 }
+          }
+        ];
+
+        var answered = false;
+        var choiceContainer = document.getElementById('ch3-response-choice');
+        var correctIdx = -1;
+
+        responses.forEach(function(response, index) {
+          if (response.correct) correctIdx = index;
+          var option = document.createElement('div');
+          option.className = 'choice-option';
+          option.innerHTML = '<strong style="color:rgba(220,38,38,0.7);margin-right:8px;">' + String.fromCharCode(65 + index) + '.</strong>' + response.text;
+          option.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
+          option.addEventListener('click', function() {
+            if (answered) return;
+            answered = true;
+            SFX.click();
+            ch3HandlePatternChoice(response, option, correctIdx);
+          });
+          if (choiceContainer) choiceContainer.appendChild(option);
+        });
+      }
+
+      function ch3HandlePatternChoice(response, element, correctIdx) {
+        var allOpts = document.querySelectorAll('.choice-option');
+        allOpts.forEach(function(opt) { if (opt !== element) opt.classList.add('disabled'); });
+
+        if (response.correct) {
+          element.classList.add('selected');
+          SFX.correct();
+          screenFlash('rgba(76,175,80,0.15)', 200);
+          var rect = element.getBoundingClientRect();
+          ParticleSystem.burst(rect.left + 100, rect.top + 10, 15, 'green');
+          ch3AddXP(15);
+          ch3GameState.updateStats(response.outcome.k, response.outcome.p, response.outcome.c);
+        } else {
+          element.classList.add('wrong');
+          SFX.incorrect();
+          screenFlash('rgba(244,67,54,0.15)', 200);
+          ch3AddXP(3);
+          if (correctIdx >= 0 && allOpts[correctIdx]) {
+            setTimeout(function() {
+              allOpts[correctIdx].classList.remove('disabled');
+              allOpts[correctIdx].classList.add('selected');
+              allOpts[correctIdx].style.opacity = '1';
+            }, 800);
+          }
+        }
+
+        var feedbackDiv = document.getElementById('ch3-pattern-feedback');
+        if (feedbackDiv) {
+          feedbackDiv.innerHTML = '<div class="quiz-feedback ' + (response.correct ? 'correct' : 'incorrect') + '">' +
+            '<h4>' + (response.correct ? '✓ 優秀！' : '✗ 需要改進') + '</h4>' +
+            '<p style="line-height:1.8;font-size:15px;">' + response.feedback + '</p>' +
+            '<button class="continue-button" id="ch3-pattern-continue" style="margin-top:15px;">▶ 繼續學習</button>' +
+          '</div>';
+          var contBtn = document.getElementById('ch3-pattern-continue');
+          if (contBtn) {
+            contBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+            contBtn.addEventListener('click', function() { SFX.click(); ch3TransitionToScene(8); });
+          }
+          setTimeout(function() { feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+        }
+      }
+
+      function ch3Scene08ExtinctionIntro() {
+        SFX.warning();
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="warning-container fade-in">' +
+          '<h2>⚠️ 斷供反應：寄生蟲的消亡三部曲</h2>' +
+          '<div style="background:rgba(255,193,7,0.2);padding:25px;border-radius:12px;border-left:4px solid #FFC107;margin-bottom:25px;">' +
+            '<h3 style="color:#FFC107;margin-bottom:15px;">🚨 高風險預警</h3>' +
+            '<p style="line-height:1.8;font-size:16px;">這是本章最重要的一節。<br><strong>很多覺醒者失敗，就是因為不懂這個心理學原理。</strong><br><br>當你開始執行沈默與模式中斷，切斷對寄生蟲的能量供給時，<br>請做好心理準備：<strong style="color:#F44336;">他們不會立刻消失</strong>。</p>' +
+          '</div>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:25px;border-radius:12px;border-left:4px solid #dc2626;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">消亡爆發 (Extinction Burst)</h3>' +
+            '<p style="line-height:1.8;color:#ddd;margin-bottom:15px;">就像你投幣到販賣機卻沒掉出飲料，<br>你的第一反應不是離開，<br>而是<strong style="color:#F44336;">用力拍打機器</strong>。<br><br>寄生蟲會經歷三個階段，每個階段都是測試你的決心。</p>' +
+          '</div>' +
+          '<div style="text-align:center;margin:30px 0;"><p style="font-size:18px;color:#FFC107;">接下來，我們將詳細拆解這三個階段，<br>以及每個階段的正確應對策略...</p></div>' +
+          '<button class="continue-button" id="ch3-scene08-btn">▶ 學習第一階段</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene08-btn', 9);
+        ch3GameState.updateStats(0, 5, 5);
+        ch3AddXP(5);
+      }
+
+      function ch3Scene09ExtinctionPhase1() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="warning-container fade-in">' +
+          '<h2>第一階段：憤怒爆發 (The Rage)</h2>' +
+          '<div class="extinction-phase">' +
+            '<h3>📊 表現特徵</h3>' +
+            '<p style="line-height:1.8;margin:10px 0;">變本加厲地指責你「變了」、「冷血」、「自私」、「忘恩負義」。<br>他們會發動周圍的人一起攻擊你（三角測量）。</p>' +
+            '<div class="warning"><strong>⚠️ 絕對禁止：在這個階段妥協</strong><p style="margin-top:10px;line-height:1.6;">如果你因為他生氣而道歉，你就建立了「間歇性強化」。<br>這會讓他下次更用力地發火，因為他學會了「只要發火夠大，你就會屈服」。<br><strong>這會製造出超級寄生蟲。</strong></p></div>' +
+          '</div>' +
+          '<div style="background:rgba(76,175,80,0.1);padding:20px;border-radius:8px;border-left:4px solid #4CAF50;margin:20px 0;">' +
+            '<h3 style="color:#4CAF50;margin-bottom:15px;">✓ 狼王對策：無視與紀錄</h3>' +
+            '<p style="line-height:1.8;">1. 這是系統重組的陣痛，證明你的戰術生效了<br>2. 保持沈默或重複：「我的決定不會改變。」<br>3. 如果在職場，記錄所有攻擊（日期、內容、證人）<br>4. 不解釋、不辯解、不情緒化</p>' +
+          '</div>' +
+          '<div style="text-align:center;color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:10px;">消亡階段 1 / 3</div>' +
+          '<button class="continue-button" id="ch3-scene09-btn">▶ 第二階段</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene09-btn', 10);
+        ch3GameState.playerData.extinctionKnowledge = Math.min(100, ch3GameState.playerData.extinctionKnowledge + 34);
+        ch3GameState.updateStats(0, 5, 10);
+        ch3AddXP(10);
+      }
+
+      function ch3Scene10ExtinctionPhase2() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="warning-container fade-in">' +
+          '<h2>第二階段：回吸試探 (Hoovering)</h2>' +
+          '<div class="extinction-phase">' +
+            '<h3>📊 表現特徵</h3>' +
+            '<p style="line-height:1.8;margin:10px 0;">硬的不行來軟的。<br>他們會突然對你很好，送小禮物，回憶過去的美好，<br>試圖把你吸回舊的關係模式。</p>' +
+            '<div style="background:rgba(244,67,54,0.15);padding:15px;border-radius:6px;margin:15px 0;"><p style="line-height:1.6;color:#ddd;"><strong style="color:#F44336;">典型話術：</strong><br>「我知道以前是我不對，我會改的...」<br>「你還記得我們以前多開心嗎？」<br>「我真的很需要你，沒有你我不行...」</p></div>' +
+            '<div class="warning"><strong>⚠️ 這不是愛，這是誘餌</strong><p style="margin-top:10px;line-height:1.6;">心理學研究顯示：<strong>真正的改變需要 6-12 個月的持續行動</strong>。<br>如果他在你設立界線後的 1-2 週內就「改變」了，<br>那只是為了把你拉回來，之後會故態復萌。</p></div>' +
+          '</div>' +
+          '<div style="background:rgba(76,175,80,0.1);padding:20px;border-radius:8px;border-left:4px solid #4CAF50;margin:20px 0;">' +
+            '<h3 style="color:#4CAF50;margin-bottom:15px;">✓ 狼王對策：隔離</h3>' +
+            '<p style="line-height:1.8;">1. 不要被廉價的糖衣砲彈迷惑<br>2. 保持：「我需要看到持續 6 個月的改變，不是承諾。」<br>3. 如果他真的改變了，6 個月後他還在，那時再評估<br>4. 記住：和平是武裝出來的，不是求來的</p>' +
+          '</div>' +
+          '<div style="background:rgba(220,38,38,0.1);padding:20px;border-radius:8px;margin:20px 0;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">第三階段：尋找新宿主 (Discard)</h3>' +
+            '<p style="line-height:1.8;">當憤怒和討好都無效，他們會意識到你已經「乾枯」。<br>他們會離開你，去尋找下一個容易控制的人，<br>甚至會在背後說你是個怪人。<br><br><strong style="color:#4CAF50;">✓ 狼王對策：慶祝。</strong><br>這不是損失，這是排毒。你成功淨化了自己的領地。</p>' +
+          '</div>' +
+          '<div style="text-align:center;color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:10px;">消亡階段 2-3 / 3</div>' +
+          '<button class="continue-button" id="ch3-scene10-btn">▶ 最終訓練</button>' +
+        '</div>';
+        ch3BindContinue('ch3-scene10-btn', 11);
+        ch3GameState.playerData.extinctionKnowledge = Math.min(100, ch3GameState.playerData.extinctionKnowledge + 66);
+        ch3GameState.updateStats(5, 5, 10);
+        ch3AddXP(10);
+      }
+
+      function ch3Scene11FinalTraining() {
+        SFX.tension();
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="training-container fade-in">' +
+          '<h2>⚔️ 綜合實戰：消亡爆發模擬</h2>' +
+          '<div class="interactive-demo">' +
+            '<h3>情境：你對寄生蟲設立界線後的第三天</h3>' +
+            '<div class="scenario-dialogue attacker"><div class="speaker">寄生蟲（憤怒）</div><p>「你真的變了！以前的你不是這樣的！你現在好冷血！大家都覺得你很奇怪！」</p></div>' +
+            '<p style="text-align:center;margin:20px 0;color:#FFC107;">這是「消亡爆發」的第一階段：憤怒。<br>選擇你的回應：</p>' +
+            '<div class="response-choice" id="ch3-extinction-choice"></div>' +
+            '<div id="ch3-extinction-feedback"></div>' +
+          '</div>' +
+        '</div>';
+
+        var responses = [
+          {
+            text: '「對不起，我不是故意的，我們好好談...」',
+            correct: false,
+            feedback: '✗ 你妥協了。這會建立「間歇性強化」，他下次會發更大的脾氣。你在訓練一個更強大的寄生蟲。',
+            outcome: { k: -10, p: -10, c: -15 }
+          },
+          {
+            text: '（沈默 5 秒，眼神鎖定）「我的決定不會改變。」（然後離開）',
+            correct: true,
+            feedback: '✓ 完美！你保持了界線，沒有進入他的情緒劇場。這是「無視與紀錄」策略的正確執行。',
+            outcome: { k: 5, p: 15, c: 20 }
+          },
+          {
+            text: '「你才奇怪！你就是寄生蟲！」',
+            correct: false,
+            feedback: '✗ 你進入了情緒化反擊。雖然你沒有妥協，但你失去了冷靜。狼王不需要解釋或攻擊。',
+            outcome: { k: -5, p: 5, c: -10 }
+          }
+        ];
+
+        var answered = false;
+        var choiceContainer = document.getElementById('ch3-extinction-choice');
+        var correctIdx = -1;
+        responses.forEach(function(response, index) {
+          if (response.correct) correctIdx = index;
+          var option = document.createElement('div');
+          option.className = 'choice-option';
+          option.innerHTML = '<strong style="color:rgba(220,38,38,0.7);margin-right:8px;">' + String.fromCharCode(65 + index) + '.</strong>' + response.text;
+          option.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
+          option.addEventListener('click', function() {
+            if (answered) return;
+            answered = true;
+            SFX.click();
+            ch3HandleExtinctionChoice(response, option, correctIdx);
+          });
+          if (choiceContainer) choiceContainer.appendChild(option);
+        });
+      }
+
+      function ch3HandleExtinctionChoice(response, element, correctIdx) {
+        var allOpts = document.querySelectorAll('.choice-option');
+        allOpts.forEach(function(opt) { if (opt !== element) opt.classList.add('disabled'); });
+
+        if (response.correct) {
+          element.classList.add('selected');
+          SFX.correct();
+          screenFlash('rgba(76,175,80,0.15)', 200);
+          var rect = element.getBoundingClientRect();
+          ParticleSystem.burst(rect.left + 100, rect.top + 10, 15, 'green');
+          ch3AddXP(20);
+          ch3GameState.updateStats(response.outcome.k, response.outcome.p, response.outcome.c);
+        } else {
+          element.classList.add('wrong');
+          SFX.incorrect();
+          screenFlash('rgba(244,67,54,0.15)', 200);
+          ch3AddXP(3);
+          if (correctIdx >= 0 && allOpts[correctIdx]) {
+            setTimeout(function() {
+              allOpts[correctIdx].classList.remove('disabled');
+              allOpts[correctIdx].classList.add('selected');
+              allOpts[correctIdx].style.opacity = '1';
+            }, 800);
+          }
+        }
+
+        var feedbackDiv = document.getElementById('ch3-extinction-feedback');
+        if (feedbackDiv) {
+          feedbackDiv.innerHTML = '<div class="quiz-feedback ' + (response.correct ? 'correct' : 'incorrect') + '">' +
+            '<h4>' + (response.correct ? '✓ 完美！' : '✗ 需要改進') + '</h4>' +
+            '<p style="line-height:1.8;font-size:15px;">' + response.feedback + '</p>' +
+            (response.correct
+              ? '<p style="margin-top:15px;line-height:1.8;">恭喜！你已經掌握了權力反轉的核心技術。現在，讓我們總結你的學習成果。</p>'
+              : '<p style="margin-top:15px;line-height:1.8;">請重新思考：在消亡爆發期間，最重要的是什麼？上方已顯示正確答案。</p>') +
+            '<button class="continue-button" id="ch3-extinction-continue" style="margin-top:15px;">▶ 進入總結</button>' +
+          '</div>';
+          var contBtn = document.getElementById('ch3-extinction-continue');
+          if (contBtn) {
+            contBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+            contBtn.addEventListener('click', function() { SFX.click(); ch3TransitionToScene(12); });
+          }
+          setTimeout(function() { feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 100);
+        }
+      }
+
+      function ch3Scene12Summary() {
+        SFX.complete();
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        var silenceMastery = Math.min(100, ch3GameState.playerData.silenceMastery);
+        var patternScore = Math.min(100, ch3GameState.playerData.patternInterruptScore);
+        var extinctionKnow = Math.min(100, ch3GameState.playerData.extinctionKnowledge);
+
+        var overallGrade = '';
+        var gradeColor = '';
+        var totalPct = Math.round((silenceMastery + patternScore + extinctionKnow) / 3);
+        if (totalPct >= 80) { overallGrade = '🏆 大師級'; gradeColor = '#FFD700'; }
+        else if (totalPct >= 60) { overallGrade = '⚔️ 熟練'; gradeColor = '#4CAF50'; }
+        else if (totalPct >= 40) { overallGrade = '⚠️ 需要練習'; gradeColor = '#FFC107'; }
+        else { overallGrade = '❌ 需要重修'; gradeColor = '#F44336'; }
+
+        r.innerHTML = '<div class="summary-container">' +
+          '<div style="text-align:center;margin-bottom:25px;"><div style="font-size:50px;margin-bottom:10px;">⚔️</div><h2 style="background:linear-gradient(135deg,#dc2626 0%,#991b1b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:26px;">Chapter 3 完成</h2></div>' +
+          '<div style="background:rgba(255,255,255,0.05);padding:30px;border-radius:12px;margin:20px 0;text-align:center;border:1px solid rgba(255,255,255,0.08);">' +
+            '<h3 style="color:#dc2626;margin-bottom:20px;">🎯 學習成果</h3>' +
+            '<div class="stat-reveal" style="font-size:42px;font-weight:bold;color:' + gradeColor + ';opacity:0;margin-bottom:5px;">' + overallGrade + '</div>' +
+            '<div class="stat-reveal" style="font-size:14px;color:#888;opacity:0;">綜合評分: ' + totalPct + '%</div>' +
+            '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;margin-top:25px;">' +
+              '<div class="stat-reveal" style="background:rgba(220,38,38,0.1);padding:20px;border-radius:8px;opacity:0;"><div style="font-size:32px;font-weight:bold;color:#dc2626;">' + silenceMastery + '%</div><p style="margin-top:8px;font-size:13px;">🤫 沈默掌握度</p></div>' +
+              '<div class="stat-reveal" style="background:rgba(244,67,54,0.1);padding:20px;border-radius:8px;opacity:0;"><div style="font-size:32px;font-weight:bold;color:#F44336;">' + patternScore + '%</div><p style="margin-top:8px;font-size:13px;">🔀 模式中斷能力</p></div>' +
+              '<div class="stat-reveal" style="background:rgba(255,193,7,0.1);padding:20px;border-radius:8px;opacity:0;"><div style="font-size:32px;font-weight:bold;color:#FFC107;">' + extinctionKnow + '%</div><p style="margin-top:8px;font-size:13px;">⚠️ 消亡爆發理解</p></div>' +
+            '</div>' +
+          '</div>' +
+          '<div style="background:rgba(255,255,255,0.04);padding:20px;border-radius:12px;margin:15px 0;border:1px solid rgba(255,255,255,0.08);">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">📈 能力值</h3>' +
+            '<div class="stat-bar-container"><div class="stat-bar-label"><span>善良值</span><span style="color:#4CAF50;">' + ch3GameState.playerData.kindness + '</span></div><div class="stat-bar-track"><div class="stat-bar-fill kindness-bar" data-width="' + ch3GameState.playerData.kindness + '"></div></div></div>' +
+            '<div class="stat-bar-container"><div class="stat-bar-label"><span>力量值</span><span style="color:#F44336;">' + ch3GameState.playerData.power + '</span></div><div class="stat-bar-track"><div class="stat-bar-fill power-bar" data-width="' + ch3GameState.playerData.power + '"></div></div></div>' +
+            '<div class="stat-bar-container"><div class="stat-bar-label"><span>控制值</span><span style="color:#dc2626;">' + ch3GameState.playerData.control + '</span></div><div class="stat-bar-track"><div class="stat-bar-fill control-bar" data-width="' + ch3GameState.playerData.control + '"></div></div></div>' +
+          '</div>' +
+          '<div style="background:rgba(220,38,38,0.08);padding:20px;border-radius:12px;border-left:4px solid #dc2626;margin:15px 0;">' +
+            '<h3 style="color:#dc2626;margin-bottom:15px;">🎓 關鍵洞察</h3>' +
+            '<ul style="list-style:none;padding:0;">' +
+              '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">✓ 你已學會用沈默製造權力真空</li>' +
+              '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">✓ 你已掌握視覺支配技術</li>' +
+              '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);">✓ 你已學會行為模式中斷</li>' +
+              '<li style="padding:8px 0;">✓ 你已理解消亡爆發的三個階段</li>' +
+            '</ul>' +
+          '</div>' +
+          '<div style="background:rgba(153,27,27,0.1);padding:25px;border-radius:12px;border-left:4px solid #991b1b;margin:15px 0;">' +
+            '<h3 style="color:#991b1b;margin-bottom:15px;">覺醒時刻：拿回遙控器</h3>' +
+            '<p style="line-height:1.8;">想像你的情緒上有一個遙控器。<br>過去你把遙控器交給了寄生蟲。<br>他按「愧疚」，你就哭；他按「恐懼」，你就跪。<br><br>現在，透過沈默、視線鎖定和模式中斷，<br><strong style="color:#dc2626;">你把遙控器拿回來了。</strong><br><br>你看著他按按鈕，但你毫無反應。<br>那一刻，恐懼會轉移——從你的心裡，轉移到他的心裡。<br><br>這就是權力反轉。</p>' +
+          '</div>' +
+          '<div style="background:rgba(255,193,7,0.08);padding:20px;border-radius:12px;border-left:4px solid #FFC107;margin:15px 0;">' +
+            '<h3 style="color:#FFC107;margin-bottom:15px;">📖 Chapter 4 預告：能量守恆</h3>' +
+            '<p style="line-height:1.8;color:rgba(255,255,255,0.8);">現在你已經有了盾牌和武器。<br>但如果你的能量已經被消耗殆盡怎麼辦？<br><br>下一章，我們將學習：<br><strong style="color:#FFC107;">狼王的資源管理 — 如何保護和重建你的能量。</strong></p>' +
+          '</div>' +
+          '<button class="continue-button" id="ch3-complete-btn">🐺 完成 Chapter 3</button>' +
+          '<p style="text-align:center;margin-top:20px;color:#FFC107;font-size:14px;">⏳ 建議休息 24 小時後再繼續學習<br>讓這些技術在你的潛意識中沉澱</p>' +
+        '</div>';
+
+        setTimeout(function() {
+          var reveals = document.querySelectorAll('.stat-reveal');
+          reveals.forEach(function(el, i) {
+            el.style.transform = 'translateY(15px)';
+            setTimeout(function() {
+              el.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+              el.style.transform = 'translateY(0)';
+              el.style.opacity = '1';
+              SFX.click();
+            }, i * 250);
+          });
+        }, 400);
+
+        setTimeout(function() {
+          document.querySelectorAll('.stat-bar-fill').forEach(function(bar) {
+            var w = bar.dataset.width;
+            if (w) bar.style.width = w + '%';
+          });
+        }, 1800);
+
+        var compBtn = document.getElementById('ch3-complete-btn');
+        if (compBtn) {
+          compBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          compBtn.addEventListener('click', function() { SFX.click(); ch3CompleteChapter(); });
+        }
+      }
+
+      function ch3CompleteChapter() {
+        try {
+          localStorage.setItem('chapter3_completed', 'true');
+          localStorage.setItem('chapter3_completedAt', String(Date.now()));
+        } catch (e) {}
+        SFX.complete();
+        screenFlash('rgba(220, 38, 38, 0.3)', 500);
+
+        var container = ch3Container();
+        if (!container) return;
+        var modal = document.createElement('div');
+        modal.id = 'completion-modal';
+        modal.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0);display:flex;justify-content:center;align-items:center;z-index:10000;transition:background 0.5s;';
+        modal.innerHTML = '<div style="background:linear-gradient(135deg,#1e1e2e,#2d1b3d);padding:45px;border-radius:20px;text-align:center;max-width:460px;margin:20px;border:2px solid rgba(220,38,38,0.4);transform:scale(0.5);opacity:0;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(220,38,38,0.2);" id="ch3-complete-modal-inner">' +
+          '<div style="font-size:64px;margin-bottom:20px;">⚔️</div>' +
+          '<h2 style="background:linear-gradient(135deg,#dc2626,#991b1b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;font-size:24px;">恭喜完成 Chapter 3！</h2>' +
+          '<p style="color:#ccc;line-height:1.8;margin-bottom:20px;">你已經拿回了情緒的遙控器。<br>權力反轉技術已裝備。</p>' +
+          '<p style="color:#dc2626;font-weight:bold;font-size:18px;margin-bottom:5px;">寄生蟲按下按鈕，</p>' +
+          '<p style="color:#991b1b;font-weight:bold;font-size:18px;">你毫無反應。🐺</p>' +
+          '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);"><p style="color:#FFC107;font-size:13px;margin-bottom:15px;">⏳ 建議休息 24 小時後再繼續學習</p><button class="continue-button" id="ch3-close-modal-btn" style="margin-top:10px;">關閉</button></div>' +
+        '</div>';
+        container.appendChild(modal);
+
+        setTimeout(function() {
+          modal.style.background = 'rgba(0,0,0,0.85)';
+          var inner = document.getElementById('ch3-complete-modal-inner');
+          if (inner) { inner.style.transform = 'scale(1)'; inner.style.opacity = '1'; }
+        }, 50);
+
+        var closeBtn = document.getElementById('ch3-close-modal-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function() {
+            SFX.click();
+            modal.style.background = 'rgba(0,0,0,0)';
+            var inner = document.getElementById('ch3-complete-modal-inner');
+            if (inner) { inner.style.transform = 'scale(0.8)'; inner.style.opacity = '0'; }
+            setTimeout(function() { if (modal.parentNode) modal.parentNode.removeChild(modal); }, 500);
+          });
+        }
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal && closeBtn) closeBtn.click();
+        });
+      }
+
+      function ch3InitResetButton() {
+        var resetBtn = document.getElementById('reset-btn');
+        if (!resetBtn || !resetBtn.parentNode) return;
+        var cleanBtn = resetBtn.cloneNode(true);
+        resetBtn.parentNode.replaceChild(cleanBtn, resetBtn);
+        resetBtn = cleanBtn;
+
+        var clickCount = 0;
+        var clickTimer = null;
+        resetBtn.addEventListener('click', function() {
+          clickCount++;
+          if (clickCount === 1) {
+            showToast('再按一次確認重置進度');
+            clickTimer = setTimeout(function() { clickCount = 0; }, 2000);
+          } else if (clickCount >= 2) {
+            clearTimeout(clickTimer);
+            clickCount = 0;
+            SFX.warning();
+            ch3ClearAllTimers();
+            ch3GameState.resetProgress();
+            ch3LoadScene(1);
+            showToast('✅ 進度已重置');
+          }
+        });
+      }
+
+      function ch3CheckChapter2() {
+        try { return localStorage.getItem('chapter2_completed') === 'true'; }
+        catch (e) { return false; }
+      }
+
+      function ch3StartGame() {
+        if (ch3GameStarted) return;
+        ch3GameStarted = true;
+
+        ParticleSystem.init();
+        ch3InitResetButton();
+
+        var initAudioOnce = function() {
+          SFX.click();
+          document.removeEventListener('click', initAudioOnce);
+          document.removeEventListener('touchstart', initAudioOnce);
+        };
+        document.addEventListener('click', initAudioOnce, { once: true });
+        document.addEventListener('touchstart', initAudioOnce, { once: true });
+
+        if (!ch3CheckChapter2()) {
+          ch3GameState.playerData.chapter2Completed = false;
+          showToast('⚠️ 建議先完成 Chapter 2', 4000);
+        } else {
+          ch3GameState.playerData.chapter2Completed = true;
+        }
+
+        ch3GameState.loadProgress();
+        ch3UpdateProgress();
+        ch3GameState.updateDisplay();
+
+        var xpPct = Math.min(100, ((ch3GameState.playerData.xp || 0) / 120) * 100);
+        var xpFill = document.getElementById('xp-fill');
+        if (xpFill) xpFill.style.width = xpPct + '%';
+
+        if (ch3GameState.currentScene === 0) ch3GameState.currentScene = 1;
+        ch3LoadScene(ch3GameState.currentScene);
+      }
+
+      function ch3Init() {
+        var loadTimeout = setTimeout(function() {
+          var overlay = document.getElementById('loading-overlay');
+          if (overlay) {
+            overlay.classList.add('fade-out');
+            setTimeout(function() { overlay.style.display = 'none'; }, 800);
+          }
+          ch3StartGame();
+        }, 5000);
+
+        function checkReady() {
+          if (document.readyState === 'complete') {
+            clearTimeout(loadTimeout);
+            setTimeout(function() {
+              var overlay = document.getElementById('loading-overlay');
+              if (overlay) {
+                overlay.classList.add('fade-out');
+                setTimeout(function() { overlay.style.display = 'none'; }, 800);
+              }
+              ch3StartGame();
+            }, 2200);
+          } else {
+            setTimeout(checkReady, 200);
+          }
+        }
+        checkReady();
+      }
+
+      function start() {
+        ch3SetupModeUI();
+        ch3BuildLoadingOverlay();
+        ch3Init();
       }
 
       return { start: start };
