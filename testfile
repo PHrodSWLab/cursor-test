@@ -1959,6 +1959,353 @@
     #game-container.ch5-mode .fi { animation: ch5-fadeInfo 0.6s ease-out forwards; opacity: 0; }
     @keyframes ch5-fadeInfo { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* ===== CHAPTER 6 THEME (container scoped) ===== */
+    #game-container.ch6-mode {
+      background: linear-gradient(135deg, #1a1500 0%, #2d2000 100%);
+    }
+    #game-container.ch6-mode #moral-compass { display: none; }
+    #game-container.ch6-mode .progress-fill {
+      background: linear-gradient(90deg, #b45309, #f59e0b);
+    }
+    #game-container.ch6-mode .progress-fill::after {
+      box-shadow: 0 0 10px rgba(180,83,9,0.8), 0 0 20px rgba(245,158,11,0.7);
+    }
+    #game-container.ch6-mode #dialogue-box {
+      border-top: 1px solid rgba(180,83,9,0.4);
+      background: linear-gradient(to top, rgba(0,0,0,0.97), rgba(0,0,0,0.8));
+    }
+    #game-container.ch6-mode .dialogue-speaker {
+      color: #f59e0b;
+      text-shadow: 0 0 10px rgba(245,158,11,0.25);
+    }
+    #game-container.ch6-mode .option-button {
+      background: rgba(180,83,9,0.2);
+      border-color: rgba(180,83,9,0.5);
+    }
+    #game-container.ch6-mode .option-button::before {
+      background: linear-gradient(90deg, transparent, rgba(245,158,11,0.25), transparent);
+    }
+    #game-container.ch6-mode .option-button:hover {
+      background: rgba(180,83,9,0.38);
+      border-color: #b45309;
+      box-shadow: 0 8px 25px rgba(180,83,9,0.45);
+    }
+    #game-container.ch6-mode .continue-button,
+    #game-container.ch6-mode .btn-main {
+      display: block;
+      margin: 18px auto;
+      padding: 12px 32px;
+      background: linear-gradient(135deg, #b45309, #92400e);
+      border: none;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+      text-align: center;
+      text-decoration: none;
+    }
+    #game-container.ch6-mode .continue-button:hover,
+    #game-container.ch6-mode .btn-main:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(180,83,9,0.5);
+    }
+    #game-container.ch6-mode .toast-notification {
+      border-color: rgba(245,158,11,0.4);
+    }
+    #game-container.ch6-mode .loading-progress-fill {
+      background: linear-gradient(90deg, #b45309, #f59e0b);
+    }
+    #game-container.ch6-mode #loading-overlay {
+      background: rgba(0,0,0,0.95);
+    }
+
+    #game-container.ch6-mode #ch6-stats-bar {
+      position: absolute;
+      top: 7%;
+      right: 2%;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    #game-container.ch6-mode .ch6-stat-pill {
+      background: rgba(0,0,0,0.88);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    #game-container.ch6-mode .ch6-stat-pill .lbl { color: #888; font-size: 9px; }
+    #game-container.ch6-mode .ch6-stat-pill .val {
+      font-weight: bold;
+      width: 26px;
+      text-align: right;
+    }
+    #game-container.ch6-mode .ch6-stat-pill .val.prestige { color: #f59e0b; }
+    #game-container.ch6-mode .ch6-stat-pill .val.wisdom { color: #4ade80; }
+    #game-container.ch6-mode .ch6-stat-pill .val.power { color: #F44336; }
+    #game-container.ch6-mode .ch6-stat-pill .val.changed {
+      animation: ch6-stat-flash 0.45s ease;
+    }
+    @keyframes ch6-stat-flash {
+      0% { transform: scale(1); opacity: 0.7; }
+      45% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    #game-container.ch6-mode .page {
+      width: 100%;
+      height: 100%;
+      padding: 36px 28px;
+      overflow-y: auto;
+    }
+    #game-container.ch6-mode .page h2 {
+      text-align: center;
+      margin-bottom: 16px;
+      font-size: 21px;
+      background: linear-gradient(135deg, #b45309, #f59e0b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #game-container.ch6-mode .crown-stage {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(ellipse at center, rgba(245,158,11,0.15) 0%, transparent 70%);
+      border-radius: 12px;
+      margin: 10px 0;
+    }
+    #game-container.ch6-mode .crown-icon {
+      font-size: 90px;
+      animation: ch6-crown-float 3s ease-in-out infinite;
+    }
+    @keyframes ch6-crown-float {
+      0%,100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    #game-container.ch6-mode .crown-rays {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: conic-gradient(from 0deg, transparent 10deg, rgba(245,158,11,0.15) 20deg, transparent 30deg);
+      border-radius: 50%;
+      animation: ch6-spin 8s linear infinite;
+    }
+    @keyframes ch6-spin { to { transform: rotate(360deg); } }
+
+    #game-container.ch6-mode .subcomm-card {
+      background: rgba(0,0,0,0.5);
+      border: 2px solid rgba(245,158,11,0.3);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+    #game-container.ch6-mode .subcomm-card h3 { color: #f59e0b; margin-bottom: 12px; font-size: 15px; }
+    #game-container.ch6-mode .signal-row {
+      display: flex;
+      gap: 12px;
+      margin: 8px 0;
+      align-items: flex-start;
+      padding: 10px;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.03);
+    }
+    #game-container.ch6-mode .signal-icon { font-size: 24px; flex-shrink: 0; width: 36px; text-align: center; }
+    #game-container.ch6-mode .signal-body { flex: 1; }
+    #game-container.ch6-mode .signal-body h5 { font-size: 13px; color: #f59e0b; margin-bottom: 3px; }
+    #game-container.ch6-mode .signal-body p { font-size: 12px; color: #bbb; line-height: 1.55; }
+    #game-container.ch6-mode .signal-body .contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    #game-container.ch6-mode .contrast-box { padding: 8px; border-radius: 5px; font-size: 11px; line-height: 1.5; }
+    #game-container.ch6-mode .contrast-box.low { background: rgba(244,67,54,0.15); border-left: 3px solid #F44336; color: #fca5a5; }
+    #game-container.ch6-mode .contrast-box.high { background: rgba(245,158,11,0.12); border-left: 3px solid #f59e0b; color: #fde68a; }
+
+    #game-container.ch6-mode .scene-room {
+      width: 100%;
+      height: 200px;
+      background: rgba(0,0,0,0.5);
+      border: 2px solid rgba(245,158,11,0.25);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+    #game-container.ch6-mode .room-person {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    #game-container.ch6-mode .room-person:hover { transform: scale(1.2); }
+    #game-container.ch6-mode .room-person.high-status { border-color: #f59e0b; background: rgba(245,158,11,0.2); }
+    #game-container.ch6-mode .room-person.low-status { border-color: #555; background: rgba(255,255,255,0.05); }
+    #game-container.ch6-mode .room-person.scanned { border-color: #4ade80; background: rgba(22,163,74,0.2); }
+
+    #game-container.ch6-mode .triangle-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 16px 0; }
+    #game-container.ch6-mode .tri-card {
+      border-radius: 10px;
+      padding: 18px;
+      border: 2px solid rgba(245,158,11,0.4);
+      background: rgba(245,158,11,0.06);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    #game-container.ch6-mode .tri-card:hover { background: rgba(245,158,11,0.12); transform: translateY(-3px); }
+    #game-container.ch6-mode .tri-card .tri-icon { font-size: 32px; margin-bottom: 10px; }
+    #game-container.ch6-mode .tri-card h4 { color: #f59e0b; font-size: 14px; margin-bottom: 8px; }
+    #game-container.ch6-mode .tri-card p { font-size: 12px; color: #ccc; line-height: 1.55; }
+
+    #game-container.ch6-mode .crab-bucket {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      position: relative;
+      background: radial-gradient(circle, rgba(244,67,54,0.15), transparent);
+    }
+    #game-container.ch6-mode .bucket-icon { font-size: 120px; text-align: center; line-height: 1; filter: drop-shadow(0 0 20px rgba(244,67,54,0.5)); }
+    #game-container.ch6-mode .crab-claws {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 28px;
+      animation: ch6-claw-grab 2s ease-in-out infinite;
+    }
+    @keyframes ch6-claw-grab {
+      0%,100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -60%) scale(1.1); }
+    }
+
+    #game-container.ch6-mode .qz-opts { display: grid; gap: 10px; margin: 14px 0; }
+    #game-container.ch6-mode .qz-opt {
+      background: rgba(180,83,9,0.12);
+      border: 2px solid rgba(180,83,9,0.3);
+      padding: 12px 16px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 13px;
+    }
+    #game-container.ch6-mode .qz-opt:hover { background: rgba(180,83,9,0.25); border-color: #b45309; }
+    #game-container.ch6-mode .qz-opt.ok { background: rgba(76,175,80,0.25); border-color: #4CAF50; pointer-events: none; }
+    #game-container.ch6-mode .qz-opt.bad { background: rgba(244,67,54,0.25); border-color: #F44336; pointer-events: none; animation: ch6-shake 0.4s; }
+    #game-container.ch6-mode .qz-fb {
+      padding: 13px;
+      border-radius: 7px;
+      margin-top: 10px;
+      border-left: 4px solid;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    #game-container.ch6-mode .qz-fb.ok { border-color: #4CAF50; background: rgba(76,175,80,0.1); }
+    #game-container.ch6-mode .qz-fb.bad { border-color: #F44336; background: rgba(244,67,54,0.1); }
+
+    #game-container.ch6-mode .ripple-demo {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      margin: 16px 0;
+      border: 2px solid rgba(245,158,11,0.2);
+    }
+    #game-container.ch6-mode .ripple-center { font-size: 36px; z-index: 5; position: relative; }
+    #game-container.ch6-mode .ripple-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(245,158,11,0.6);
+      animation: ch6-ripple-out 3s ease-out infinite;
+    }
+    #game-container.ch6-mode .ripple-ring:nth-child(2) { animation-delay: 1s; }
+    #game-container.ch6-mode .ripple-ring:nth-child(3) { animation-delay: 2s; }
+    @keyframes ch6-ripple-out {
+      0% { width: 0; height: 0; opacity: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+      100% { width: 300px; height: 300px; opacity: 0; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    }
+
+    #game-container.ch6-mode .battle-npc {
+      background: rgba(244,67,54,0.15);
+      padding: 14px;
+      border-radius: 8px;
+      border-left: 4px solid #F44336;
+      margin: 12px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    #game-container.ch6-mode .battle-npc .who {
+      font-size: 11px;
+      font-weight: bold;
+      color: #F44336;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+    }
+    #game-container.ch6-mode .resp-grid { display: grid; gap: 10px; margin-top: 14px; }
+    #game-container.ch6-mode .resp-opt {
+      background: rgba(180,83,9,0.12);
+      border: 2px solid rgba(180,83,9,0.3);
+      padding: 13px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 13px;
+    }
+    #game-container.ch6-mode .resp-opt:hover { background: rgba(180,83,9,0.25); border-color: #b45309; }
+    #game-container.ch6-mode .resp-opt.win { background: rgba(76,175,80,0.25); border-color: #4CAF50; pointer-events: none; }
+    #game-container.ch6-mode .resp-opt.lose { background: rgba(244,67,54,0.25); border-color: #F44336; pointer-events: none; animation: ch6-shake 0.4s; }
+
+    #game-container.ch6-mode .sum-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 18px 0; }
+    #game-container.ch6-mode .sum-box { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 18px; text-align: center; }
+    #game-container.ch6-mode .sum-box .big { font-size: 38px; font-weight: bold; }
+    #game-container.ch6-mode .sum-box p { font-size: 12px; color: #aaa; margin-top: 7px; }
+
+    #game-container.ch6-mode .fi { animation: ch6-fade-in 0.55s ease; }
+    @keyframes ch6-shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    @keyframes ch6-fade-in {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #game-container.ch6-mode .ch6-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top-color: #f59e0b;
+      border-radius: 50%;
+      animation: ch6-spin-load 1s linear infinite;
+    }
+    #game-container.ch6-mode .ch6-ld-text {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 16px;
+    }
+    @keyframes ch6-spin-load { to { transform: rotate(360deg); } }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       #game-container { margin: 0 auto; border-radius: 0; }
@@ -2032,6 +2379,15 @@
       #game-container.ch5-mode .page { padding: 80px 20px 40px 20px; }
       #game-container.ch5-mode .qz-opt,
       #game-container.ch5-mode .resp-opt { font-size: 12px; padding: 12px; }
+
+      #game-container.ch6-mode .page { padding: 20px 14px; }
+      #game-container.ch6-mode .triangle-grid,
+      #game-container.ch6-mode .sum-grid { grid-template-columns: 1fr; }
+      #game-container.ch6-mode .signal-body .contrast { grid-template-columns: 1fr; }
+      #game-container.ch6-mode #ch6-stats-bar { right: 1%; top: 7%; }
+      #game-container.ch6-mode .ch6-stat-pill { padding: 4px 9px; gap: 6px; }
+      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 8px; }
+      #game-container.ch6-mode .ch6-stat-pill .val { width: 24px; font-size: 11px; }
     }
 
     @media (max-width: 380px) {
@@ -2060,6 +2416,11 @@
       #game-container.ch5-mode .compass-label { font-size: 5px; width: 20px; }
       #game-container.ch5-mode .compass-value { font-size: 9px; width: 20px; }
       #game-container.ch5-mode .compass-row { gap: 1px; margin: 0; }
+
+      #game-container.ch6-mode #ch6-stats-bar { right: 1%; }
+      #game-container.ch6-mode .ch6-stat-pill { padding: 4px 8px; }
+      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 7px; }
+      #game-container.ch6-mode .ch6-stat-pill .val { width: 22px; font-size: 10px; }
     }
 
     @media (max-width: 680px) {
@@ -2353,13 +2714,14 @@
       }
 
       function createParticle() {
-        var isCh2 = false, isCh3 = false, isCh4 = false, isCh5 = false;
+        var isCh2 = false, isCh3 = false, isCh4 = false, isCh5 = false, isCh6 = false;
         var container = document.getElementById('game-container');
         if (container) {
           isCh2 = container.classList.contains('ch2-mode');
           isCh3 = container.classList.contains('ch3-mode');
           isCh4 = container.classList.contains('ch4-mode');
           isCh5 = container.classList.contains('ch5-mode');
+          isCh6 = container.classList.contains('ch6-mode');
         }
         return {
           x: Math.random() * (canvas ? canvas.width : 800),
@@ -2376,6 +2738,8 @@
                 ? (Math.random() > 0.5 ? 200 : 210)
                 : isCh5
                   ? (Math.random() > 0.5 ? 120 : 140)
+                  : isCh6
+                    ? (Math.random() > 0.5 ? 32 : 40)
                 : (Math.random() > 0.5 ? 230 : 270)
         };
       }
@@ -2493,7 +2857,7 @@
 
     var CourseXP = (function() {
       var STORAGE_KEY = 'course_xp_v1';
-      var CHAPTER_MAX = { ch1: 100, ch2: 120, ch3: 120, ch4: 130, ch5: 150 };
+      var CHAPTER_MAX = { ch1: 100, ch2: 120, ch3: 120, ch4: 130, ch5: 150, ch6: 160 };
 
       function clamp(v, min, max) {
         var n = Number(v);
@@ -4021,7 +4385,7 @@
         ] }
     ];
 
-    var MENU_INTEGRATED_MAX = 5;
+    var MENU_INTEGRATED_MAX = 6;
     var _menuTooltipEl = null;
     var _menuStars = [];
     var _menuStarAnimId = null;
@@ -4149,7 +4513,10 @@
         container.classList.remove('ch3-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch5-mode');
+        container.classList.remove('ch6-mode');
       }
+      var ch6StatsBar = document.getElementById('ch6-stats-bar');
+      if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
       var controlRow = document.getElementById('control-value');
       if (controlRow && controlRow.parentNode) controlRow.parentNode.remove();
       var wisdomRow = document.getElementById('wisdom-value');
@@ -4214,6 +4581,18 @@
       }
     }
 
+    function launchChapterSixFromMenu() {
+      var menu = document.getElementById('game-menu');
+      if (!menu || menu.classList.contains('hidden')) return;
+      hideMenuTooltip();
+      stopMenuStarfield();
+      if (menu) menu.classList.add('hidden');
+
+      if (Chapter6App && typeof Chapter6App.start === 'function') {
+        Chapter6App.start();
+      }
+    }
+
     function returnToGameMenu() {
       hideMenuTooltip();
       stopMenuStarfield();
@@ -4223,7 +4602,10 @@
         container.classList.remove('ch3-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch5-mode');
+        container.classList.remove('ch6-mode');
       }
+      var ch6StatsBar = document.getElementById('ch6-stats-bar');
+      if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
       var wisdomRow = document.getElementById('wisdom-value');
       if (wisdomRow && wisdomRow.parentNode) wisdomRow.parentNode.remove();
       var controlRow = document.getElementById('control-value');
@@ -4330,8 +4712,10 @@
               launchChapterFourFromMenu();
             } else if (ch.n === 5) {
               launchChapterFiveFromMenu();
+            } else if (ch.n === 6) {
+              launchChapterSixFromMenu();
             } else {
-              showToast('此單檔版本目前僅整合 Chapter 1-5');
+              showToast('此單檔版本目前僅整合 Chapter 1-6');
             }
           });
 
@@ -4603,7 +4987,10 @@
         container.classList.remove('ch5-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch3-mode');
+        container.classList.remove('ch6-mode');
         container.classList.add('ch2-mode');
+        var ch6StatsBar = document.getElementById('ch6-stats-bar');
+        if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch2SetSceneCounter();
         ch2EnsureWisdomRow();
       }
@@ -5240,7 +5627,10 @@
         container.classList.remove('ch5-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch2-mode');
+        container.classList.remove('ch6-mode');
         container.classList.add('ch3-mode');
+        var ch6StatsBar = document.getElementById('ch6-stats-bar');
+        if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch3SetSceneCounter();
         ch3EnsureControlRow();
       }
@@ -6108,7 +6498,10 @@
         container.classList.remove('ch5-mode');
         container.classList.remove('ch2-mode');
         container.classList.remove('ch3-mode');
+        container.classList.remove('ch6-mode');
         container.classList.add('ch4-mode');
+        var ch6StatsBar = document.getElementById('ch6-stats-bar');
+        if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch4SetSceneCounter();
         ch4EnsureEnergyRow();
         var tracker = document.querySelector('.score-tracker');
@@ -7037,7 +7430,10 @@
         container.classList.remove('ch2-mode');
         container.classList.remove('ch3-mode');
         container.classList.remove('ch4-mode');
+        container.classList.remove('ch6-mode');
         container.classList.add('ch5-mode');
+        var ch6StatsBar = document.getElementById('ch6-stats-bar');
+        if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch5SetSceneCounter();
         ch5EnsureWisdomRow();
       }
@@ -7495,6 +7891,861 @@
         ch5SetupModeUI();
         ch5BuildLoadingOverlay();
         ch5Init();
+      }
+
+      return { start: start };
+    })();
+
+    /* ================================================================
+       CHAPTER 6 APP (integrated, namespaced)
+       ================================================================ */
+    var Chapter6App = (function() {
+      var ch6TypeInterval = null;
+      var ch6RetryTimeout = null;
+      var ch6GameStarted = false;
+
+      var ch6GameState = {
+        currentScene: 0,
+        totalScenes: 13,
+        playerData: {
+          prestige: 0,
+          wisdom: 45,
+          power: 40,
+          subcommScore: 0,
+          irreplaceScore: 0,
+          crabScore: 0,
+          ch5Done: false,
+          xp: 0,
+          leveledUp: false
+        },
+        _transitioning: false,
+        saveProgress: function() {
+          try {
+            localStorage.setItem('ch6_progress', JSON.stringify(this.playerData));
+            localStorage.setItem('ch6_scene', String(this.currentScene));
+          } catch (e) {}
+        },
+        loadProgress: function() {
+          try {
+            var saved = localStorage.getItem('ch6_progress');
+            if (saved) {
+              var parsed = JSON.parse(saved);
+              var defaults = {
+                prestige: 0,
+                wisdom: 45,
+                power: 40,
+                subcommScore: 0,
+                irreplaceScore: 0,
+                crabScore: 0,
+                ch5Done: false,
+                xp: 0,
+                leveledUp: false
+              };
+              this.playerData = defaults;
+              for (var key in parsed) {
+                if (defaults.hasOwnProperty(key)) this.playerData[key] = parsed[key];
+              }
+              this.currentScene = parseInt(localStorage.getItem('ch6_scene') || '0', 10);
+            }
+          } catch (e) {}
+        },
+        resetProgress: function() {
+          try {
+            localStorage.removeItem('ch6_progress');
+            localStorage.removeItem('ch6_scene');
+            localStorage.removeItem('chapter6_completed');
+            localStorage.removeItem('chapter6_completedAt');
+          } catch (e) {}
+          this.currentScene = 1;
+          this.playerData = {
+            prestige: 0,
+            wisdom: 45,
+            power: 40,
+            subcommScore: 0,
+            irreplaceScore: 0,
+            crabScore: 0,
+            ch5Done: true,
+            xp: 0,
+            leveledUp: false
+          };
+          this.updateDisplay();
+          ch6UpdateProgress();
+          ChapterFramework.resetXP('ch6');
+        },
+        updateStats: function(pr, w, p) {
+          this.playerData.prestige = Math.max(0, Math.min(100, this.playerData.prestige + (pr || 0)));
+          this.playerData.wisdom = Math.max(0, Math.min(100, this.playerData.wisdom + (w || 0)));
+          this.playerData.power = Math.max(0, Math.min(100, this.playerData.power + (p || 0)));
+          this.updateDisplay(pr, w, p);
+          this.saveProgress();
+          SFX.compassPulse();
+        },
+        updateDisplay: function(pr, w, p) {
+          var prEl = document.getElementById('ch6-prestige-value');
+          var wEl = document.getElementById('ch6-wisdom-value');
+          var pEl = document.getElementById('ch6-power-value');
+          if (!prEl || !wEl || !pEl) return;
+
+          prEl.textContent = String(this.playerData.prestige);
+          wEl.textContent = String(this.playerData.wisdom);
+          pEl.textContent = String(this.playerData.power);
+
+          if (pr && pr !== 0) {
+            prEl.classList.remove('changed'); void prEl.offsetWidth; prEl.classList.add('changed');
+          }
+          if (w && w !== 0) {
+            wEl.classList.remove('changed'); void wEl.offsetWidth; wEl.classList.add('changed');
+          }
+          if (p && p !== 0) {
+            pEl.classList.remove('changed'); void pEl.offsetWidth; pEl.classList.add('changed');
+          }
+        }
+      };
+
+      function ch6Container() {
+        return document.getElementById('game-container');
+      }
+
+      function ch6SetSceneCounter() {
+        var sc = document.querySelector('.scene-counter');
+        if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 13';
+      }
+
+      function ch6EnsureStatsBar() {
+        var container = ch6Container();
+        if (!container) return;
+
+        var old = document.getElementById('ch6-stats-bar');
+        if (old && old.parentNode) old.parentNode.removeChild(old);
+
+        var bar = document.createElement('div');
+        bar.id = 'ch6-stats-bar';
+        bar.innerHTML =
+          '<div class="ch6-stat-pill"><span class="lbl">威望</span><span class="val prestige" id="ch6-prestige-value">0</span></div>' +
+          '<div class="ch6-stat-pill"><span class="lbl">智慧</span><span class="val wisdom" id="ch6-wisdom-value">45</span></div>' +
+          '<div class="ch6-stat-pill"><span class="lbl">力量</span><span class="val power" id="ch6-power-value">40</span></div>';
+        container.appendChild(bar);
+      }
+
+      function ch6SetupModeUI() {
+        var container = ch6Container();
+        if (!container) return;
+        container.classList.remove('ch2-mode');
+        container.classList.remove('ch3-mode');
+        container.classList.remove('ch4-mode');
+        container.classList.remove('ch5-mode');
+        container.classList.add('ch6-mode');
+        ch6SetSceneCounter();
+        ch6EnsureStatsBar();
+
+        var wisdomRow = document.getElementById('wisdom-value');
+        if (wisdomRow && wisdomRow.parentNode) wisdomRow.parentNode.remove();
+        var controlRow = document.getElementById('control-value');
+        if (controlRow && controlRow.parentNode) controlRow.parentNode.remove();
+        var energyRow = document.getElementById('energy-value');
+        if (energyRow && energyRow.parentNode) energyRow.parentNode.remove();
+        var tracker = document.querySelector('.score-tracker');
+        if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
+      }
+
+      function ch6BuildLoadingOverlay() {
+        var overlay = document.getElementById('loading-overlay');
+        if (!overlay) return;
+        overlay.classList.remove('fade-out');
+        overlay.style.display = 'flex';
+        overlay.innerHTML =
+          '<div class="ch6-spinner"></div>' +
+          '<div class="ch6-ld-text">正在載入 Chapter 6...</div>' +
+          '<div class="loading-progress"><div class="loading-progress-fill"></div></div>';
+      }
+
+      function ch6ClearAllTimers() {
+        if (ch6TypeInterval) { clearInterval(ch6TypeInterval); ch6TypeInterval = null; }
+        if (ch6RetryTimeout) { clearTimeout(ch6RetryTimeout); ch6RetryTimeout = null; }
+      }
+
+      function ch6AddXP(amount) {
+        ChapterFramework.applyXP(ch6GameState, 'ch6', 160, amount);
+      }
+
+      function ch6UpdateProgress() {
+        ChapterFramework.updateProgress(ch6GameState);
+      }
+
+      function ch6ShowDialogue(opts) {
+        ch6ClearAllTimers();
+        ChapterFramework.showDialogue(
+          opts,
+          function() { return ch6TypeInterval; },
+          function(v) { ch6TypeInterval = v; },
+          22,
+          2
+        );
+      }
+
+      function ch6TransitionToScene(n) {
+        ChapterFramework.transitionToScene(n, {
+          state: ch6GameState,
+          clearTimers: ch6ClearAllTimers,
+          updateProgress: ch6UpdateProgress,
+          addXP: ch6AddXP,
+          loadScene: ch6LoadScene,
+          outDuration: 0.45,
+          inDuration: 0.45,
+          fallbackDelay: 450,
+          useScale: false
+        });
+      }
+
+      function ch6BindContinue(btnId, targetScene) {
+        var btn = document.getElementById(btnId);
+        if (!btn) return;
+        btn.addEventListener('mouseenter', function() { SFX.hover(); });
+        btn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(targetScene); });
+      }
+
+      function ch6ShowRetryButton(hostId, sceneNo, delay) {
+        ch6RetryTimeout = setTimeout(function() {
+          var host = document.getElementById(hostId);
+          if (!host || host.querySelector('.ch6-retry-btn')) return;
+          var btn = document.createElement('button');
+          btn.className = 'btn-main ch6-retry-btn';
+          btn.style.marginTop = '10px';
+          btn.textContent = '重試';
+          btn.addEventListener('mouseenter', function() { SFX.hover(); });
+          btn.addEventListener('click', function() { SFX.click(); ch6LoadScene(sceneNo); });
+          host.appendChild(btn);
+        }, delay || 900);
+      }
+
+      function ch6BuildQuiz(contId, opts, fbId, onOk, onBad) {
+        var cont = document.getElementById(contId);
+        if (!cont) return;
+        var answered = false;
+        opts.forEach(function(opt) {
+          var b = document.createElement('div');
+          b.className = 'qz-opt';
+          b.textContent = opt.text;
+          b.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
+          b.addEventListener('click', function() {
+            if (answered) return;
+            answered = true;
+            cont.querySelectorAll('.qz-opt').forEach(function(x) {
+              x.style.pointerEvents = 'none';
+              x.style.opacity = '0.65';
+            });
+            b.classList.add(opt.correct ? 'ok' : 'bad');
+            b.style.opacity = '1';
+
+            var fb = document.getElementById(fbId);
+            if (fb) fb.innerHTML = '<div class="qz-fb ' + (opt.correct ? 'ok' : 'bad') + '">' + opt.fb + '</div>';
+
+            if (opt.correct) {
+              SFX.correct();
+              screenFlash('rgba(76,175,80,0.16)', 220);
+              ch6GameState.updateStats(opt.pr || 0, opt.w || 0, opt.p || 0);
+              ch6AddXP(opt.xp || 10);
+              if (typeof onOk === 'function') setTimeout(onOk, 1100);
+            } else {
+              SFX.incorrect();
+              screenFlash('rgba(244,67,54,0.2)', 220);
+              if (typeof onBad === 'function') onBad();
+            }
+          });
+          cont.appendChild(b);
+        });
+      }
+
+      function ch6BuildResponse(contId, opts, fbId, onWin, onLose) {
+        var cont = document.getElementById(contId);
+        if (!cont) return;
+        var picked = false;
+        opts.forEach(function(opt) {
+          var b = document.createElement('div');
+          b.className = 'resp-opt';
+          b.textContent = opt.text;
+          b.addEventListener('mouseenter', function() { if (!picked) SFX.hover(); });
+          b.addEventListener('click', function() {
+            if (picked) return;
+            picked = true;
+            cont.querySelectorAll('.resp-opt').forEach(function(x) {
+              x.style.pointerEvents = 'none';
+              x.style.opacity = '0.65';
+            });
+            b.classList.add(opt.win ? 'win' : 'lose');
+            b.style.opacity = '1';
+
+            var fb = document.getElementById(fbId);
+            if (fb) fb.innerHTML = '<div class="qz-fb ' + (opt.win ? 'ok' : 'bad') + '" style="margin-top:12px;">' + opt.fb + '</div>';
+
+            if (opt.win) {
+              SFX.correct();
+              screenFlash('rgba(76,175,80,0.16)', 220);
+              ch6GameState.updateStats(opt.pr || 0, opt.w || 0, opt.p || 0);
+              ch6AddXP(opt.xp || 12);
+              if (typeof onWin === 'function') setTimeout(onWin, 1200);
+            } else {
+              SFX.incorrect();
+              screenFlash('rgba(244,67,54,0.2)', 220);
+              if (typeof onLose === 'function') onLose();
+            }
+          });
+          cont.appendChild(b);
+        });
+      }
+
+      function ch6LoadScene(n) {
+        ch6ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        if (box) box.classList.remove('active');
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '';
+        switch (n) {
+          case 1: ch6Scene01Hook(); break;
+          case 2: ch6Scene02StatusScience(); break;
+          case 3: ch6Scene03SubcommA(); break;
+          case 4: ch6Scene04SubcommB(); break;
+          case 5: ch6Scene05Triangle(); break;
+          case 6: ch6Scene06Narrative(); break;
+          case 7: ch6Scene07CrabBucket(); break;
+          case 8: ch6Scene08CrabEscape(); break;
+          case 9: ch6Scene09Ripple(); break;
+          case 10: ch6Scene10RoomScan(); break;
+          case 11: ch6Scene11FinalBattle(); break;
+          case 12: ch6Scene12Ethics(); break;
+          case 13: ch6Scene13Summary(); break;
+          default: ch6GameState.currentScene = 1; ch6Scene01Hook(); break;
+        }
+        ch6GameState.saveProgress();
+      }
+
+      function ch6Scene01Hook() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">' +
+            '<div class="crown-stage">' +
+              '<div class="crown-rays"></div>' +
+              '<div class="crown-icon">👑</div>' +
+            '</div>' +
+            '<p style="font-size:20px;color:#f59e0b;margin-bottom:14px;">位階重組</p>' +
+            '<p style="font-size:15px;color:#ccc;line-height:1.9;max-width:600px;">' +
+              '你走進一個房間。<br>沒有說任何話。<br>' +
+              '但每個人都感覺到了：<strong style="color:#f59e0b;">有些不一樣的東西進來了。</strong><br><br>' +
+              '這不是魔法。這是可以學習的物理學。' +
+            '</p>' +
+          '</div>';
+
+        setTimeout(function() {
+          ch6ShowDialogue({
+            speaker: '旁白',
+            text: '你已經更新了作業系統，管理了能量，學會了防禦。現在，是時候讓社會叢林感知到你的存在——不是透過吶喊，而是透過你散發的場域。',
+            choices: [{ text: '開始學習', onSelect: function() { ch6TransitionToScene(2); } }]
+          });
+        }, 1800);
+      }
+
+      function ch6Scene02StatusScience() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🔬 地位訊號的神經科學</h2>' +
+            '<div style="background:rgba(245,158,11,0.1);padding:20px;border-radius:12px;border-left:4px solid #f59e0b;margin-bottom:18px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:12px;">為什麼你在某些人面前自動低頭？</h3>' +
+              '<p style="font-size:14px;line-height:1.8;color:#ddd;">人類大腦在 0.1 秒內就會完成社會地位評估。<br>這個評估使用的不是「你說了什麼」，而是 <strong style="color:#f59e0b;">Sub-communication（潛意識溝通）</strong>。<br>你的語速、眼神方向、佔據空間的方式、等待的意願，都在說話。</p>' +
+            '</div>' +
+            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">' +
+              '<div style="background:rgba(0,0,0,0.4);padding:16px;border-radius:10px;border:1px solid rgba(244,67,54,0.3);">' +
+                '<h4 style="color:#F44336;margin-bottom:10px;">😰 索求者訊號</h4>' +
+                '<p style="font-size:12px;color:#ccc;line-height:1.7;">• 眼神飄移，主動逃避凝視<br>• 語速過快（焦慮）<br>• 填充詞過多（「那個…嗯…」）<br>• 在說完前就笑（討好）<br>• 反應過度熱情</p>' +
+              '</div>' +
+              '<div style="background:rgba(0,0,0,0.4);padding:16px;border-radius:10px;border:1px solid rgba(245,158,11,0.3);">' +
+                '<h4 style="color:#f59e0b;margin-bottom:10px;">👑 框架設定者訊號</h4>' +
+                '<p style="font-size:12px;color:#ccc;line-height:1.7;">• 眼神穩定，舒適地接受被看<br>• 語速慢而從容<br>• 思考後再開口，不急著填空<br>• 笑聲是真實回應，不是討好<br>• 對讚美反應平靜</p>' +
+              '</div>' +
+            '</div>' +
+            '<div style="background:rgba(255,193,7,0.1);padding:16px;border-radius:10px;border-left:4px solid #FFC107;">' +
+              '<p style="font-size:13px;line-height:1.7;color:#ddd;"><strong style="color:#FFC107;">核心定律：</strong> 高地位者不「爭取」關注，他們<strong>吸引</strong>關注。<br>他們不需要證明自己，因為存在本身就是陳述。</p>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s2-btn">學習 Sub-communication</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s2-btn', 3);
+        ch6GameState.updateStats(5, 5, 0);
+      }
+
+      function ch6Scene03SubcommA() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>📡 Sub-communication：六大無聲訊號</h2>' +
+            '<div class="subcomm-card">' +
+              '<h3>① 空間佔有（Territorial Expansion）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">🪑</div><div class="signal-body">' +
+                '<p>高地位者自然地佔據更多空間。他們不會縮成一團，不會腿靠在一起，不會把包放在腿上保護自己。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：縮肩、交叉手臂、佔最小面積</div><div class="contrast-box high">✓ 高位：自然展開、背靠椅子、佔有空間</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<div class="subcomm-card">' +
+              '<h3>② 時間主導（Temporal Dominance）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">⏱️</div><div class="signal-body">' +
+                '<p>誰在等誰，誰就處於低位。高地位者讓別人等待（在合理範圍內），不急著回應，不解釋自己的時間安排。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：立刻回覆，解釋為何無法即時</div><div class="contrast-box high">✓ 高位：有充裕感，不被他人的時間壓力控制</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<div class="subcomm-card">' +
+              '<h3>③ 話語稀缺（Verbal Scarcity）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">🤐</div><div class="signal-body">' +
+                '<p>越稀缺的東西越有價值。每一句話都是力量，而廢話稀釋了你的份量。說更少，讓每句話都有重量。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：過度解釋、填充詞多、話不停止</div><div class="contrast-box high">✓ 高位：精煉表達、沈默舒適、不急著填補空白</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s3-btn">查看更多訊號</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s3-btn', 4);
+        ch6GameState.updateStats(5, 5, 0);
+      }
+
+      function ch6Scene04SubcommB() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>📡 Sub-communication：訊號 4-6 + 實測</h2>' +
+            '<div class="subcomm-card">' +
+              '<h3>④ 關注分配（Attention Economy）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">👁️</div><div class="signal-body">' +
+                '<p>你的注意力是貨幣。高地位者不輕易分配注意力，這讓對方感到「被注意」是一種恩賜。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：對每件事都熱烈反應，毫無篩選</div><div class="contrast-box high">✓ 高位：選擇性回應，讓注意力保有稀缺感</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<div class="subcomm-card">' +
+              '<h3>⑤ 框架鎖定（Frame Lock）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">🖼️</div><div class="signal-body">' +
+                '<p>在任何對話中，都有一個「現實框架」在主導詮釋方向。誰的框架勝出，誰就贏了對話。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：被對方的語言和前提帶著走</div><div class="contrast-box high">✓ 高位：用重新框架悄悄換掉對方前提</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<div class="subcomm-card">' +
+              '<h3>⑥ 情緒穩定度（Emotional Flatness）</h3>' +
+              '<div class="signal-row"><div class="signal-icon">🌊</div><div class="signal-body">' +
+                '<p>一個情緒容易被牽動的人，大腦控制權事實上在對方手裡。情緒穩定是高位的被動訊號。</p>' +
+                '<div class="contrast"><div class="contrast-box low">✗ 低位：批評→崩潰；讚美→過度興奮</div><div class="contrast-box high">✓ 高位：批評→評估；讚美→微笑感謝，繼續</div></div>' +
+              '</div></div>' +
+            '</div>' +
+            '<div style="background:rgba(0,0,0,0.45);padding:16px;border-radius:10px;margin-top:6px;">' +
+              '<p style="color:#f59e0b;margin-bottom:12px;font-size:14px;font-weight:bold;">快速測試</p>' +
+              '<p style="font-size:13px;margin-bottom:10px;">主管走過來說：「你這個報告做得不錯。」你的第一反應是？</p>' +
+              '<div class="qz-opts" id="ch6-subcomm-q"></div>' +
+              '<div id="ch6-subcomm-fb"></div>' +
+            '</div>' +
+            '<div id="ch6-subcomm-next" style="display:none;"><button class="btn-main" id="ch6-subcomm-next-btn">學習不可替代性三角</button></div>' +
+          '</div>';
+
+        ch6BuildQuiz('ch6-subcomm-q', [
+          { text: '「謝謝！我真的很努力！您覺得哪裡還可以改進嗎？」（過度熱情 + 索求）', correct: false, fb: '✗ 你的反應暴露了渴望認可，框架地位反而下降。' },
+          { text: '「謝謝。」（微笑，繼續工作）', correct: true, fb: '✓ 完美。簡短、真誠、不過度，展示了情緒穩定度。', pr: 10, w: 5, p: 5 },
+          { text: '（假裝沒聽見，繼續埋頭工作）', correct: false, fb: '✗ 忽視會造成不必要的社交緊張。沈默有力量，但沈默也需要場合。' }
+        ], 'ch6-subcomm-fb', function() {
+          ch6GameState.playerData.subcommScore += 1;
+          var nextWrap = document.getElementById('ch6-subcomm-next');
+          if (nextWrap) nextWrap.style.display = 'block';
+        }, function() {
+          ch6ShowRetryButton('ch6-subcomm-fb', 4, 800);
+        });
+
+        var nextBtn = document.getElementById('ch6-subcomm-next-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(5); });
+        }
+      }
+
+      function ch6Scene05Triangle() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>💎 不可替代性三角</h2>' +
+            '<div style="background:rgba(245,158,11,0.08);padding:18px;border-radius:12px;border-left:4px solid #f59e0b;margin-bottom:20px;">' +
+              '<p style="font-size:14px;line-height:1.8;color:#ddd;">最強的地位保護，不是讓人恐懼你，而是讓人<strong style="color:#f59e0b;">離不開你</strong>。<br>缺少任何一角，你都可能被替換。</p>' +
+            '</div>' +
+            '<div class="triangle-grid">' +
+              '<div class="tri-card"><div class="tri-icon">🔧</div><h4>稀缺技能</h4><p>技能 A × 技能 B = 稀有組合。找到你做得好、他人難以複製且市場需要的交叉點。</p></div>' +
+              '<div class="tri-card"><div class="tri-icon">🌐</div><h4>關係網絡</h4><p>不盲目擴張，深化節點。找 5 個不同領域的核心人物，建立真實信任。</p></div>' +
+              '<div class="tri-card"><div class="tri-icon">📖</div><h4>個人敘事</h4><p>一句話總結你是誰：我幫助 ______ 做到 ______，用 ______ 的方式。</p></div>' +
+            '</div>' +
+            '<div style="background:rgba(255,193,7,0.1);padding:16px;border-radius:10px;border-left:4px solid #FFC107;margin-top:8px;">' +
+              '<p style="font-size:13px;line-height:1.7;"><strong style="color:#FFC107;">倫理核心：</strong> 不可替代性是創造真實價值，不是壟斷與威脅。</p>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s5-btn">實戰：個人敘事建構</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s5-btn', 6);
+        ch6GameState.updateStats(8, 5, 5);
+      }
+
+      function ch6Scene06Narrative() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>✍️ 個人敘事：一句話定義你的存在</h2>' +
+            '<div style="background:rgba(0,0,0,0.5);padding:20px;border-radius:12px;border:2px solid rgba(245,158,11,0.3);margin-bottom:20px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:14px;">你是什麼？（測試你的答案）</h3>' +
+              '<div class="battle-npc"><div class="who">社交情境</div>「你好，請問你是做什麼的？」</div>' +
+              '<p style="font-size:13px;color:#aaa;margin:12px 0;">當你聽到這個問題，你的回答反映了你的敘事框架。選擇最有力的回應：</p>' +
+              '<div class="resp-grid" id="ch6-narrative-resp"></div>' +
+              '<div id="ch6-narrative-fb"></div>' +
+              '<div id="ch6-narrative-next" style="display:none;"></div>' +
+            '</div>' +
+            '<div style="background:rgba(245,158,11,0.08);padding:18px;border-radius:10px;border-left:4px solid #f59e0b;">' +
+              '<h4 style="color:#f59e0b;margin-bottom:10px;">敘事公式</h4>' +
+              '<p style="font-size:13px;color:#ddd;line-height:1.8;">弱版本：「我是一個 [職稱]。」（被動、可替代）<br>強版本：「我幫助 [目標群體] 解決 [核心問題]，用 [獨特方式]。」（主動、不可替代）</p>' +
+            '</div>' +
+          '</div>';
+
+        ch6BuildResponse('ch6-narrative-resp', [
+          { text: '「我是工程師。」（標準職稱回答）', win: false, fb: '✗ 這是一個可替代標籤，沒有建立獨特性。' },
+          { text: '「我不確定怎麼介紹自己…就是搞技術的。」（模糊逃避）', win: false, fb: '✗ 自我懷疑框架會立即降低地位訊號。' },
+          { text: '「我幫助企業找出系統中看不見的漏洞，在問題變成災難之前。」（敘事框架）', win: true, fb: '✓ 強大！你用價值與解決問題定義自己。', pr: 8, w: 0, p: 5 }
+        ], 'ch6-narrative-fb', function() {
+          ch6GameState.playerData.irreplaceScore += 1;
+          var next = document.getElementById('ch6-narrative-next');
+          if (next) {
+            next.style.display = 'block';
+            next.innerHTML = '<button class="btn-main" id="ch6-s6-btn">學習螃蟹桶逃脫</button>';
+            ch6BindContinue('ch6-s6-btn', 7);
+          }
+        }, function() {
+          ch6ShowRetryButton('ch6-narrative-fb', 6, 900);
+        });
+      }
+
+      function ch6Scene07CrabBucket() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🦀 螃蟹桶效應：當你開始改變</h2>' +
+            '<div style="display:flex;justify-content:center;margin:10px 0 20px;"><div class="crab-bucket"><div class="bucket-icon">🪣</div><div class="crab-claws">🦀</div></div></div>' +
+            '<div style="background:rgba(244,67,54,0.1);padding:20px;border-radius:12px;border-left:4px solid #F44336;margin-bottom:18px;">' +
+              '<h3 style="color:#F44336;margin-bottom:12px;">什麼是螃蟹桶效應？</h3>' +
+              '<p style="font-size:14px;line-height:1.8;color:#ddd;">當你開始成長，周圍的人可能會感到威脅，並試圖把你拉回原位。這不是個人失敗，而是群體穩態反應。</p>' +
+            '</div>' +
+            '<div style="background:rgba(0,0,0,0.4);padding:18px;border-radius:10px;margin-bottom:16px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:12px;">典型螃蟹攻擊語錄</h3>' +
+              '<div style="display:grid;gap:8px;">' +
+                '<div style="padding:10px;background:rgba(244,67,54,0.1);border-radius:6px;border-left:3px solid #F44336;font-size:13px;">「你現在賺多了，就瞧不起我們了？」</div>' +
+                '<div style="padding:10px;background:rgba(244,67,54,0.1);border-radius:6px;border-left:3px solid #F44336;font-size:13px;">「你以前不是這種人，是誰把你教壞的？」</div>' +
+                '<div style="padding:10px;background:rgba(244,67,54,0.1);border-radius:6px;border-left:3px solid #F44336;font-size:13px;">「你這樣搞，對大家都不好。」</div>' +
+                '<div style="padding:10px;background:rgba(244,67,54,0.1);border-radius:6px;border-left:3px solid #F44336;font-size:13px;">「成功了不起啊？別忘了是誰幫過你。」</div>' +
+              '</div>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s7-btn">學習逃脫策略</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s7-btn', 8);
+        ch6GameState.updateStats(5, 0, 5);
+      }
+
+      function ch6Scene08CrabEscape() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🪜 螃蟹桶逃脫策略</h2>' +
+            '<div style="background:rgba(245,158,11,0.08);padding:18px;border-radius:12px;border-left:4px solid #f59e0b;margin-bottom:18px;">' +
+              '<p style="font-size:14px;line-height:1.8;color:#ddd;">逃脫不是背叛，是必要進化。關鍵是用最少情緒消耗，守住成長方向。</p>' +
+            '</div>' +
+            '<div style="background:rgba(0,0,0,0.45);border-radius:10px;padding:18px;margin-bottom:14px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:14px;">三種逃脫路徑</h3>' +
+              '<div style="display:flex;flex-direction:column;gap:12px;">' +
+                '<div style="background:rgba(76,175,80,0.1);padding:14px;border-radius:8px;border-left:4px solid #4CAF50;"><h4 style="color:#4CAF50;margin-bottom:6px;">路徑 A：隱形成長（首選）</h4><p style="font-size:13px;color:#ccc;line-height:1.6;">不宣告，不解釋，讓成果說話。</p></div>' +
+                '<div style="background:rgba(245,158,11,0.1);padding:14px;border-radius:8px;border-left:4px solid #f59e0b;"><h4 style="color:#f59e0b;margin-bottom:6px;">路徑 B：升頻邀請（可選）</h4><p style="font-size:13px;color:#ccc;line-height:1.6;">對真心的人發出共同成長邀請。</p></div>' +
+                '<div style="background:rgba(244,67,54,0.1);padding:14px;border-radius:8px;border-left:4px solid #F44336;"><h4 style="color:#F44336;margin-bottom:6px;">路徑 C：物理離開（必要時）</h4><p style="font-size:13px;color:#ccc;line-height:1.6;">若環境系統性阻礙，距離是自由。</p></div>' +
+              '</div>' +
+            '</div>' +
+            '<div style="background:rgba(0,0,0,0.45);padding:16px;border-radius:10px;">' +
+              '<p style="color:#f59e0b;margin-bottom:12px;font-size:14px;">實戰測試</p>' +
+              '<p style="font-size:13px;margin-bottom:10px;">朋友說：「你自從升職後就變了，不再和我們一起出去玩了。你以為你是誰？」</p>' +
+              '<div class="qz-opts" id="ch6-crab-q"></div>' +
+              '<div id="ch6-crab-fb"></div>' +
+            '</div>' +
+            '<div id="ch6-crab-next" style="display:none;"><button class="btn-main" id="ch6-s8-btn">學習影響力波紋</button></div>' +
+          '</div>';
+
+        ch6BuildQuiz('ch6-crab-q', [
+          { text: '「你說得對，我最近太忙了，對不起...」（被拉回）', correct: false, fb: '✗ 你接受了「成長 = 背叛」的框架。' },
+          { text: '「說什麼屁話！我就是我！」（情緒反擊）', correct: false, fb: '✗ 情緒反擊只會消耗能量並惡化關係。' },
+          { text: '「我確實改變了，而且我希望繼續改變。如果你願意，我很想和你一起成長。」', correct: true, fb: '✓ 完美。承認改變、拒絕罪惡框架、給出升頻邀請。', pr: 10, w: 5, p: 5 }
+        ], 'ch6-crab-fb', function() {
+          ch6GameState.playerData.crabScore += 1;
+          var n = document.getElementById('ch6-crab-next');
+          if (n) n.style.display = 'block';
+        }, function() {
+          ch6ShowRetryButton('ch6-crab-fb', 8, 800);
+        });
+
+        var nextBtn = document.getElementById('ch6-s8-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(9); });
+        }
+      }
+
+      function ch6Scene09Ripple() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🌊 影響力波紋：你的存在改變房間</h2>' +
+            '<div class="ripple-demo"><div class="ripple-ring"></div><div class="ripple-ring"></div><div class="ripple-ring"></div><div class="ripple-center">👑</div></div>' +
+            '<div style="background:rgba(245,158,11,0.1);padding:20px;border-radius:12px;border-left:4px solid #f59e0b;margin-bottom:18px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:12px;">「場」的理論</h3>' +
+              '<p style="font-size:14px;line-height:1.8;color:#ddd;">心理質量會創造影響力場。<br>你的心理質量來自：穩定情緒 × 清晰邊界 × 真實成就 × Sub-comm 訊號。</p>' +
+            '</div>' +
+            '<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">' +
+              '<div style="background:rgba(0,0,0,0.4);padding:16px;border-radius:10px;border:1px solid rgba(244,67,54,0.3);"><h4 style="color:#F44336;margin-bottom:10px;">❌ 索求型影響力</h4><p style="font-size:12px;color:#ccc;line-height:1.65;">越努力索求喜歡，越失去尊重。能量是推出去的（消耗型）。</p></div>' +
+              '<div style="background:rgba(0,0,0,0.4);padding:16px;border-radius:10px;border:1px solid rgba(245,158,11,0.3);"><h4 style="color:#f59e0b;margin-bottom:10px;">✓ 引力型影響力</h4><p style="font-size:12px;color:#ccc;line-height:1.65;">成為高質量引力源，人會自然靠近。能量是引進來的（充電型）。</p></div>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s9-btn">進入環境掃描訓練</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s9-btn', 10);
+        ch6GameState.updateStats(8, 5, 0);
+      }
+
+      function ch6Scene10RoomScan() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🔍 環境掃描：讀懂房間裡的位階地圖</h2>' +
+            '<p style="text-align:center;color:#aaa;font-size:13px;margin-bottom:14px;">點擊每個人，識別他們的地位訊號</p>' +
+            '<div class="scene-room" id="ch6-scan-room">' +
+              '<div class="room-person high-status" style="left:15%;top:20%;" data-info="眼神直視，背靠椅子，緩慢說話。地位訊號：高位框架設定者" data-type="high">👔</div>' +
+              '<div class="room-person low-status" style="left:40%;top:55%;" data-info="不斷點頭，填充詞多，佔最小空間。地位訊號：索求者模式" data-type="low">😅</div>' +
+              '<div class="room-person high-status" style="left:65%;top:25%;" data-info="說話前有停頓，不急著填補沉默。地位訊號：話語稀缺者" data-type="high">🎯</div>' +
+              '<div class="room-person low-status" style="left:80%;top:60%;" data-info="反應過度熱情，主動解釋自己。地位訊號：需要認可的索求者" data-type="low">🙋</div>' +
+            '</div>' +
+            '<div id="ch6-scan-info" style="background:rgba(0,0,0,0.5);padding:14px;border-radius:8px;border:1px solid rgba(245,158,11,0.3);min-height:60px;font-size:13px;color:#ccc;">點擊上方的人物，識別他們的地位訊號 →</div>' +
+            '<div id="ch6-scan-score" style="text-align:center;margin-top:12px;font-size:13px;color:#aaa;">已識別：<span id="ch6-scanned-count">0</span> / 4</div>' +
+            '<div id="ch6-scan-next" style="display:none;"><button class="btn-main" id="ch6-s10-btn">進入綜合挑戰</button></div>' +
+          '</div>';
+
+        var scanned = 0;
+        var rewarded = false;
+        var people = r.querySelectorAll('.room-person');
+        people.forEach(function(person) {
+          person.addEventListener('mouseenter', function() { SFX.hover(); });
+          person.addEventListener('click', function() {
+            if (person.classList.contains('scanned')) return;
+            SFX.click();
+            person.classList.add('scanned');
+            var info = person.getAttribute('data-info');
+            var type = person.getAttribute('data-type');
+            var infoEl = document.getElementById('ch6-scan-info');
+            if (infoEl) {
+              infoEl.innerHTML =
+                '<span style="color:' + (type === 'high' ? '#f59e0b' : '#F44336') + '">' +
+                (type === 'high' ? '👑 高位訊號' : '⚠️ 低位訊號') + '</span>：' + info;
+            }
+            scanned += 1;
+            var cEl = document.getElementById('ch6-scanned-count');
+            if (cEl) cEl.textContent = String(scanned);
+            if (scanned >= 4) {
+              var next = document.getElementById('ch6-scan-next');
+              if (next) next.style.display = 'block';
+              if (!rewarded) {
+                rewarded = true;
+                ch6GameState.updateStats(8, 5, 0);
+                ch6AddXP(12);
+              }
+            }
+          });
+        });
+
+        var nextBtn = document.getElementById('ch6-s10-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(11); });
+        }
+      }
+
+      function ch6Scene11FinalBattle() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>⚔️ 位階重組綜合挑戰</h2>' +
+            '<p style="text-align:center;color:#aaa;font-size:13px;margin-bottom:16px;">融合本章技術：Sub-comm + 不可替代性 + 螃蟹桶防禦</p>' +
+            '<div style="background:rgba(0,0,0,0.5);border:2px solid rgba(245,158,11,0.3);border-radius:12px;padding:22px;margin-bottom:16px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:14px;">終極情境：新工作的第一天</h3>' +
+              '<div class="battle-npc"><div class="who">老員工（測試你）</div>「哦，新來的。上一個跟你同職位的人待了半年就走了，工作量很大的，你確定你撐得住？」</div>' +
+              '<p style="color:#FFC107;font-size:13px;margin:12px 0 16px;">⚠️ 偵測到：地位測試 × 打壓新人 × 稀缺心態植入</p>' +
+              '<div class="resp-grid" id="ch6-final-resp"></div>' +
+              '<div id="ch6-final-fb"></div>' +
+              '<div id="ch6-final-next" style="display:none;"><button class="btn-main" id="ch6-s11-btn">查看本章完整反思</button></div>' +
+            '</div>' +
+          '</div>';
+
+        ch6BuildResponse('ch6-final-resp', [
+          { text: '「啊…希望我可以啦，我會盡力的…」（低位：示弱 + 索求）', win: false, fb: '✗ 你暴露了不確定感，測試成功。' },
+          { text: '「上一個人離職和我無關。我的工作方式決定我的結果，不是前人的紀錄。」', win: true, fb: '✓ 完美！你用穩定 + 框架重設回應打壓。', pr: 10, w: 5, p: 10 },
+          { text: '「你們公司管理有問題吧，才讓人一直走。」（攻擊性反擊）', win: false, fb: '✗ 你雖未被壓制，但第一天就建立敵意，代價過高。' }
+        ], 'ch6-final-fb', function() {
+          var n = document.getElementById('ch6-final-next');
+          if (n) n.style.display = 'block';
+        }, function() {
+          ch6ShowRetryButton('ch6-final-fb', 11, 900);
+        });
+
+        var nextBtn = document.getElementById('ch6-s11-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(12); });
+        }
+      }
+
+      function ch6Scene12Ethics() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML =
+          '<div class="page fi">' +
+            '<h2>🪞 倫理反思：威望 vs 霸道</h2>' +
+            '<div style="background:rgba(255,193,7,0.15);padding:22px;border-radius:12px;border-left:4px solid #FFC107;margin-bottom:20px;">' +
+              '<h3 style="color:#FFC107;margin-bottom:14px;">⚠️ 本章最重要的警告</h3>' +
+              '<p style="font-size:14px;line-height:1.9;color:#ddd;">今天學到的技術都有被濫用的可能。<br>每次運用時，請先問自己：<strong style="color:#FFC107;">「我正在創造價值，還是提取價值？」</strong></p>' +
+            '</div>' +
+            '<div style="background:rgba(245,158,11,0.08);padding:20px;border-radius:12px;border-left:4px solid #f59e0b;">' +
+              '<h4 style="color:#f59e0b;margin-bottom:12px;">真正的狼王定義</h4>' +
+              '<p style="font-size:14px;line-height:1.9;color:#ccc;">狼王不是讓每隻動物都怕他，而是讓狼群感到安全。位階不是壓制工具，而是保護責任。</p>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-s12-btn">查看本章總結</button>' +
+          '</div>';
+        ch6BindContinue('ch6-s12-btn', 13);
+        ch6GameState.updateStats(5, 10, 0);
+      }
+
+      function ch6Scene13Summary() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        var pr = ch6GameState.playerData.prestige;
+        var w = ch6GameState.playerData.wisdom;
+        var p = ch6GameState.playerData.power;
+        r.innerHTML =
+          '<div class="page">' +
+            '<h2 style="font-size:26px;">👑 Chapter 6 完成</h2>' +
+            '<div class="sum-grid">' +
+              '<div class="sum-box"><div class="big" style="color:#f59e0b;">' + pr + '</div><p>威望值</p></div>' +
+              '<div class="sum-box"><div class="big" style="color:#4ade80;">' + w + '</div><p>智慧值</p></div>' +
+              '<div class="sum-box"><div class="big" style="color:#F44336;">' + p + '</div><p>力量值</p></div>' +
+            '</div>' +
+            '<div style="background:rgba(245,158,11,0.1);padding:22px;border-radius:12px;border-left:4px solid #f59e0b;margin-bottom:18px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:14px;">本章關鍵洞察</h3>' +
+              '<ul style="list-style:none;padding:0;">' +
+                '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);">✓ 六大 Sub-communication 訊號</li>' +
+                '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);">✓ 不可替代性三角框架</li>' +
+                '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);">✓ 螃蟹桶識別與逃脫</li>' +
+                '<li style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);">✓ 引力型 vs 索求型影響力</li>' +
+                '<li style="padding:8px 0;">✓ 倫理反思：威望服務於保護，而非壓制</li>' +
+              '</ul>' +
+            '</div>' +
+            '<div style="background:rgba(245,158,11,0.07);padding:20px;border-radius:12px;border-left:4px solid #92400e;margin-bottom:20px;">' +
+              '<h3 style="color:#f59e0b;margin-bottom:10px;">🎖️ Part 2 完成：整合階段</h3>' +
+              '<p style="font-size:14px;line-height:1.8;color:#ccc;">你已完成覺醒與整合。接下來是最危險的部分：<strong style="color:#f59e0b;">試煉（Ch7-9）</strong>。</p>' +
+            '</div>' +
+            '<div style="background:rgba(0,0,0,0.5);padding:18px;border-radius:12px;border-left:4px solid #dc2626;margin-bottom:22px;">' +
+              '<h3 style="color:#dc2626;margin-bottom:10px;">Chapter 7 預告：黑暗誘惑</h3>' +
+              '<p style="font-size:14px;line-height:1.8;color:#ccc;">你站在十字路口。獠牙已經長出來了。你第一次感到——你可以傷害他們。<br><strong style="color:#dc2626;">你會嗎？</strong></p>' +
+            '</div>' +
+            '<button class="btn-main" id="ch6-complete-btn">完成 Chapter 6</button>' +
+            '<p style="text-align:center;margin-top:14px;color:#FFC107;font-size:13px;">⏳ 建議 24 小時後再進入 Chapter 7</p>' +
+          '</div>';
+
+        var completeBtn = document.getElementById('ch6-complete-btn');
+        if (completeBtn) {
+          completeBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          completeBtn.addEventListener('click', function() { SFX.click(); ch6FinishChapter(); });
+        }
+      }
+
+      function ch6FinishChapter() {
+        try {
+          localStorage.setItem('chapter6_completed', 'true');
+          localStorage.setItem('chapter6_completedAt', String(Date.now()));
+        } catch (e) {}
+
+        SFX.complete();
+        screenFlash('rgba(245,158,11,0.3)', 500);
+        var container = ch6Container();
+        if (!container) return;
+        showCompletionModal({
+          container: container,
+          innerId: 'ch6-complete-modal-inner',
+          closeBtnId: 'ch6-close-modal-btn',
+          menuBtnId: 'ch6-menu-modal-btn',
+          onMenu: function() {
+            ch6GameStarted = false;
+            returnToGameMenu();
+          },
+          innerHTML: '<div style="background:linear-gradient(135deg,#1a1500,#2d2000);padding:45px;border-radius:20px;text-align:center;max-width:480px;margin:20px;border:2px solid rgba(245,158,11,0.45);transform:scale(0.5);opacity:0;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 20px 60px rgba(0,0,0,0.55),0 0 40px rgba(245,158,11,0.2);" id="ch6-complete-modal-inner">' +
+            '<div style="font-size:64px;margin-bottom:20px;">👑</div>' +
+            '<h2 style="background:linear-gradient(135deg,#f59e0b,#b45309);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;font-size:24px;">恭喜完成 Chapter 6！</h2>' +
+            '<p style="color:#ccc;line-height:1.8;margin-bottom:16px;">整合階段完成。你的威望與邊界已建立。<br>前方是試煉：黑暗誘惑。</p>' +
+            '<p style="color:#f59e0b;font-weight:bold;font-size:18px;margin-bottom:5px;">獠牙已就位，</p>' +
+            '<p style="color:#fde68a;font-weight:bold;font-size:18px;">慈悲仍在你手中。🐺</p>' +
+            '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">' +
+              '<button class="btn-main" id="ch6-close-modal-btn" style="margin-top:10px;">關閉</button>' +
+              '<button class="btn-main" id="ch6-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
+            '</div></div>'
+        });
+      }
+
+      function ch6InitResetButton() {
+        bindDoubleConfirmReset(function() {
+          ch6ClearAllTimers();
+          ch6GameState.resetProgress();
+          ch6LoadScene(1);
+        });
+      }
+
+      function ch6CheckChapter5() {
+        try { return localStorage.getItem('chapter5_completed') === 'true'; }
+        catch (e) { return false; }
+      }
+
+      function ch6StartGame() {
+        if (ch6GameStarted) return;
+        ch6GameStarted = true;
+
+        ParticleSystem.init();
+        ch6InitResetButton();
+        initAudioOnFirstInteraction();
+
+        ch6GameState.loadProgress();
+        if (!ch6CheckChapter5()) {
+          ch6GameState.playerData.ch5Done = false;
+          showToast('⚠️ 建議先完成 Chapter 5', 4000);
+        } else {
+          ch6GameState.playerData.ch5Done = true;
+        }
+        ch6UpdateProgress();
+        ch6GameState.updateDisplay();
+        ChapterFramework.syncXP(ch6GameState, 'ch6', 160);
+
+        if (ch6GameState.currentScene === 0) ch6GameState.currentScene = 1;
+        ch6LoadScene(ch6GameState.currentScene);
+      }
+
+      function ch6Init() {
+        runLoadingBootstrap(ch6StartGame);
+      }
+
+      function start() {
+        ch6SetupModeUI();
+        ch6BuildLoadingOverlay();
+        ch6Init();
       }
 
       return { start: start };
