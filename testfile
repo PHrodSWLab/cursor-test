@@ -15,6 +15,8 @@
       margin: 20px auto; position: relative;
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       overflow: hidden; box-shadow: none; border-radius: 8px;
+      --tracker-accent: #667eea;
+      --tracker-accent-border: rgba(102,126,234,0.45);
     }
 
     /* ===== GAME MENU LAYER ===== */
@@ -396,24 +398,44 @@
     }
     #xp-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #FFD700, #FFA500); transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
-    /* ===== MORAL COMPASS ===== */
+    /* ===== MORAL COMPASS (PILL STYLE, CH1~CH5) ===== */
     #moral-compass {
-      position: absolute; top: 9%; right: 2%; width: 110px; height: 110px;
-      background: rgba(0,0,0,0.85); border-radius: 50%; border: 2px solid rgba(255,255,255,0.15);
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      z-index: 100; font-size: 11px; backdrop-filter: blur(10px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: absolute;
+      top: 7%;
+      right: 2%;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      width: auto;
+      height: auto;
     }
-    #moral-compass:hover { transform: scale(1.08); box-shadow: 0 0 25px rgba(102, 126, 234, 0.3); }
+    #moral-compass:hover { transform: none; box-shadow: none; }
     #moral-compass.pulse-kindness { animation: pulse-green 0.6s ease; }
     #moral-compass.pulse-power { animation: pulse-red 0.6s ease; }
     @keyframes pulse-green { 0%,100%{ box-shadow: 0 0 5px rgba(76,175,80,0.2); } 50%{ box-shadow: 0 0 30px rgba(76,175,80,0.8); } }
     @keyframes pulse-red { 0%,100%{ box-shadow: 0 0 5px rgba(244,67,54,0.2); } 50%{ box-shadow: 0 0 30px rgba(244,67,54,0.8); } }
-    .compass-row { display: flex; align-items: center; gap: 5px; margin: 3px 0; }
-    .compass-label { font-size: 9px; color: #aaa; width: 35px; }
-    .compass-value { font-size: 16px; font-weight: bold; width: 30px; text-align: right; transition: all 0.3s ease; }
+    .compass-row {
+      background: rgba(0,0,0,0.88);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      min-width: 92px;
+    }
+    .compass-label { color: #b8b8b8; font-size: 10px; width: auto; }
+    .compass-value { font-size: 13px; font-weight: bold; width: 28px; text-align: right; transition: all 0.3s ease; }
     .compass-value.kindness { color: #4CAF50; }
     .compass-value.power { color: #F44336; }
+    .compass-value.wisdom { color: #4ade80; }
+    .compass-value.control { color: #dc2626; }
+    .compass-value.energy { color: #0ea5e9; }
     .compass-value.changed { animation: value-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
     @keyframes value-pop { 0%{ transform: scale(1); } 50%{ transform: scale(1.5); } 100%{ transform: scale(1); } }
 
@@ -854,6 +876,8 @@
 
     /* ===== CHAPTER 2 THEME (container scoped) ===== */
     #game-container.ch2-mode {
+      --tracker-accent: #9333ea;
+      --tracker-accent-border: rgba(147,51,234,0.45);
       --theme-bg: linear-gradient(135deg, #2d1b4e 0%, #1a1a3e 100%);
       --theme-progress-gradient: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
       --theme-progress-glow-a: #9333ea;
@@ -1021,12 +1045,12 @@
     #game-container.ch2-mode .feedback-panel.failure { border-color: #F44336; }
     #game-container.ch2-mode .feedback-panel h4 { margin-bottom: 10px; font-size: 16px; }
 
-    #game-container.ch2-mode .score-tracker {
+    .score-tracker {
       position: absolute;
       top: 14%;
       left: 2%;
       background: rgba(0,0,0,0.85);
-      border: 2px solid rgba(147, 51, 234, 0.4);
+      border: 2px solid var(--tracker-accent-border);
       padding: 12px 16px;
       border-radius: 8px;
       z-index: 100;
@@ -1034,26 +1058,27 @@
       backdrop-filter: blur(10px);
       transition: transform 0.3s ease;
     }
-    #game-container.ch2-mode .score-tracker:hover { transform: scale(1.05); }
-    #game-container.ch2-mode .score-tracker h4 {
+    .score-tracker:hover { transform: scale(1.05); }
+    .score-tracker h4 {
       font-size: 11px;
-      color: #9333ea;
+      color: var(--tracker-accent);
       margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    #game-container.ch2-mode .score-item {
+    .score-item {
       display: flex;
       justify-content: space-between;
       margin: 6px 0;
       font-size: 12px;
+      gap: 10px;
     }
-    #game-container.ch2-mode .score-value {
+    .score-value {
       font-weight: bold;
-      color: #9333ea;
+      color: var(--tracker-accent);
       transition: all 0.3s ease;
     }
-    #game-container.ch2-mode .score-value.changed {
+    .score-value.changed {
       animation: value-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
@@ -1164,6 +1189,8 @@
 
     /* ===== CHAPTER 3 THEME (container scoped) ===== */
     #game-container.ch3-mode {
+      --tracker-accent: #dc2626;
+      --tracker-accent-border: rgba(220,38,38,0.45);
       --theme-bg: linear-gradient(135deg, #1e1e2e 0%, #2d1b3d 100%);
       --theme-progress-gradient: linear-gradient(90deg, #dc2626 0%, #991b1b 100%);
       --theme-progress-glow-a: #dc2626;
@@ -1483,6 +1510,8 @@
 
     /* ===== CHAPTER 4 THEME (container scoped) ===== */
     #game-container.ch4-mode {
+      --tracker-accent: #0ea5e9;
+      --tracker-accent-border: rgba(14,165,233,0.45);
       --theme-bg: linear-gradient(135deg, #0f1b2d 0%, #1a2744 100%);
       --theme-progress-gradient: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
       --theme-progress-glow-a: #0ea5e9;
@@ -1529,12 +1558,12 @@
       50% { box-shadow: 0 0 20px rgba(14,165,233,0.8); }
     }
     #game-container.ch4-mode .compass-label {
-      width: 36px;
-      font-size: 8px;
+      width: auto;
+      font-size: 10px;
     }
     #game-container.ch4-mode .compass-value {
-      width: 32px;
-      font-size: 14px;
+      width: 28px;
+      font-size: 13px;
     }
     #game-container.ch4-mode .compass-value.energy { color: #0ea5e9; }
     #game-container.ch4-mode .compass-value.kindness { color: #4CAF50; }
@@ -1817,6 +1846,8 @@
 
     /* ===== CHAPTER 5 THEME (container scoped) ===== */
     #game-container.ch5-mode {
+      --tracker-accent: #4ade80;
+      --tracker-accent-border: rgba(74,222,128,0.45);
       --theme-bg: linear-gradient(135deg, #051a05 0%, #0f2e0f 100%);
       --theme-progress-gradient: linear-gradient(90deg, #16a34a 0%, #4ade80 100%);
       --theme-progress-glow-a: #16a34a;
@@ -1867,7 +1898,25 @@
     #game-container.ch5-mode .compass-value.wisdom { color: #4ade80; }
     #game-container.ch5-mode .compass-value.kindness { color: #4CAF50; }
     #game-container.ch5-mode .compass-value.power { color: #F44336; }
-    #game-container.ch5-mode .compass-label { width: 35px; }
+    #game-container.ch5-mode .compass-label { width: auto; }
+
+    #game-container.ch2-mode #moral-compass,
+    #game-container.ch3-mode #moral-compass,
+    #game-container.ch4-mode #moral-compass,
+    #game-container.ch5-mode #moral-compass {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      width: auto;
+      height: auto;
+    }
+    #game-container.ch2-mode #moral-compass:hover,
+    #game-container.ch3-mode #moral-compass:hover,
+    #game-container.ch4-mode #moral-compass:hover,
+    #game-container.ch5-mode #moral-compass:hover {
+      box-shadow: none;
+      transform: none;
+    }
 
     #game-container.ch5-mode .loop-viz {
       width: 100%;
@@ -1991,6 +2040,8 @@
 
     /* ===== CHAPTER 6 THEME (container scoped) ===== */
     #game-container.ch6-mode {
+      --tracker-accent: #f59e0b;
+      --tracker-accent-border: rgba(245,158,11,0.45);
       background: linear-gradient(135deg, #1a1500 0%, #2d2000 100%);
     }
     #game-container.ch6-mode #moral-compass { display: none; }
@@ -2343,9 +2394,13 @@
       .cards-container { grid-template-columns: 1fr; }
       .zones-container { flex-direction: column; min-height: 80px; }
       .drop-zone { min-height: 60px; }
-      #moral-compass { width: 75px; height: 75px; top: 7%; right: 1%; }
-      .compass-value { font-size: 12px; }
-      .compass-label { font-size: 9px; width: 30px; }
+      #moral-compass { top: 7%; right: 1%; gap: 4px; }
+      .compass-row { padding: 4px 9px; gap: 6px; min-width: 80px; }
+      .compass-value { font-size: 11px; width: 24px; }
+      .compass-label { font-size: 9px; width: auto; }
+      .score-tracker { top: 15%; left: 1%; min-width: 118px; padding: 10px 12px; }
+      .score-tracker h4 { font-size: 10px; margin-bottom: 6px; }
+      .score-item { font-size: 11px; margin: 4px 0; }
       .option-button { min-width: 120px; font-size: 13px; padding: 10px 14px; }
       .dialogue-options { flex-direction: column; }
       #dialogue-box { padding: 15px 20px; min-height: 30%; }
@@ -2367,7 +2422,6 @@
       #game-container.ch2-mode .battle-container,
       #game-container.ch2-mode .summary-container { padding: 25px 15px; }
       #game-container.ch2-mode .virus-analysis { grid-template-columns: 1fr; }
-      #game-container.ch2-mode .score-tracker { display: none; }
       #game-container.ch2-mode .response-option { font-size: 13px; padding: 10px 12px; }
       #game-container.ch2-mode .metaphor-visual { height: 140px; }
       #game-container.ch2-mode .metaphor-text { font-size: 18px; }
@@ -2423,31 +2477,15 @@
     }
 
     @media (max-width: 380px) {
-      #moral-compass { width: 60px; height: 60px; }
-      .compass-value { font-size: 10px; }
-      .compass-label { font-size: 8px; width: 24px; }
-      .compass-row { gap: 2px; margin: 1px 0; }
+      #moral-compass { right: 1%; top: 7%; gap: 3px; }
+      .compass-row { padding: 4px 8px; gap: 5px; min-width: 74px; }
+      .compass-value { font-size: 10px; width: 22px; }
+      .compass-label { font-size: 8px; width: auto; }
+      .score-tracker { top: 15%; left: 1%; min-width: 108px; padding: 8px 10px; }
+      .score-tracker h4 { font-size: 9px; letter-spacing: 0.8px; }
+      .score-item { font-size: 10px; margin: 3px 0; gap: 8px; }
       .drag-card.touch-dragging { width: 180px; }
-
-      #game-container.ch2-mode #moral-compass,
-      #game-container.ch3-mode #moral-compass { width: 66px; height: 66px; }
-      #game-container.ch2-mode .compass-value,
-      #game-container.ch3-mode .compass-value { font-size: 9px; width: 20px; }
-      #game-container.ch2-mode .compass-label,
-      #game-container.ch3-mode .compass-label { font-size: 7px; width: 22px; }
-      #game-container.ch2-mode .compass-row,
-      #game-container.ch3-mode .compass-row { gap: 1px; margin: 0; }
-
-      #game-container.ch4-mode #moral-compass { width: 74px; height: 74px; }
-      #game-container.ch4-mode .compass-label { font-size: 7px; width: 22px; }
-      #game-container.ch4-mode .compass-value { font-size: 9px; width: 20px; }
-      #game-container.ch4-mode .compass-row { gap: 1px; margin: 0; }
       #game-container.ch4-mode .sort-card.touch-dragging { width: 170px; }
-
-      #game-container.ch5-mode #moral-compass { width: 70px; height: 70px; }
-      #game-container.ch5-mode .compass-label { font-size: 7px; width: 22px; }
-      #game-container.ch5-mode .compass-value { font-size: 9px; width: 20px; }
-      #game-container.ch5-mode .compass-row { gap: 1px; margin: 0; }
 
       #game-container.ch6-mode #ch6-stats-bar { right: 1%; }
       #game-container.ch6-mode .ch6-stat-pill { padding: 4px 8px; }
@@ -2457,9 +2495,9 @@
 
     @media (max-height: 760px) {
       #scene-renderer { padding: 11% 4% 2% 4%; }
-      #moral-compass { top: 10%; }
+      #moral-compass { top: 9%; }
       #reset-btn { top: 10%; }
-      #game-container.ch2-mode .score-tracker { top: 16%; }
+      .score-tracker { top: 16%; }
       #game-container.ch6-mode #ch6-stats-bar { top: 9%; }
     }
 
@@ -2854,6 +2892,48 @@
 
     function getGameContainer() {
       return document.getElementById('game-container');
+    }
+
+    function ensureScoreTracker(cfg) {
+      var container = getGameContainer();
+      if (!container) return null;
+      var tracker = document.getElementById('chapter-score-tracker');
+      if (!tracker) {
+        tracker = document.createElement('div');
+        tracker.id = 'chapter-score-tracker';
+        tracker.className = 'score-tracker';
+        container.appendChild(tracker);
+      }
+      var title = (cfg && cfg.title) ? cfg.title : '📊 Score Tracker';
+      var items = (cfg && cfg.items) ? cfg.items : [];
+      var html = '<h4>' + title + '</h4>';
+      items.forEach(function(item) {
+        html += '<div class="score-item"><span>' + item.label + '</span><span class="score-value" id="' + item.id + '">' + item.value + '</span></div>';
+      });
+      tracker.innerHTML = html;
+      return tracker;
+    }
+
+    function updateScoreTrackerValues(items) {
+      if (!items || !items.length) return;
+      items.forEach(function(item) {
+        var el = document.getElementById(item.id);
+        if (!el) return;
+        var next = String(item.value);
+        if (el.textContent !== next) {
+          el.textContent = next;
+          el.classList.remove('changed');
+          void el.offsetWidth;
+          el.classList.add('changed');
+        } else {
+          el.textContent = next;
+        }
+      });
+    }
+
+    function removeScoreTracker() {
+      var tracker = document.getElementById('chapter-score-tracker');
+      if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
     }
 
     function toContainerPoint(x, y) {
@@ -3303,6 +3383,7 @@
 
     function addXP(amount) {
       ChapterFramework.applyXP(GameState, 'ch1', 100, amount);
+      ch1UpdateScoreTracker();
     }
 
     /* ================================================================
@@ -3372,6 +3453,8 @@
         this.updateMoralCompass();
         updateProgress();
         ChapterFramework.resetXP('ch1');
+        ch1EnsureScoreTracker();
+        ch1UpdateScoreTracker();
       },
       updateMorality: function(k, p) {
         this.playerData.kindness = Math.max(0, Math.min(100, this.playerData.kindness + k));
@@ -3406,6 +3489,7 @@
           compass.classList.add('pulse-power');
           setTimeout(function() { compass.classList.remove('pulse-power'); }, 600);
         }
+        ch1UpdateScoreTracker();
       }
     };
 
@@ -3414,6 +3498,32 @@
        ================================================================ */
     function updateProgress() {
       ChapterFramework.updateProgress(GameState);
+      ch1UpdateScoreTracker();
+    }
+
+    function ch1DimMakTotal() {
+      var dp = GameState.playerData.dimMakProfile || {};
+      return (dp.authoritySeeker || 0) + (dp.aesthete || 0) + (dp.lion || 0);
+    }
+
+    function ch1EnsureScoreTracker() {
+      ensureScoreTracker({
+        title: '📊 核心追蹤',
+        items: [
+          { label: '🎯 死穴分數', id: 'ch1-score-risk', value: ch1DimMakTotal() + '/9' },
+          { label: '🧪 測試準確', id: 'ch1-score-accuracy', value: Math.min(100, GameState.playerData.challengeAccuracy || 0) + '%' },
+          { label: '⭐ 章節 XP', id: 'ch1-score-xp', value: String(GameState.playerData.xp || 0) }
+        ]
+      });
+    }
+
+    function ch1UpdateScoreTracker() {
+      if (!document.getElementById('chapter-score-tracker')) return;
+      updateScoreTrackerValues([
+        { id: 'ch1-score-risk', value: ch1DimMakTotal() + '/9' },
+        { id: 'ch1-score-accuracy', value: Math.min(100, GameState.playerData.challengeAccuracy || 0) + '%' },
+        { id: 'ch1-score-xp', value: String(GameState.playerData.xp || 0) }
+      ]);
     }
 
     /* ================================================================
@@ -3914,6 +4024,7 @@
       if (score >= 2) GameState.updateMorality(-3, 0);
       else GameState.updateMorality(0, 3);
       addXP(10);
+      ch1UpdateScoreTracker();
 
       var feedbackText = score >= 2 ?
         '⚠️ 你的這個死穴較為脆弱。記住：被利用不是因為你不夠好，而是因為你太好了。' :
@@ -4236,6 +4347,7 @@
 
         var accuracy = Math.round((correctCount / lines.length) * 100);
         GameState.playerData.challengeAccuracy = accuracy;
+        ch1UpdateScoreTracker();
 
         var headerColor = accuracy >= 80 ? '#4CAF50' : accuracy >= 60 ? '#FFC107' : '#F44336';
         resultHTML = '<div style="text-align:center;margin-bottom:20px;">' +
@@ -4586,6 +4698,7 @@
       }
       var ch6StatsBar = document.getElementById('ch6-stats-bar');
       if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
+      removeScoreTracker();
       var controlRow = document.getElementById('control-value');
       if (controlRow && controlRow.parentNode) controlRow.parentNode.remove();
       var wisdomRow = document.getElementById('wisdom-value');
@@ -4675,6 +4788,7 @@
       }
       var ch6StatsBar = document.getElementById('ch6-stats-bar');
       if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
+      removeScoreTracker();
       var wisdomRow = document.getElementById('wisdom-value');
       if (wisdomRow && wisdomRow.parentNode) wisdomRow.parentNode.remove();
       var controlRow = document.getElementById('control-value');
@@ -5047,6 +5161,17 @@
         if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 13';
       }
 
+      function ch2EnsureScoreTracker() {
+        ensureScoreTracker({
+          title: '📊 戰鬥記錄',
+          items: [
+            { label: '🦠 病毒識別', id: 'score-virus', value: Math.min(100, ch2GameState.playerData.virusKnowledge) + '%' },
+            { label: '🛡️ 盾牌掌握', id: 'score-shield', value: Math.min(100, ch2GameState.playerData.shieldMastery) + '%' },
+            { label: '⚔️ 實戰得分', id: 'score-battle', value: String(ch2GameState.playerData.battleScore) }
+          ]
+        });
+      }
+
       function ch2EnsureWisdomRow() {
         var compass = document.getElementById('moral-compass');
         if (!compass) return;
@@ -5074,6 +5199,7 @@
         if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch2SetSceneCounter();
         ch2EnsureWisdomRow();
+        ch2EnsureScoreTracker();
       }
 
       function ch2BuildLoadingOverlay() {
@@ -5100,6 +5226,7 @@
       }
 
       function ch2UpdateScoreTracker() {
+        if (!document.getElementById('score-virus')) ch2EnsureScoreTracker();
         var vEl = document.getElementById('score-virus');
         var sEl = document.getElementById('score-shield');
         var bEl = document.getElementById('score-battle');
@@ -5303,9 +5430,6 @@
         var r = document.getElementById('scene-renderer');
         if (!r || !scenario) return;
 
-        var existingTracker = document.querySelector('.score-tracker');
-        if (existingTracker && existingTracker.parentNode) existingTracker.parentNode.removeChild(existingTracker);
-
         r.innerHTML = '<div class="battle-container fade-in">' +
           '<h2>⚔️ 實戰訓練 ' + (scenarioIndex === 0 ? '1' : scenarioIndex === 3 ? '2' : '3') + '</h2>' +
           '<div class="battle-arena">' +
@@ -5318,18 +5442,7 @@
           '<button class="continue-button" id="ch2-next-battle" style="display:none;">' + (nextScene === 13 ? '📊 進入總結' : '⚔️ 下一個挑戰') + '</button>' +
         '</div>';
 
-        var container = ch2Container();
-        if (container) {
-          var scoreTrackerHTML = '<div class="score-tracker" id="ch2-battle-score-tracker">' +
-            '<h4>📊 戰鬥記錄</h4>' +
-            '<div class="score-item"><span>🦠 病毒識別</span><span class="score-value" id="score-virus">' + Math.min(100, ch2GameState.playerData.virusKnowledge) + '%</span></div>' +
-            '<div class="score-item"><span>🛡️ 盾牌掌握</span><span class="score-value" id="score-shield">' + Math.min(100, ch2GameState.playerData.shieldMastery) + '%</span></div>' +
-            '<div class="score-item"><span>⚔️ 實戰得分</span><span class="score-value" id="score-battle">' + ch2GameState.playerData.battleScore + '</span></div>' +
-          '</div>';
-          var wrap = document.createElement('div');
-          wrap.innerHTML = scoreTrackerHTML;
-          container.appendChild(wrap.firstChild);
-        }
+        ch2EnsureScoreTracker();
 
         var optionsContainer = document.getElementById('ch2-response-options');
         if (!optionsContainer) return;
@@ -5352,8 +5465,6 @@
           nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
           nextBtn.addEventListener('click', function() {
             SFX.click();
-            var tracker = document.querySelector('.score-tracker');
-            if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
             ch2TransitionToScene(nextScene);
           });
         }
@@ -5412,8 +5523,6 @@
 
       function ch2Scene13Summary() {
         SFX.complete();
-        var tracker = document.querySelector('.score-tracker');
-        if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
 
         var r = document.getElementById('scene-renderer');
         if (!r) return;
@@ -5528,8 +5637,6 @@
       function ch2InitResetButton() {
         bindDoubleConfirmReset(function() {
           ch2ClearAllTimers();
-          var tracker = document.querySelector('.score-tracker');
-          if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
           ch2GameState.resetProgress();
           ch2LoadScene(1);
         });
@@ -5675,6 +5782,7 @@
             compass.classList.remove('pulse-control'); void compass.offsetWidth; compass.classList.add('pulse-control');
             setTimeout(function() { compass.classList.remove('pulse-control'); }, 600);
           }
+          ch3UpdateScoreTracker();
         }
       };
 
@@ -5685,6 +5793,26 @@
       function ch3SetSceneCounter() {
         var sc = document.querySelector('.scene-counter');
         if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 12';
+      }
+
+      function ch3EnsureScoreTracker() {
+        ensureScoreTracker({
+          title: '📊 技能追蹤',
+          items: [
+            { label: '🤫 沈默掌握', id: 'ch3-score-silence', value: Math.min(100, ch3GameState.playerData.silenceMastery) + '%' },
+            { label: '🔀 中斷技術', id: 'ch3-score-pattern', value: Math.min(100, ch3GameState.playerData.patternInterruptScore) + '%' },
+            { label: '🌋 消亡理解', id: 'ch3-score-extinction', value: Math.min(100, ch3GameState.playerData.extinctionKnowledge) + '%' }
+          ]
+        });
+      }
+
+      function ch3UpdateScoreTracker() {
+        if (!document.getElementById('ch3-score-silence')) ch3EnsureScoreTracker();
+        updateScoreTrackerValues([
+          { id: 'ch3-score-silence', value: Math.min(100, ch3GameState.playerData.silenceMastery) + '%' },
+          { id: 'ch3-score-pattern', value: Math.min(100, ch3GameState.playerData.patternInterruptScore) + '%' },
+          { id: 'ch3-score-extinction', value: Math.min(100, ch3GameState.playerData.extinctionKnowledge) + '%' }
+        ]);
       }
 
       function ch3EnsureControlRow() {
@@ -5714,6 +5842,7 @@
         if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch3SetSceneCounter();
         ch3EnsureControlRow();
+        ch3EnsureScoreTracker();
       }
 
       function ch3BuildLoadingOverlay() {
@@ -6545,6 +6674,7 @@
             compass.classList.remove('pulse-power'); void compass.offsetWidth; compass.classList.add('pulse-power');
             setTimeout(function() { compass.classList.remove('pulse-power'); }, 600);
           }
+          ch4UpdateScoreTracker();
         }
       };
 
@@ -6555,6 +6685,28 @@
       function ch4SetSceneCounter() {
         var sc = document.querySelector('.scene-counter');
         if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 11';
+      }
+
+      function ch4EnsureScoreTracker() {
+        var fortressTotal = (ch4GameState.playerData.fortressDone ? 1 : 0) + (ch4GameState.playerData.aquariumDone ? 1 : 0);
+        ensureScoreTracker({
+          title: '📊 能量追蹤',
+          items: [
+            { label: '🔋 當前能量', id: 'ch4-score-energy', value: Math.min(100, ch4GameState.playerData.energy) + '%' },
+            { label: '🧾 損耗審計', id: 'ch4-score-audit', value: ch4GameState.playerData.auditDone ? '完成' : '進行中' },
+            { label: '🏰 防線建構', id: 'ch4-score-fortress', value: fortressTotal + '/2' }
+          ]
+        });
+      }
+
+      function ch4UpdateScoreTracker() {
+        if (!document.getElementById('ch4-score-energy')) ch4EnsureScoreTracker();
+        var fortressTotal = (ch4GameState.playerData.fortressDone ? 1 : 0) + (ch4GameState.playerData.aquariumDone ? 1 : 0);
+        updateScoreTrackerValues([
+          { id: 'ch4-score-energy', value: Math.min(100, ch4GameState.playerData.energy) + '%' },
+          { id: 'ch4-score-audit', value: ch4GameState.playerData.auditDone ? '完成' : '進行中' },
+          { id: 'ch4-score-fortress', value: fortressTotal + '/2' }
+        ]);
       }
 
       function ch4EnsureEnergyRow() {
@@ -6585,8 +6737,7 @@
         if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch4SetSceneCounter();
         ch4EnsureEnergyRow();
-        var tracker = document.querySelector('.score-tracker');
-        if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
+        ch4EnsureScoreTracker();
       }
 
       function ch4BuildLoadingOverlay() {
@@ -6738,6 +6889,7 @@
           '<button class="btn-main" id="ch4-s3-btn">🎯 進行分類練習</button></div>';
         ch4BindContinue('ch4-s3-btn', 4);
         ch4GameState.playerData.auditDone = true;
+        ch4UpdateScoreTracker();
         ch4GameState.updateStats(5, 0, 5);
         ch4AddXP(5);
       }
@@ -7041,6 +7193,7 @@
           '<button class="btn-main" id="ch4-s7-btn">🐠 學習情緒絕緣法</button></div>';
         ch4BindContinue('ch4-s7-btn', 8);
         ch4GameState.playerData.fortressDone = true;
+        ch4UpdateScoreTracker();
         ch4GameState.updateStats(8, 0, 5);
         ch4AddXP(10);
       }
@@ -7061,6 +7214,7 @@
           '<button class="btn-main" id="ch4-s8-btn">🌌 測試水族箱視角</button></div>';
         ch4BindContinue('ch4-s8-btn', 9);
         ch4GameState.playerData.aquariumDone = true;
+        ch4UpdateScoreTracker();
         ch4GameState.updateStats(5, 0, 5);
         ch4AddXP(10);
       }
@@ -7479,6 +7633,7 @@
             compass.classList.remove('pulse-power'); void compass.offsetWidth; compass.classList.add('pulse-power');
             setTimeout(function() { compass.classList.remove('pulse-power'); }, 600);
           }
+          ch5UpdateScoreTracker();
         }
       };
 
@@ -7489,6 +7644,26 @@
       function ch5SetSceneCounter() {
         var sc = document.querySelector('.scene-counter');
         if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 12';
+      }
+
+      function ch5EnsureScoreTracker() {
+        ensureScoreTracker({
+          title: '📊 系統指標',
+          items: [
+            { label: '🔄 循環識別', id: 'ch5-score-loop', value: String(ch5GameState.playerData.loopScore || 0) },
+            { label: '💡 反煤氣燈', id: 'ch5-score-gas', value: String(ch5GameState.playerData.gaslightIQ || 0) },
+            { label: '🪤 破束縛', id: 'ch5-score-bind', value: String(ch5GameState.playerData.bindScore || 0) }
+          ]
+        });
+      }
+
+      function ch5UpdateScoreTracker() {
+        if (!document.getElementById('ch5-score-loop')) ch5EnsureScoreTracker();
+        updateScoreTrackerValues([
+          { id: 'ch5-score-loop', value: String(ch5GameState.playerData.loopScore || 0) },
+          { id: 'ch5-score-gas', value: String(ch5GameState.playerData.gaslightIQ || 0) },
+          { id: 'ch5-score-bind', value: String(ch5GameState.playerData.bindScore || 0) }
+        ]);
       }
 
       function ch5EnsureWisdomRow() {
@@ -7518,6 +7693,7 @@
         if (ch6StatsBar && ch6StatsBar.parentNode) ch6StatsBar.parentNode.removeChild(ch6StatsBar);
         ch5SetSceneCounter();
         ch5EnsureWisdomRow();
+        ch5EnsureScoreTracker();
       }
 
       function ch5BuildLoadingOverlay() {
@@ -7617,6 +7793,7 @@
               ch5GameState.updateStats(opt.w || 0, opt.k || 0, opt.p || 0);
               if (opt.metric && ch5GameState.playerData.hasOwnProperty(opt.metric)) {
                 ch5GameState.playerData[opt.metric] = (ch5GameState.playerData[opt.metric] || 0) + 1;
+                ch5UpdateScoreTracker();
               }
               ch5AddXP(10);
               if (typeof onCorrect === 'function') setTimeout(onCorrect, 1000);
@@ -8097,6 +8274,7 @@
           if (p && p !== 0) {
             pEl.classList.remove('changed'); void pEl.offsetWidth; pEl.classList.add('changed');
           }
+          ch6UpdateScoreTracker();
         }
       };
 
@@ -8107,6 +8285,26 @@
       function ch6SetSceneCounter() {
         var sc = document.querySelector('.scene-counter');
         if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 13';
+      }
+
+      function ch6EnsureScoreTracker() {
+        ensureScoreTracker({
+          title: '📊 位階指標',
+          items: [
+            { label: '🛰️ Sub-comm', id: 'ch6-score-sub', value: String(ch6GameState.playerData.subcommScore || 0) },
+            { label: '💎 不可替代', id: 'ch6-score-irr', value: String(ch6GameState.playerData.irreplaceScore || 0) },
+            { label: '🦀 螃蟹桶逃脫', id: 'ch6-score-crab', value: String(ch6GameState.playerData.crabScore || 0) }
+          ]
+        });
+      }
+
+      function ch6UpdateScoreTracker() {
+        if (!document.getElementById('ch6-score-sub')) ch6EnsureScoreTracker();
+        updateScoreTrackerValues([
+          { id: 'ch6-score-sub', value: String(ch6GameState.playerData.subcommScore || 0) },
+          { id: 'ch6-score-irr', value: String(ch6GameState.playerData.irreplaceScore || 0) },
+          { id: 'ch6-score-crab', value: String(ch6GameState.playerData.crabScore || 0) }
+        ]);
       }
 
       function ch6EnsureStatsBar() {
@@ -8135,6 +8333,7 @@
         container.classList.add('ch6-mode');
         ch6SetSceneCounter();
         ch6EnsureStatsBar();
+        ch6EnsureScoreTracker();
 
         var wisdomRow = document.getElementById('wisdom-value');
         if (wisdomRow && wisdomRow.parentNode) wisdomRow.parentNode.remove();
@@ -8142,8 +8341,6 @@
         if (controlRow && controlRow.parentNode) controlRow.parentNode.remove();
         var energyRow = document.getElementById('energy-value');
         if (energyRow && energyRow.parentNode) energyRow.parentNode.remove();
-        var tracker = document.querySelector('.score-tracker');
-        if (tracker && tracker.parentNode) tracker.parentNode.removeChild(tracker);
       }
 
       function ch6BuildLoadingOverlay() {
@@ -8450,6 +8647,7 @@
           { text: '（假裝沒聽見，繼續埋頭工作）', correct: false, fb: '✗ 忽視會造成不必要的社交緊張。沈默有力量，但沈默也需要場合。' }
         ], 'ch6-subcomm-fb', function() {
           ch6GameState.playerData.subcommScore += 1;
+          ch6UpdateScoreTracker();
           var nextWrap = document.getElementById('ch6-subcomm-next');
           if (nextWrap) nextWrap.style.display = 'block';
         }, function() {
@@ -8512,6 +8710,7 @@
           { text: '「我幫助企業找出系統中看不見的漏洞，在問題變成災難之前。」（敘事框架）', win: true, fb: '✓ 強大！你用價值與解決問題定義自己。', pr: 8, w: 0, p: 5 }
         ], 'ch6-narrative-fb', function() {
           ch6GameState.playerData.irreplaceScore += 1;
+          ch6UpdateScoreTracker();
           var next = document.getElementById('ch6-narrative-next');
           if (next) {
             next.style.display = 'block';
@@ -8581,6 +8780,7 @@
           { text: '「我確實改變了，而且我希望繼續改變。如果你願意，我很想和你一起成長。」', correct: true, fb: '✓ 完美。承認改變、拒絕罪惡框架、給出升頻邀請。', pr: 10, w: 5, p: 5 }
         ], 'ch6-crab-fb', function() {
           ch6GameState.playerData.crabScore += 1;
+          ch6UpdateScoreTracker();
           var n = document.getElementById('ch6-crab-next');
           if (n) n.style.display = 'block';
         }, function() {
@@ -8871,6 +9071,8 @@
       updateProgress();
       GameState.updateMoralCompass();
       ChapterFramework.syncXP(GameState, 'ch1', 100);
+      ch1EnsureScoreTracker();
+      ch1UpdateScoreTracker();
 
       if (GameState.currentScene === 0) GameState.currentScene = 1;
       loadScene(GameState.currentScene);
