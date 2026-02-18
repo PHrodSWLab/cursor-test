@@ -3422,7 +3422,7 @@
         opts,
         function() { return _activeTypeInterval; },
         function(v) { _activeTypeInterval = v; },
-        30,
+        25,
         2
       );
     }
@@ -3430,7 +3430,7 @@
     /* ================================================================
        SCENE TRANSITION (with debounce)
        ================================================================ */
-    function transitionToScene(n) {
+    function transitionToScene(n, transitionXP) {
       ChapterFramework.transitionToScene(n, {
         state: GameState,
         clearTimers: clearAllTimers,
@@ -3440,7 +3440,8 @@
         outDuration: 0.4,
         inDuration: 0.5,
         fallbackDelay: 400,
-        useScale: true
+        useScale: true,
+        transitionXP: (typeof transitionXP === 'number') ? transitionXP : 5
       });
     }
 
@@ -3751,7 +3752,7 @@
               showDialogue({ speaker: "系統", text: '通過！答對 ' + correct + ' 題。', choices: [{ text: "▶ 繼續", onSelect: function() { transitionToScene(3); } }] });
             } else {
               showDialogue({ speaker: "系統", text: '答對 ' + correct + ' 題，需要 7 題。再試一次？', choices: [
-                { text: "🔄 重試", onSelect: function() { loadScene(2); } },
+                { text: "🔄 重試", onSelect: function() { transitionToScene(2, 0); } },
                 { text: "▶ 跳過", onSelect: function() { transitionToScene(3); } }
               ] });
             }
@@ -6618,12 +6619,12 @@
           opts,
           function() { return ch4ActiveTypeInterval; },
           function(v) { ch4ActiveTypeInterval = v; },
-          22,
+          25,
           2
         );
       }
 
-      function ch4TransitionToScene(n) {
+      function ch4TransitionToScene(n, transitionXP) {
         ChapterFramework.transitionToScene(n, {
           state: ch4GameState,
           clearTimers: ch4ClearAllTimers,
@@ -6633,7 +6634,8 @@
           outDuration: 0.4,
           inDuration: 0.5,
           fallbackDelay: 400,
-          useScale: true
+          useScale: true,
+          transitionXP: (typeof transitionXP === 'number') ? transitionXP : 5
         });
       }
 
@@ -6674,7 +6676,7 @@
         var btn = document.getElementById(btnId);
         if (btn) {
           btn.addEventListener('mouseenter', function() { SFX.hover(); });
-          btn.addEventListener('click', function() { SFX.click(); ch4LoadScene(targetScene); });
+          btn.addEventListener('click', function() { SFX.click(); ch4TransitionToScene(targetScene, 0); });
         }
       }
 
@@ -7543,22 +7545,23 @@
           opts,
           function() { return ch5TypeInterval; },
           function(v) { ch5TypeInterval = v; },
-          20,
-          3
+          25,
+          2
         );
       }
 
-      function ch5TransitionToScene(n) {
+      function ch5TransitionToScene(n, transitionXP) {
         ChapterFramework.transitionToScene(n, {
           state: ch5GameState,
           clearTimers: ch5ClearAllTimers,
           updateProgress: ch5UpdateProgress,
           addXP: ch5AddXP,
           loadScene: ch5LoadScene,
-          outDuration: 0.3,
-          inDuration: 0.3,
-          fallbackDelay: 300,
-          useScale: false
+          outDuration: 0.4,
+          inDuration: 0.5,
+          fallbackDelay: 400,
+          useScale: true,
+          transitionXP: (typeof transitionXP === 'number') ? transitionXP : 5
         });
       }
 
@@ -7567,6 +7570,20 @@
         if (!btn) return;
         btn.addEventListener('mouseenter', function() { SFX.hover(); });
         btn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(targetScene); });
+      }
+
+      function ch5ShowRetryButton(hostId, sceneNo, delay) {
+        ch5QuizRetryTimeout = setTimeout(function() {
+          var host = document.getElementById(hostId);
+          if (!host || host.querySelector('.ch5-retry-btn')) return;
+          var btn = document.createElement('button');
+          btn.className = 'btn-main ch5-retry-btn';
+          btn.style.marginTop = '10px';
+          btn.textContent = '重試';
+          btn.addEventListener('mouseenter', function() { SFX.hover(); });
+          btn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(sceneNo, 0); });
+          host.appendChild(btn);
+        }, delay || 900);
       }
 
       function ch5BuildQuiz(contId, opts, fbId, onCorrect, onWrong) {
@@ -7757,7 +7774,7 @@
           var n = document.getElementById('ch5-gas-next');
           if (n) n.style.display = 'block';
         }, function() {
-          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(6); }, 1500);
+          ch5ShowRetryButton('ch5-gas-fb', 6, 900);
         });
 
         var nextBtn = document.getElementById('ch5-s6-btn');
@@ -7816,7 +7833,7 @@
           var n = document.getElementById('ch5-bind-next');
           if (n) n.style.display = 'block';
         }, function() {
-          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(9); }, 1500);
+          ch5ShowRetryButton('ch5-bind-fb', 9, 900);
         });
 
         var nextBtn = document.getElementById('ch5-s9-btn');
@@ -7857,7 +7874,7 @@
           var n = document.getElementById('ch5-final-next');
           if (n) n.style.display = 'block';
         }, function() {
-          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(11); }, 2000);
+          ch5ShowRetryButton('ch5-final-fb', 11, 900);
         });
 
         var nextBtn = document.getElementById('ch5-s11-btn');
@@ -8156,22 +8173,23 @@
           opts,
           function() { return ch6TypeInterval; },
           function(v) { ch6TypeInterval = v; },
-          22,
+          25,
           2
         );
       }
 
-      function ch6TransitionToScene(n) {
+      function ch6TransitionToScene(n, transitionXP) {
         ChapterFramework.transitionToScene(n, {
           state: ch6GameState,
           clearTimers: ch6ClearAllTimers,
           updateProgress: ch6UpdateProgress,
           addXP: ch6AddXP,
           loadScene: ch6LoadScene,
-          outDuration: 0.45,
-          inDuration: 0.45,
-          fallbackDelay: 450,
-          useScale: false
+          outDuration: 0.4,
+          inDuration: 0.5,
+          fallbackDelay: 400,
+          useScale: true,
+          transitionXP: (typeof transitionXP === 'number') ? transitionXP : 5
         });
       }
 
@@ -8191,7 +8209,7 @@
           btn.style.marginTop = '10px';
           btn.textContent = '重試';
           btn.addEventListener('mouseenter', function() { SFX.hover(); });
-          btn.addEventListener('click', function() { SFX.click(); ch6LoadScene(sceneNo); });
+          btn.addEventListener('click', function() { SFX.click(); ch6TransitionToScene(sceneNo, 0); });
           host.appendChild(btn);
         }, delay || 900);
       }
