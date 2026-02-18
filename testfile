@@ -3278,6 +3278,7 @@
 
       var closeBtn = document.getElementById(cfg.closeBtnId);
       if (closeBtn) {
+        closeBtn.addEventListener('mouseenter', function() { SFX.hover(); });
         closeBtn.addEventListener('click', function() {
           SFX.click();
           closeModal();
@@ -3287,6 +3288,7 @@
       if (cfg.menuBtnId) {
         var menuBtn = document.getElementById(cfg.menuBtnId);
         if (menuBtn) {
+          menuBtn.addEventListener('mouseenter', function() { SFX.hover(); });
           menuBtn.addEventListener('click', function() {
             SFX.click();
             closeModal(cfg.onMenu);
@@ -7597,6 +7599,7 @@
           b.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
           b.addEventListener('click', function() {
             if (answered) return;
+            SFX.click();
             answered = true;
             cont.querySelectorAll('.qz-opt').forEach(function(x) {
               x.style.pointerEvents = 'none';
@@ -8225,6 +8228,7 @@
           b.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
           b.addEventListener('click', function() {
             if (answered) return;
+            SFX.click();
             answered = true;
             cont.querySelectorAll('.qz-opt').forEach(function(x) {
               x.style.pointerEvents = 'none';
