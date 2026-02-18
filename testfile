@@ -1756,6 +1756,210 @@
     #game-container.ch4-mode .scroll-page::-webkit-scrollbar { width: 6px; }
     #game-container.ch4-mode .scroll-page::-webkit-scrollbar-thumb { background: rgba(14,165,233,0.4); border-radius: 3px; }
 
+    /* ===== CHAPTER 5 THEME (container scoped) ===== */
+    #game-container.ch5-mode {
+      background: linear-gradient(135deg, #051a05 0%, #0f2e0f 100%);
+    }
+    #game-container.ch5-mode .progress-fill {
+      background: linear-gradient(90deg, #16a34a 0%, #4ade80 100%);
+    }
+    #game-container.ch5-mode .progress-fill::after {
+      box-shadow: 0 0 10px #16a34a, 0 0 20px #4ade80;
+    }
+    #game-container.ch5-mode #dialogue-box {
+      border-top: 1px solid rgba(22, 163, 74, 0.4);
+    }
+    #game-container.ch5-mode .dialogue-speaker {
+      color: #4ade80;
+      text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+    }
+    #game-container.ch5-mode .option-button {
+      background: rgba(22, 163, 74, 0.15);
+      border-color: rgba(22, 163, 74, 0.4);
+    }
+    #game-container.ch5-mode .option-button::before {
+      background: linear-gradient(90deg, transparent, rgba(22, 163, 74, 0.2), transparent);
+    }
+    #game-container.ch5-mode .option-button:hover {
+      background: rgba(22, 163, 74, 0.3);
+      border-color: #4ade80;
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.35);
+    }
+    #game-container.ch5-mode .continue-button {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
+    }
+    #game-container.ch5-mode .continue-button:hover {
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.5);
+    }
+    #game-container.ch5-mode .toast-notification {
+      border-color: rgba(22,163,74,0.4);
+    }
+    #game-container.ch5-mode #moral-compass {
+      width: 124px;
+      height: 124px;
+      border-color: rgba(22,163,74,0.5);
+    }
+    #game-container.ch5-mode #moral-compass:hover {
+      box-shadow: 0 0 25px rgba(22,163,74,0.3);
+    }
+    #game-container.ch5-mode #moral-compass.pulse-wisdom {
+      animation: pulse-ch5 0.6s ease;
+    }
+    @keyframes pulse-ch5 {
+      0%,100% { box-shadow: 0 0 5px rgba(74,222,128,0.2); }
+      50% { box-shadow: 0 0 25px rgba(74,222,128,0.8); }
+    }
+    #game-container.ch5-mode .compass-value.wisdom { color: #4ade80; }
+    #game-container.ch5-mode .compass-value.kindness { color: #4CAF50; }
+    #game-container.ch5-mode .compass-value.power { color: #F44336; }
+    #game-container.ch5-mode .compass-label { width: 35px; }
+
+    #game-container.ch5-mode .page {
+      width: 100%;
+      height: 100%;
+      padding: 30px 20px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #game-container.ch5-mode .page h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 22px;
+      background: linear-gradient(135deg, #4ade80, #16a34a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #game-container.ch5-mode .loop-viz {
+      width: 100%;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 12px;
+      margin: 16px 0;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    #game-container.ch5-mode .loop-node {
+      background: rgba(244, 67, 54, 0.15);
+      border: 1px solid #F44336;
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin: 8px auto;
+      text-align: center;
+      max-width: 90%;
+      font-size: 13px;
+    }
+    #game-container.ch5-mode .loop-node.highlight {
+      background: rgba(255, 193, 7, 0.15);
+      border-color: #FFC107;
+      color: #FFC107;
+    }
+    #game-container.ch5-mode .loop-arrow { text-align: center; color: #666; font-size: 18px; margin: 4px 0; }
+
+    #game-container.ch5-mode .detector-card {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(22, 163, 74, 0.4);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    #game-container.ch5-mode .detector-card h3 { color: #4ade80; margin-bottom: 12px; font-size: 15px; }
+    #game-container.ch5-mode .clue-list { list-style: none; }
+    #game-container.ch5-mode .clue-list li {
+      padding: 10px 12px;
+      margin: 6px 0;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      border-left: 3px solid #666;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    #game-container.ch5-mode .clue-list li.red { border-color: #F44336; }
+    #game-container.ch5-mode .clue-list li.yellow { border-color: #FFC107; }
+    #game-container.ch5-mode .clue-list li.green { border-color: #4ade80; }
+
+    #game-container.ch5-mode .gaslight-chat { background: rgba(0,0,0,0.4); border-radius: 10px; padding: 20px; margin: 14px 0; }
+    #game-container.ch5-mode .gc-bubble { padding: 10px 14px; border-radius: 8px; margin: 8px 0; font-size: 13px; line-height: 1.5; max-width: 85%; }
+    #game-container.ch5-mode .gc-bubble.them { background: rgba(244, 67, 54, 0.15); border-left: 2px solid #F44336; margin-right: auto; }
+    #game-container.ch5-mode .gc-bubble.you { background: rgba(22, 163, 74, 0.15); border-left: 2px solid #4ade80; margin-left: auto; text-align: right; }
+    #game-container.ch5-mode .gc-bubble .who { font-size: 10px; font-weight: bold; margin-bottom: 4px; opacity: 0.8; }
+
+    #game-container.ch5-mode .mindset-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+    #game-container.ch5-mode .mc-card { border-radius: 8px; padding: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
+    #game-container.ch5-mode .mc-card.scarcity h4 { color: #F44336; font-size: 14px; margin-bottom: 10px; }
+    #game-container.ch5-mode .mc-card.abundant h4 { color: #4ade80; font-size: 14px; margin-bottom: 10px; }
+    #game-container.ch5-mode .mc-card ul { padding-left: 0; list-style: none; }
+    #game-container.ch5-mode .mc-card li { font-size: 12px; color: #ccc; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    #game-container.ch5-mode .double-bind-card { background: rgba(0,0,0,0.4); border: 1px solid rgba(255, 193, 7, 0.3); border-radius: 10px; padding: 18px; margin-bottom: 16px; }
+    #game-container.ch5-mode .double-bind-card h3 { color: #FFC107; font-size: 15px; margin-bottom: 10px; }
+    #game-container.ch5-mode .bind-example { font-style: italic; color: #ddd; margin-bottom: 10px; font-size: 13px; }
+    #game-container.ch5-mode .bind-trap { color: #aaa; font-size: 12px; background: rgba(255,255,255,0.05); padding: 8px; border-radius: 4px; }
+    #game-container.ch5-mode .bind-escape { margin-top: 10px; border-left: 2px solid #4ade80; padding-left: 10px; color: #4ade80; font-size: 13px; }
+
+    #game-container.ch5-mode .system-node {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.03);
+      padding: 14px;
+      border-radius: 8px;
+      margin: 10px 0;
+      border: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    #game-container.ch5-mode .system-node:hover { border-color: rgba(22, 163, 74, 0.5); }
+    #game-container.ch5-mode .node-icon { font-size: 24px; }
+    #game-container.ch5-mode .node-body h5 { margin: 0 0 4px 0; color: #4ade80; font-size: 14px; }
+    #game-container.ch5-mode .node-body p { margin: 0; font-size: 12px; color: #bbb; }
+
+    #game-container.ch5-mode .qz-opts,
+    #game-container.ch5-mode .response-grid { display: grid; gap: 10px; margin: 14px 0; }
+    #game-container.ch5-mode .qz-opt,
+    #game-container.ch5-mode .resp-opt {
+      background: rgba(255,255,255,0.05);
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    #game-container.ch5-mode .qz-opt:hover,
+    #game-container.ch5-mode .resp-opt:hover { background: rgba(22, 163, 74, 0.1); border-color: #16a34a; }
+    #game-container.ch5-mode .qz-opt.ok,
+    #game-container.ch5-mode .resp-opt.win { background: rgba(22, 163, 74, 0.2); border-color: #4ade80; }
+    #game-container.ch5-mode .qz-opt.bad,
+    #game-container.ch5-mode .resp-opt.lose { background: rgba(244, 67, 54, 0.2); border-color: #F44336; }
+    #game-container.ch5-mode .qz-fb { margin-top: 10px; padding: 12px; border-radius: 6px; font-size: 13px; line-height: 1.5; }
+    #game-container.ch5-mode .qz-fb.ok { background: rgba(22, 163, 74, 0.1); color: #4ade80; border: 1px solid #16a34a; }
+    #game-container.ch5-mode .qz-fb.bad { background: rgba(244, 67, 54, 0.1); color: #ff8a80; border: 1px solid #F44336; }
+
+    #game-container.ch5-mode .sum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0; }
+    #game-container.ch5-mode .sum-box { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; text-align: center; }
+    #game-container.ch5-mode .sum-box .big { font-size: 32px; font-weight: bold; display: block; margin-bottom: 5px; }
+    #game-container.ch5-mode .sum-box p { font-size: 11px; color: #aaa; }
+
+    #game-container.ch5-mode .battle-setup { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; }
+    #game-container.ch5-mode .battle-npc { background: rgba(244,67,54,0.1); border-left: 3px solid #F44336; padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 14px; line-height: 1.6; }
+    #game-container.ch5-mode .battle-npc .who { color: #F44336; font-weight: bold; font-size: 11px; margin-bottom: 5px; text-transform: uppercase; }
+
+    #game-container.ch5-mode .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(22, 163, 74, 0.3);
+      border-top-color: #4ade80;
+      border-radius: 50%;
+      animation: ch5-spin 1s linear infinite;
+    }
+    #game-container.ch5-mode .ld-text { margin-top: 15px; color: #4ade80; font-size: 14px; letter-spacing: 2px; }
+    #game-container.ch5-mode #loading-overlay { background: #051a05; }
+    @keyframes ch5-spin { to { transform: rotate(360deg); } }
+
+    #game-container.ch5-mode .fi { animation: ch5-fadeInfo 0.6s ease-out forwards; opacity: 0; }
+    @keyframes ch5-fadeInfo { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       #game-container { margin: 0 auto; border-radius: 0; }
@@ -1823,6 +2027,12 @@
       #game-container.ch4-mode .box-card p { font-size: 11px; }
       #game-container.ch4-mode .aquarium-box { height: 160px; }
       #game-container.ch4-mode .sort-card.touch-dragging { width: 200px; font-size: 11px; }
+
+      #game-container.ch5-mode .mindset-compare,
+      #game-container.ch5-mode .sum-grid { grid-template-columns: 1fr; }
+      #game-container.ch5-mode .page { padding: 80px 20px 40px 20px; }
+      #game-container.ch5-mode .qz-opt,
+      #game-container.ch5-mode .resp-opt { font-size: 12px; padding: 12px; }
     }
 
     @media (max-width: 380px) {
@@ -1846,6 +2056,11 @@
       #game-container.ch4-mode .compass-value { font-size: 9px; width: 20px; }
       #game-container.ch4-mode .compass-row { gap: 1px; margin: 0; }
       #game-container.ch4-mode .sort-card.touch-dragging { width: 170px; }
+
+      #game-container.ch5-mode #moral-compass { width: 70px; height: 70px; }
+      #game-container.ch5-mode .compass-label { font-size: 5px; width: 20px; }
+      #game-container.ch5-mode .compass-value { font-size: 9px; width: 20px; }
+      #game-container.ch5-mode .compass-row { gap: 1px; margin: 0; }
     }
 
     @media (max-width: 680px) {
@@ -2139,12 +2354,13 @@
       }
 
       function createParticle() {
-        var isCh2 = false, isCh3 = false, isCh4 = false;
+        var isCh2 = false, isCh3 = false, isCh4 = false, isCh5 = false;
         var container = document.getElementById('game-container');
         if (container) {
           isCh2 = container.classList.contains('ch2-mode');
           isCh3 = container.classList.contains('ch3-mode');
           isCh4 = container.classList.contains('ch4-mode');
+          isCh5 = container.classList.contains('ch5-mode');
         }
         return {
           x: Math.random() * (canvas ? canvas.width : 800),
@@ -2159,6 +2375,8 @@
               ? (Math.random() > 0.5 ? 0 : 350)
               : isCh4
                 ? (Math.random() > 0.5 ? 200 : 210)
+                : isCh5
+                  ? (Math.random() > 0.5 ? 120 : 140)
                 : (Math.random() > 0.5 ? 230 : 270)
         };
       }
@@ -3539,7 +3757,7 @@
         ] }
     ];
 
-    var MENU_INTEGRATED_MAX = 4;
+    var MENU_INTEGRATED_MAX = 5;
     var _menuTooltipEl = null;
     var _menuStars = [];
     var _menuStarAnimId = null;
@@ -3663,6 +3881,7 @@
         container.classList.remove('ch2-mode');
         container.classList.remove('ch3-mode');
         container.classList.remove('ch4-mode');
+        container.classList.remove('ch5-mode');
       }
       var controlRow = document.getElementById('control-value');
       if (controlRow && controlRow.parentNode) controlRow.parentNode.remove();
@@ -3716,6 +3935,18 @@
       }
     }
 
+    function launchChapterFiveFromMenu() {
+      var menu = document.getElementById('game-menu');
+      if (!menu || menu.classList.contains('hidden')) return;
+      hideMenuTooltip();
+      stopMenuStarfield();
+      if (menu) menu.classList.add('hidden');
+
+      if (Chapter5App && typeof Chapter5App.start === 'function') {
+        Chapter5App.start();
+      }
+    }
+
     function returnToGameMenu() {
       hideMenuTooltip();
       stopMenuStarfield();
@@ -3724,6 +3955,7 @@
         container.classList.remove('ch2-mode');
         container.classList.remove('ch3-mode');
         container.classList.remove('ch4-mode');
+        container.classList.remove('ch5-mode');
       }
       var wisdomRow = document.getElementById('wisdom-value');
       if (wisdomRow && wisdomRow.parentNode) wisdomRow.parentNode.remove();
@@ -3829,8 +4061,10 @@
               launchChapterThreeFromMenu();
             } else if (ch.n === 4) {
               launchChapterFourFromMenu();
+            } else if (ch.n === 5) {
+              launchChapterFiveFromMenu();
             } else {
-              showToast('此單檔版本目前僅整合 Chapter 1-4');
+              showToast('此單檔版本目前僅整合 Chapter 1-5');
             }
           });
 
@@ -4100,6 +4334,7 @@
       function ch2SetupModeUI() {
         var container = ch2Container();
         if (!container) return;
+        container.classList.remove('ch5-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch3-mode');
         container.classList.add('ch2-mode');
@@ -4916,6 +5151,7 @@
       function ch3SetupModeUI() {
         var container = ch3Container();
         if (!container) return;
+        container.classList.remove('ch5-mode');
         container.classList.remove('ch4-mode');
         container.classList.remove('ch2-mode');
         container.classList.add('ch3-mode');
@@ -5964,6 +6200,7 @@
       function ch4SetupModeUI() {
         var container = ch4Container();
         if (!container) return;
+        container.classList.remove('ch5-mode');
         container.classList.remove('ch2-mode');
         container.classList.remove('ch3-mode');
         container.classList.add('ch4-mode');
@@ -6937,6 +7174,781 @@
         ch4SetupModeUI();
         ch4BuildLoadingOverlay();
         ch4Init();
+      }
+
+      return { start: start };
+    })();
+
+    /* ================================================================
+       CHAPTER 5 APP (integrated, namespaced)
+       ================================================================ */
+    var Chapter5App = (function() {
+      var ch5TypeInterval = null;
+      var ch5QuizRetryTimeout = null;
+      var ch5GameStarted = false;
+
+      var ch5GameState = {
+        currentScene: 0,
+        totalScenes: 12,
+        playerData: {
+          wisdom: 35,
+          kindness: 58,
+          power: 35,
+          loopScore: 0,
+          gaslightIQ: 0,
+          bindScore: 0,
+          ch4Done: false,
+          xp: 0,
+          leveledUp: false
+        },
+        _transitioning: false,
+        saveProgress: function() {
+          try {
+            localStorage.setItem('ch5_progress', JSON.stringify(this.playerData));
+            localStorage.setItem('ch5_scene', String(this.currentScene));
+          } catch (e) {}
+        },
+        loadProgress: function() {
+          try {
+            var saved = localStorage.getItem('ch5_progress');
+            if (saved) {
+              var parsed = JSON.parse(saved);
+              var defaults = {
+                wisdom: 35, kindness: 58, power: 35,
+                loopScore: 0, gaslightIQ: 0, bindScore: 0,
+                ch4Done: false, xp: 0, leveledUp: false
+              };
+              this.playerData = defaults;
+              for (var key in parsed) {
+                if (defaults.hasOwnProperty(key)) this.playerData[key] = parsed[key];
+              }
+              this.currentScene = parseInt(localStorage.getItem('ch5_scene') || '0', 10);
+            }
+          } catch (e) {}
+        },
+        resetProgress: function() {
+          try {
+            localStorage.removeItem('ch5_progress');
+            localStorage.removeItem('ch5_scene');
+            localStorage.removeItem('chapter5_completed');
+            localStorage.removeItem('chapter5_completedAt');
+          } catch (e) {}
+          this.currentScene = 1;
+          this.playerData = {
+            wisdom: 35, kindness: 58, power: 35,
+            loopScore: 0, gaslightIQ: 0, bindScore: 0,
+            ch4Done: true, xp: 0, leveledUp: false
+          };
+          this.updateDisplay();
+          ch5UpdateProgress();
+          var fill = document.getElementById('xp-fill');
+          if (fill) fill.style.width = '0%';
+        },
+        updateStats: function(w, k, p) {
+          this.playerData.wisdom = Math.max(0, Math.min(100, this.playerData.wisdom + w));
+          this.playerData.kindness = Math.max(0, Math.min(100, this.playerData.kindness + k));
+          this.playerData.power = Math.max(0, Math.min(100, this.playerData.power + p));
+          this.updateDisplay(w, k, p);
+          this.saveProgress();
+          SFX.compassPulse();
+        },
+        updateDisplay: function(w, k, p) {
+          var wEl = document.getElementById('wisdom-value');
+          var kEl = document.getElementById('kindness-value');
+          var pEl = document.getElementById('power-value');
+          var compass = document.getElementById('moral-compass');
+          if (!wEl || !kEl || !pEl || !compass) return;
+
+          wEl.textContent = String(this.playerData.wisdom);
+          kEl.textContent = String(this.playerData.kindness);
+          pEl.textContent = String(this.playerData.power);
+
+          if (w && w !== 0) {
+            wEl.classList.remove('changed'); void wEl.offsetWidth; wEl.classList.add('changed');
+            compass.classList.remove('pulse-wisdom'); void compass.offsetWidth; compass.classList.add('pulse-wisdom');
+            setTimeout(function() { compass.classList.remove('pulse-wisdom'); }, 600);
+          }
+          if (k && k !== 0) {
+            kEl.classList.remove('changed'); void kEl.offsetWidth; kEl.classList.add('changed');
+            compass.classList.remove('pulse-kindness'); void compass.offsetWidth; compass.classList.add('pulse-kindness');
+            setTimeout(function() { compass.classList.remove('pulse-kindness'); }, 600);
+          }
+          if (p && p !== 0) {
+            pEl.classList.remove('changed'); void pEl.offsetWidth; pEl.classList.add('changed');
+            compass.classList.remove('pulse-power'); void compass.offsetWidth; compass.classList.add('pulse-power');
+            setTimeout(function() { compass.classList.remove('pulse-power'); }, 600);
+          }
+        }
+      };
+
+      function ch5Container() {
+        return document.getElementById('game-container');
+      }
+
+      function ch5SetSceneCounter() {
+        var sc = document.querySelector('.scene-counter');
+        if (sc) sc.innerHTML = '場景 <span id="current-scene">0</span> / 12';
+      }
+
+      function ch5EnsureWisdomRow() {
+        var compass = document.getElementById('moral-compass');
+        if (!compass) return;
+        var control = document.getElementById('control-value');
+        if (control && control.parentNode) control.parentNode.remove();
+        var energy = document.getElementById('energy-value');
+        if (energy && energy.parentNode) energy.parentNode.remove();
+        if (!document.getElementById('wisdom-value')) {
+          var row = document.createElement('div');
+          row.className = 'compass-row';
+          row.innerHTML = '<span class="compass-label">智慧</span><span class="compass-value wisdom" id="wisdom-value">35</span>';
+          compass.appendChild(row);
+        }
+      }
+
+      function ch5SetupModeUI() {
+        var container = ch5Container();
+        if (!container) return;
+        container.classList.remove('ch2-mode');
+        container.classList.remove('ch3-mode');
+        container.classList.remove('ch4-mode');
+        container.classList.add('ch5-mode');
+        ch5SetSceneCounter();
+        ch5EnsureWisdomRow();
+      }
+
+      function ch5BuildLoadingOverlay() {
+        var overlay = document.getElementById('loading-overlay');
+        if (!overlay) return;
+        overlay.classList.remove('fade-out');
+        overlay.style.display = 'flex';
+        overlay.innerHTML = '<div class="spinner"></div><div class="ld-text">SYSTEM LOAD...</div>';
+      }
+
+      function ch5ClearAllTimers() {
+        if (ch5TypeInterval) { clearInterval(ch5TypeInterval); ch5TypeInterval = null; }
+        if (ch5QuizRetryTimeout) { clearTimeout(ch5QuizRetryTimeout); ch5QuizRetryTimeout = null; }
+      }
+
+      function ch5AddXP(amount) {
+        ch5GameState.playerData.xp = (ch5GameState.playerData.xp || 0) + amount;
+        var maxXP = 150;
+        var pct = Math.min(100, (ch5GameState.playerData.xp / maxXP) * 100);
+        var fill = document.getElementById('xp-fill');
+        if (fill) fill.style.width = pct + '%';
+        if (ch5GameState.playerData.xp >= maxXP && !ch5GameState.playerData.leveledUp) {
+          ch5GameState.playerData.leveledUp = true;
+          SFX.levelUp();
+          screenFlash('rgba(255, 215, 0, 0.4)', 400);
+          showToast('🎉 等級提升！');
+        }
+      }
+
+      function ch5UpdateProgress() {
+        var progress = (ch5GameState.currentScene / ch5GameState.totalScenes) * 100;
+        var fill = document.querySelector('.progress-fill');
+        if (fill) {
+          if (typeof gsap !== 'undefined') gsap.to(fill, { width: progress + '%', duration: 0.8, ease: 'power2.out' });
+          else fill.style.width = progress + '%';
+        }
+        var el = document.getElementById('current-scene');
+        if (el) el.textContent = String(ch5GameState.currentScene);
+      }
+
+      function ch5ShowDialogue(opts) {
+        ch5ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        var speaker = document.getElementById('dialogue-speaker');
+        var textEl = document.getElementById('dialogue-text');
+        var optionsEl = document.getElementById('dialogue-options');
+        if (!box || !speaker || !textEl || !optionsEl) return;
+
+        box.classList.add('active');
+        SFX.dialogueOpen();
+        speaker.textContent = opts.speaker || '';
+        textEl.textContent = '';
+        textEl.classList.remove('typing-done');
+        optionsEl.innerHTML = '';
+
+        var i = 0;
+        var skipTyping = false;
+        var charCount = 0;
+        var typingDone = false;
+
+        function finishTyping() {
+          if (typingDone) return;
+          typingDone = true;
+          if (ch5TypeInterval) { clearInterval(ch5TypeInterval); ch5TypeInterval = null; }
+          textEl.textContent = opts.text;
+          textEl.classList.add('typing-done');
+          if (opts.choices) {
+            opts.choices.forEach(function(c, idx) {
+              var b = document.createElement('button');
+              b.className = 'option-button appear';
+              b.style.animationDelay = (idx * 0.12) + 's';
+              b.textContent = c.text;
+              b.addEventListener('mouseenter', function() { SFX.hover(); });
+              b.addEventListener('click', function() {
+                SFX.click();
+                box.classList.remove('active');
+                if (typeof c.onSelect === 'function') c.onSelect();
+              });
+              optionsEl.appendChild(b);
+            });
+          } else if (opts.onComplete) {
+            setTimeout(function() {
+              box.classList.remove('active');
+              opts.onComplete();
+            }, opts.autoContinueDelay || 3000);
+          }
+        }
+
+        ch5TypeInterval = setInterval(function() {
+          if (i < opts.text.length && !skipTyping) {
+            textEl.textContent += opts.text.charAt(i);
+            charCount++;
+            if (charCount % 3 === 0) SFX.typeChar();
+            i++;
+          } else {
+            finishTyping();
+          }
+        }, opts.typeSpeed || 20);
+
+        textEl.addEventListener('click', function skipHandler() {
+          if (!typingDone) {
+            skipTyping = true;
+            finishTyping();
+          }
+          textEl.removeEventListener('click', skipHandler);
+        });
+      }
+
+      function ch5TransitionToScene(n) {
+        if (ch5GameState._transitioning) return;
+        ch5GameState._transitioning = true;
+        ch5ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        if (box) box.classList.remove('active');
+        SFX.transition();
+        var r = document.getElementById('scene-renderer');
+        if (!r) { ch5GameState._transitioning = false; return; }
+
+        if (typeof gsap !== 'undefined') {
+          gsap.to(r, {
+            opacity: 0, duration: 0.3, ease: 'power2.in',
+            onComplete: function() {
+              ch5GameState.currentScene = n;
+              ch5UpdateProgress();
+              ch5AddXP(5);
+              ch5LoadScene(n);
+              gsap.to(r, {
+                opacity: 1, duration: 0.3, ease: 'power2.out',
+                onComplete: function() { ch5GameState._transitioning = false; }
+              });
+            }
+          });
+        } else {
+          r.style.opacity = '0';
+          setTimeout(function() {
+            ch5GameState.currentScene = n;
+            ch5UpdateProgress();
+            ch5AddXP(5);
+            ch5LoadScene(n);
+            r.style.opacity = '1';
+            ch5GameState._transitioning = false;
+          }, 300);
+        }
+      }
+
+      function ch5BindContinue(btnId, targetScene) {
+        var btn = document.getElementById(btnId);
+        if (!btn) return;
+        btn.addEventListener('mouseenter', function() { SFX.hover(); });
+        btn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(targetScene); });
+      }
+
+      function ch5BuildQuiz(contId, opts, fbId, onCorrect, onWrong) {
+        var cont = document.getElementById(contId);
+        if (!cont) return;
+        var answered = false;
+        opts.forEach(function(opt) {
+          var b = document.createElement('div');
+          b.className = 'qz-opt';
+          b.textContent = opt.text;
+          b.addEventListener('mouseenter', function() { if (!answered) SFX.hover(); });
+          b.addEventListener('click', function() {
+            if (answered) return;
+            answered = true;
+            cont.querySelectorAll('.qz-opt').forEach(function(x) {
+              x.style.pointerEvents = 'none';
+              x.style.opacity = '0.6';
+            });
+            b.classList.add(opt.correct ? 'ok' : 'bad');
+            b.style.opacity = '1';
+
+            var fb = document.getElementById(fbId);
+            if (fb) fb.innerHTML = '<div class="qz-fb ' + (opt.correct ? 'ok' : 'bad') + '">' + opt.fb + '</div>';
+
+            if (opt.correct) {
+              SFX.correct();
+              screenFlash('rgba(76,175,80,0.15)', 200);
+              ch5GameState.updateStats(opt.w || 0, opt.k || 0, opt.p || 0);
+              if (opt.metric && ch5GameState.playerData.hasOwnProperty(opt.metric)) {
+                ch5GameState.playerData[opt.metric] = (ch5GameState.playerData[opt.metric] || 0) + 1;
+              }
+              ch5AddXP(10);
+              if (typeof onCorrect === 'function') setTimeout(onCorrect, 1000);
+            } else {
+              SFX.incorrect();
+              screenFlash('rgba(244,67,54,0.2)', 200);
+              if (typeof onWrong === 'function') onWrong();
+            }
+          });
+          cont.appendChild(b);
+        });
+      }
+
+      function ch5LoadScene(n) {
+        ch5ClearAllTimers();
+        var box = document.getElementById('dialogue-box');
+        if (box) box.classList.remove('active');
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '';
+        switch (n) {
+          case 1: ch5Scene01Hook(); break;
+          case 2: ch5Scene02Loop(); break;
+          case 3: ch5Scene03Diagnosis(); break;
+          case 4: ch5Scene04Report(); break;
+          case 5: ch5Scene05Gaslight(); break;
+          case 6: ch5Scene06CounterGaslight(); break;
+          case 7: ch5Scene07Mindset(); break;
+          case 8: ch5Scene08DoubleBind(); break;
+          case 9: ch5Scene09DoubleBindBattle(); break;
+          case 10: ch5Scene10Rewire(); break;
+          case 11: ch5Scene11FinalChallenge(); break;
+          case 12: ch5Scene12Summary(); break;
+          default: ch5GameState.currentScene = 1; ch5Scene01Hook(); break;
+        }
+        ch5GameState.saveProgress();
+      }
+
+      function ch5Scene01Hook() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">' +
+          '<div style="font-size:60px;margin-bottom:20px;">🔄</div>' +
+          '<h1 style="font-size:24px;background:linear-gradient(135deg,#16a34a,#4ade80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;">系統思維</h1>' +
+          '<p style="color:#4ade80;margin-bottom:20px;">解構社會底層密碼</p>' +
+          '<p style="color:#ccc;line-height:1.8;">你換了工作，還是遇到同一種主管。<br>你換了伴侶，還是陷入同一種關係模式。<br><br><strong style="color:#4ade80;">這不是你倒楣，這是你在重複執行一個有 Bug 的腳本。</strong></p>' +
+        '</div>';
+
+        setTimeout(function() {
+          ch5ShowDialogue({
+            speaker: '旁白',
+            text: '知識是地圖，不是領地。你已經認識了敵人，學會了武器，管理了能量。現在，是時候找出讓你反覆受傷的根本原因——你的底層作業系統。',
+            choices: [{ text: '開始系統診斷', onSelect: function() { ch5TransitionToScene(2); } }]
+          });
+        }, 1500);
+      }
+
+      function ch5Scene02Loop() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🔄 負循環解剖</h2>' +
+          '<div style="background:rgba(22,163,74,0.1);padding:15px;border-radius:10px;border-left:4px solid #16a34a;margin-bottom:20px;">' +
+            '<p style="line-height:1.6;font-size:14px;color:#ddd;">系統不是「一串事件的序列」，而是<strong>「相互強化的反饋迴圈」</strong>。<br>每次你「以德報怨」，不是道德修煉，而是在<strong style="color:#F44336;">給 Bug 投餵能量</strong>。</p>' +
+          '</div>' +
+          '<div class="loop-viz">' +
+            '<div class="loop-node">你善良，難以拒絕</div><div class="loop-arrow">↓</div>' +
+            '<div class="loop-node">寄生蟲識別你為「低風險宿主」</div><div class="loop-arrow">↓</div>' +
+            '<div class="loop-node highlight">你忍著，因為「不想計較」</div><div class="loop-arrow">↓</div>' +
+            '<div class="loop-node">能量耗盡，但愧疚感讓你繼續忍</div>' +
+          '</div>' +
+          '<button class="btn-main" id="ch5-s2-btn">診斷自己的循環</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s2-btn', 3);
+      }
+
+      function ch5Scene03Diagnosis() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🩺 自我循環診斷</h2>' +
+          '<div class="detector-card"><p style="color:#4ade80;font-weight:bold;margin-bottom:10px;">Q1：當有人對你提出不合理的要求，你通常...</p><div id="ch5-q1-opts" class="qz-opts"></div><div id="ch5-q1-fb"></div></div>' +
+          '<div id="ch5-q2-wrap" class="detector-card" style="display:none;"><p style="color:#4ade80;font-weight:bold;margin-bottom:10px;">Q2：你的邊界被突破後，你最常有的感受是？</p><div id="ch5-q2-opts" class="qz-opts"></div><div id="ch5-q2-fb"></div></div>' +
+          '<div id="ch5-q3-next" style="display:none;"><button class="btn-main" id="ch5-s3-btn">查看診斷報告</button></div>' +
+        '</div>';
+
+        ch5BuildQuiz('ch5-q1-opts', [
+          { text: '當場答應，事後後悔', correct: true, fb: '✓ 「即時順從」模式。', w: 2, metric: 'loopScore' },
+          { text: '先拒絕，被施壓後屈服', correct: true, fb: '✓ 「延遲屈服」模式。', w: 2, metric: 'loopScore' },
+          { text: '拒絕，然後感到深深的愧疚', correct: true, fb: '✓ 「界線愧疚」模式。', w: 2, metric: 'loopScore' }
+        ], 'ch5-q1-fb', function() {
+          var w = document.getElementById('ch5-q2-wrap');
+          if (w) w.style.display = 'block';
+        });
+
+        ch5BuildQuiz('ch5-q2-opts', [
+          { text: '憤怒，但壓下去', correct: true, fb: '✓ 「壓抑式」模式。', w: 2, metric: 'loopScore' },
+          { text: '自責，覺得是自己不夠好', correct: true, fb: '✓ 「內化式」模式。', w: 2, metric: 'loopScore' }
+        ], 'ch5-q2-fb', function() {
+          var n = document.getElementById('ch5-q3-next');
+          if (n) n.style.display = 'block';
+        });
+
+        var nextBtn = document.getElementById('ch5-s3-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(4); });
+        }
+      }
+
+      function ch5Scene04Report() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>📋 診斷報告</h2>' +
+          '<div style="text-align:center;padding:20px;background:rgba(22,163,74,0.1);border-radius:10px;border:1px solid #16a34a;margin-bottom:20px;">' +
+            '<div style="font-size:20px;font-weight:bold;color:#4ade80;">善良者困境 (Good Person Trap)</div>' +
+            '<p style="font-size:13px;color:#ccc;margin-top:10px;">你的核心問題不是「壞人太多」，<br>而是你的系統對「道德指責」缺乏防禦。</p>' +
+          '</div>' +
+          '<ul class="clue-list">' +
+            '<li class="red">Bug #1：「好人」身份認同 - 拒絕別人等於否定自己。</li>' +
+            '<li class="red">Bug #2：衝突恐懼 - 大腦把「不舒服」誤判為「危險」。</li>' +
+            '<li class="yellow">Bug #3：責任過度擴張 - 誤認他人的情緒是你的責任。</li>' +
+          '</ul>' +
+          '<button class="btn-main" id="ch5-s4-btn">學習煤氣燈識別</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s4-btn', 5);
+      }
+
+      function ch5Scene05Gaslight() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>💡 煤氣燈效應</h2>' +
+          '<div style="background:rgba(244,67,54,0.15);padding:15px;border-radius:8px;border-left:4px solid #F44336;margin-bottom:20px;">' +
+            '<p style="font-size:14px;line-height:1.6;">煤氣燈操縱者透過<strong>否定你的現實感知</strong>，讓你懷疑自己的記憶和理智。它攻擊的是你的<strong style="color:#F44336;">認知系統本身</strong>。</p>' +
+          '</div>' +
+          '<div class="gaslight-chat">' +
+            '<div class="gc-bubble them"><div class="who">寄生蟲</div>「我從來沒說過那句話，你亂說什麼？」</div>' +
+            '<div class="gc-bubble you"><div class="who">你</div>「你上週明明說過...」</div>' +
+            '<div class="gc-bubble them"><div class="who">寄生蟲</div>「你記性真的有問題，是不是壓力太大產生幻覺？」</div>' +
+          '</div>' +
+          '<button class="btn-main" id="ch5-s5-btn">學習反制技術</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s5-btn', 6);
+      }
+
+      function ch5Scene06CounterGaslight() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🛡️ 煤氣燈反制術</h2>' +
+          '<div class="system-node"><div class="node-icon">📝</div><div class="node-body"><h5>戰術 1：即時文字記錄</h5><p>對話後發訊確認：「剛才結論是 XX，對嗎？」留下證據。</p></div></div>' +
+          '<div class="system-node"><div class="node-icon">🪨</div><div class="node-body"><h5>戰術 2：現實複述</h5><p>「我們記憶不同沒關係，但我的決定基於我的記憶。」不辯論，只陳述。</p></div></div>' +
+          '<div class="detector-card" style="margin-top:20px;"><h3>實戰測試</h3><p style="font-size:13px;margin-bottom:10px;">對方說：「你太敏感了，我是為你好。」</p><div id="ch5-gas-quiz" class="qz-opts"></div><div id="ch5-gas-fb"></div></div>' +
+          '<div id="ch5-gas-next" style="display:none;"><button class="btn-main" id="ch5-s6-btn">學習心態升級</button></div>' +
+        '</div>';
+
+        ch5BuildQuiz('ch5-gas-quiz', [
+          { text: '「對不起，我會改...」', correct: false, fb: '✗ 你接受了「敏感是缺點」的框架。' },
+          { text: '「我的感受是真實的，不需要你定義。」', correct: true, fb: '✓ 完美！確認感受，拒絕被定義。', w: 8, k: 5, p: 5, metric: 'gaslightIQ' }
+        ], 'ch5-gas-fb', function() {
+          var n = document.getElementById('ch5-gas-next');
+          if (n) n.style.display = 'block';
+        }, function() {
+          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(6); }, 1500);
+        });
+
+        var nextBtn = document.getElementById('ch5-s6-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(7); });
+        }
+      }
+
+      function ch5Scene07Mindset() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🌱 稀缺 vs 豐盛心態</h2>' +
+          '<div class="mindset-compare">' +
+            '<div class="mc-card scarcity"><h4>😰 稀缺心態</h4><ul><li>「不能拒絕，否則他會討厭我」</li><li>「如果設界線，我就什麼都沒了」</li><li>狀態：恐懼、防禦</li></ul></div>' +
+            '<div class="mc-card abundant"><h4>🌟 豐盛心態</h4><ul><li>「我可以拒絕，好的關係會留下」</li><li>「我有足夠價值，不需乞求認可」</li><li>狀態：從容、選擇</li></ul></div>' +
+          '</div>' +
+          '<div style="background:rgba(255,193,7,0.1);padding:15px;border-radius:8px;border-left:4px solid #FFC107;">' +
+            '<p style="font-size:13px;">每次害怕失去時問自己：<strong style="color:#FFC107;">「如果我答應了，我會失去什麼？」</strong>通常答案是：自尊。</p>' +
+          '</div>' +
+          '<button class="btn-main" id="ch5-s7-btn">學習雙重束縛</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s7-btn', 8);
+      }
+
+      function ch5Scene08DoubleBind() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🪤 雙重束縛</h2>' +
+          '<div class="double-bind-card">' +
+            '<h3>無論怎麼選都是錯？</h3>' +
+            '<div class="bind-example">「你要獨立思考，但做決定前要先請示我。」</div>' +
+            '<div class="bind-trap">獨立→沒請示(錯)；請示→沒獨立(錯)</div>' +
+            '<div class="bind-escape">🛡️ <strong>拆解：點名矛盾</strong><br>「這兩個要求是矛盾的。請告訴我什麼情況該獨立，什麼情況該請示？」</div>' +
+          '</div>' +
+          '<button class="btn-main" id="ch5-s8-btn">實戰拆解</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s8-btn', 9);
+      }
+
+      function ch5Scene09DoubleBindBattle() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>⚔️ 雙重束縛實戰</h2>' +
+          '<div class="battle-setup">' +
+            '<div class="battle-npc"><div class="who">家長</div>「你要有想法，不要什麼都聽我的。但如果你的選擇跟我不一樣，就是不孝順。」</div>' +
+            '<div id="ch5-bind-resp" class="response-grid"></div><div id="ch5-bind-fb"></div>' +
+            '<div id="ch5-bind-next" style="display:none;"><button class="btn-main" id="ch5-s9-btn">進入系統重組</button></div>' +
+          '</div>' +
+        '</div>';
+
+        ch5BuildQuiz('ch5-bind-resp', [
+          { text: '「好，我聽你的。」', correct: false, fb: '✗ 放棄思考，下次還會重演。' },
+          { text: '「我注意到這矛盾了。你希望我有想法，又希望我順從。但我不能同時做到。」', correct: true, fb: '✓ 大師級！直接點破矛盾，拒絕接受虛假選項。', w: 8, p: 5, metric: 'bindScore' }
+        ], 'ch5-bind-fb', function() {
+          var n = document.getElementById('ch5-bind-next');
+          if (n) n.style.display = 'block';
+        }, function() {
+          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(9); }, 1500);
+        });
+
+        var nextBtn = document.getElementById('ch5-s9-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(10); });
+        }
+      }
+
+      function ch5Scene10Rewire() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🔧 系統重組</h2>' +
+          '<div class="system-node"><div class="node-icon">🔄</div><div class="node-body"><h5>新邏輯 #1：先保護，再修復</h5><p>飛機失壓時，先戴好自己的氧氣罩，再幫別人。</p></div></div>' +
+          '<div class="system-node"><div class="node-icon">⚖️</div><div class="node-body"><h5>新邏輯 #2：責任歸位</h5><p>他的情緒是他的責任。幫忙是選擇，不是義務。</p></div></div>' +
+          '<div class="system-node"><div class="node-icon">🎯</div><div class="node-body"><h5>新邏輯 #3：長期最優化</h5><p>5年後的我，會感謝今天這個艱難的「不」嗎？</p></div></div>' +
+          '<button class="btn-main" id="ch5-s10-btn">綜合挑戰</button>' +
+        '</div>';
+        ch5BindContinue('ch5-s10-btn', 11);
+      }
+
+      function ch5Scene11FinalChallenge() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        r.innerHTML = '<div class="page fi"><h2>🏆 綜合挑戰</h2>' +
+          '<div class="battle-setup">' +
+            '<h3 style="color:#F44336;margin-bottom:10px;">終極情境</h3>' +
+            '<div class="battle-npc"><div class="who">複合型寄生蟲</div>「你最近變得很冷漠(煤氣燈)。我們這麼多年交情，你讓我失望(情緒勒索)。你要自主，但這事還是聽我的(雙重束縛)。」</div>' +
+            '<div id="ch5-final-resp" class="response-grid"></div><div id="ch5-final-fb"></div>' +
+            '<div id="ch5-final-next" style="display:none;"><button class="btn-main" id="ch5-s11-btn">查看總結</button></div>' +
+          '</div>' +
+        '</div>';
+
+        ch5BuildQuiz('ch5-final-resp', [
+          { text: '「對不起，我狀態不好...」', correct: false, fb: '✗ 被四種攻擊同時命中。' },
+          { text: '「我沒有問題。交情和期待是兩件事。你的指令矛盾，請釐清。我的決定基於我的判斷。」', correct: true, fb: '✓ 無懈可擊！系統化拆解所有攻擊。', w: 10, k: 5, p: 10 }
+        ], 'ch5-final-fb', function() {
+          var n = document.getElementById('ch5-final-next');
+          if (n) n.style.display = 'block';
+        }, function() {
+          ch5QuizRetryTimeout = setTimeout(function() { ch5LoadScene(11); }, 2000);
+        });
+
+        var nextBtn = document.getElementById('ch5-s11-btn');
+        if (nextBtn) {
+          nextBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          nextBtn.addEventListener('click', function() { SFX.click(); ch5TransitionToScene(12); });
+        }
+      }
+
+      function ch5Scene12Summary() {
+        var r = document.getElementById('scene-renderer');
+        if (!r) return;
+        var w = ch5GameState.playerData.wisdom;
+        var k = ch5GameState.playerData.kindness;
+        var p = ch5GameState.playerData.power;
+        r.innerHTML = '<div class="page fi"><h2 style="font-size:26px;">🧠 Chapter 5 完成</h2>' +
+          '<div class="sum-grid">' +
+            '<div class="sum-box"><div class="big" style="color:#4ade80;">' + w + '</div><p>智慧</p></div>' +
+            '<div class="sum-box"><div class="big" style="color:#4CAF50;">' + k + '</div><p>善良</p></div>' +
+            '<div class="sum-box"><div class="big" style="color:#F44336;">' + p + '</div><p>力量</p></div>' +
+          '</div>' +
+          '<div style="background:rgba(22,163,74,0.1);padding:20px;border-radius:10px;margin-bottom:20px;">' +
+            '<h3 style="color:#4ade80;margin-bottom:10px;">系統層洞察</h3>' +
+            '<p style="font-size:14px;color:#ccc;line-height:1.6;">你不是一個人在戰鬥，你是兩個系統在碰撞。<br>當你改變了規則，整個生態都會隨之改變。<br><strong style="color:#4ade80;">你不需要說服任何人，你只需要成為一個不同的系統。</strong></p>' +
+          '</div>' +
+          '<button class="btn-main" id="ch5-complete-btn">完成本章</button>' +
+        '</div>';
+
+        var completeBtn = document.getElementById('ch5-complete-btn');
+        if (completeBtn) {
+          completeBtn.addEventListener('mouseenter', function() { SFX.hover(); });
+          completeBtn.addEventListener('click', function() { SFX.click(); ch5FinishChapter(); });
+        }
+      }
+
+      function ch5FinishChapter() {
+        try {
+          localStorage.setItem('chapter5_completed', 'true');
+          localStorage.setItem('chapter5_completedAt', String(Date.now()));
+        } catch (e) {}
+
+        SFX.complete();
+        screenFlash('rgba(22,163,74,0.3)', 500);
+        var container = ch5Container();
+        if (!container) return;
+
+        var modal = document.createElement('div');
+        modal.id = 'completion-modal';
+        modal.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0);display:flex;justify-content:center;align-items:center;z-index:10000;transition:background 0.5s;';
+        modal.innerHTML = '<div style="background:linear-gradient(135deg,#051a05,#0f2e0f);padding:45px;border-radius:20px;text-align:center;max-width:460px;margin:20px;border:2px solid rgba(22,163,74,0.45);transform:scale(0.5);opacity:0;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(22,163,74,0.25);" id="ch5-complete-modal-inner">' +
+          '<div style="font-size:64px;margin-bottom:20px;">🧠</div>' +
+          '<h2 style="background:linear-gradient(135deg,#4ade80,#16a34a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:15px;font-size:24px;">恭喜完成 Chapter 5！</h2>' +
+          '<p style="color:#ccc;line-height:1.8;margin-bottom:20px;">你的作業系統已更新。<br>你已能看見規則，而不是只看見表象。</p>' +
+          '<p style="color:#4ade80;font-weight:bold;font-size:18px;margin-bottom:5px;">你不再被劇本綁架，</p>' +
+          '<p style="color:#16a34a;font-weight:bold;font-size:18px;">你開始書寫自己的規則。🐺</p>' +
+          '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">' +
+            '<button class="btn-main" id="ch5-close-modal-btn" style="margin-top:10px;">關閉</button>' +
+            '<button class="btn-main" id="ch5-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
+          '</div></div>';
+        container.appendChild(modal);
+
+        setTimeout(function() {
+          modal.style.background = 'rgba(0,0,0,0.85)';
+          var inner = document.getElementById('ch5-complete-modal-inner');
+          if (inner) { inner.style.transform = 'scale(1)'; inner.style.opacity = '1'; }
+        }, 50);
+
+        var closeBtn = document.getElementById('ch5-close-modal-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function() {
+            SFX.click();
+            modal.style.background = 'rgba(0,0,0,0)';
+            var inner = document.getElementById('ch5-complete-modal-inner');
+            if (inner) { inner.style.transform = 'scale(0.8)'; inner.style.opacity = '0'; }
+            setTimeout(function() { if (modal.parentNode) modal.parentNode.removeChild(modal); }, 500);
+          });
+        }
+
+        var menuBtn = document.getElementById('ch5-menu-modal-btn');
+        if (menuBtn) {
+          menuBtn.addEventListener('click', function() {
+            SFX.click();
+            modal.style.background = 'rgba(0,0,0,0)';
+            var inner = document.getElementById('ch5-complete-modal-inner');
+            if (inner) { inner.style.transform = 'scale(0.8)'; inner.style.opacity = '0'; }
+            setTimeout(function() {
+              if (modal.parentNode) modal.parentNode.removeChild(modal);
+              ch5GameStarted = false;
+              returnToGameMenu();
+            }, 500);
+          });
+        }
+
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal && closeBtn) closeBtn.click();
+        });
+      }
+
+      function ch5InitResetButton() {
+        var resetBtn = document.getElementById('reset-btn');
+        if (!resetBtn || !resetBtn.parentNode) return;
+        var cleanBtn = resetBtn.cloneNode(true);
+        resetBtn.parentNode.replaceChild(cleanBtn, resetBtn);
+        resetBtn = cleanBtn;
+
+        var clickCount = 0;
+        var clickTimer = null;
+        resetBtn.addEventListener('click', function() {
+          clickCount++;
+          if (clickCount === 1) {
+            showToast('再按一次確認重置進度');
+            clickTimer = setTimeout(function() { clickCount = 0; }, 2000);
+          } else if (clickCount >= 2) {
+            clearTimeout(clickTimer);
+            clickCount = 0;
+            SFX.warning();
+            ch5ClearAllTimers();
+            ch5GameState.resetProgress();
+            ch5LoadScene(1);
+            showToast('✅ 進度已重置');
+          }
+        });
+      }
+
+      function ch5CheckChapter4() {
+        try { return localStorage.getItem('chapter4_completed') === 'true'; }
+        catch (e) { return false; }
+      }
+
+      function ch5StartGame() {
+        if (ch5GameStarted) return;
+        ch5GameStarted = true;
+
+        ParticleSystem.init();
+        ch5InitResetButton();
+
+        var initAudioOnce = function() {
+          SFX.click();
+          document.removeEventListener('click', initAudioOnce);
+          document.removeEventListener('touchstart', initAudioOnce);
+        };
+        document.addEventListener('click', initAudioOnce, { once: true });
+        document.addEventListener('touchstart', initAudioOnce, { once: true });
+
+        ch5GameState.loadProgress();
+        if (!ch5CheckChapter4()) {
+          ch5GameState.playerData.ch4Done = false;
+          showToast('⚠️ 建議先完成 Chapter 4', 4000);
+        } else {
+          ch5GameState.playerData.ch4Done = true;
+        }
+        ch5UpdateProgress();
+        ch5GameState.updateDisplay();
+
+        var xpPct = Math.min(100, ((ch5GameState.playerData.xp || 0) / 150) * 100);
+        var xpFill = document.getElementById('xp-fill');
+        if (xpFill) xpFill.style.width = xpPct + '%';
+
+        if (ch5GameState.currentScene === 0) ch5GameState.currentScene = 1;
+        ch5LoadScene(ch5GameState.currentScene);
+      }
+
+      function ch5Init() {
+        var loadTimeout = setTimeout(function() {
+          var overlay = document.getElementById('loading-overlay');
+          if (overlay) {
+            overlay.classList.add('fade-out');
+            setTimeout(function() { overlay.style.display = 'none'; }, 800);
+          }
+          ch5StartGame();
+        }, 5000);
+
+        function checkReady() {
+          if (document.readyState === 'complete') {
+            clearTimeout(loadTimeout);
+            setTimeout(function() {
+              var overlay = document.getElementById('loading-overlay');
+              if (overlay) {
+                overlay.classList.add('fade-out');
+                setTimeout(function() { overlay.style.display = 'none'; }, 800);
+              }
+              ch5StartGame();
+            }, 2200);
+          } else {
+            setTimeout(checkReady, 200);
+          }
+        }
+        checkReady();
+      }
+
+      function start() {
+        ch5SetupModeUI();
+        ch5BuildLoadingOverlay();
+        ch5Init();
       }
 
       return { start: start };
