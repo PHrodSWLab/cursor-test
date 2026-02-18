@@ -472,7 +472,8 @@
 
     @keyframes btn-appear { from { opacity: 0; transform: translateY(20px) scale(0.8); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-    .continue-button {
+    .continue-button,
+    .btn-main {
       display: block; margin: 20px auto; padding: 14px 35px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       border: none; color: #fff; font-size: 16px; font-weight: bold;
@@ -480,15 +481,20 @@
       font-family: inherit; position: relative; overflow: hidden;
       box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     }
-    .continue-button::after {
+    .continue-button::after,
+    .btn-main::after {
       content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
       background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
       opacity: 0; transition: opacity 0.3s;
     }
-    .continue-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5); }
-    .continue-button:hover::after { opacity: 1; }
-    .continue-button:active { transform: translateY(0) scale(0.97); }
-    .continue-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+    .continue-button:hover,
+    .btn-main:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5); }
+    .continue-button:hover::after,
+    .btn-main:hover::after { opacity: 1; }
+    .continue-button:active,
+    .btn-main:active { transform: translateY(0) scale(0.97); }
+    .continue-button:disabled,
+    .btn-main:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
 
     /* ===== TUTORIAL / CONTENT CONTAINERS ===== */
     .tutorial-container, .dimMak-container, .reflection-container, .challenge-container, .summary-container {
@@ -754,14 +760,22 @@
     #game-container.ch2-mode .continue-button,
     #game-container.ch3-mode .continue-button,
     #game-container.ch4-mode .continue-button,
-    #game-container.ch5-mode .continue-button {
+    #game-container.ch5-mode .continue-button,
+    #game-container.ch2-mode .btn-main,
+    #game-container.ch3-mode .btn-main,
+    #game-container.ch4-mode .btn-main,
+    #game-container.ch5-mode .btn-main {
       background: var(--theme-continue-gradient);
       box-shadow: 0 4px 15px var(--theme-continue-shadow);
     }
     #game-container.ch2-mode .continue-button:hover,
     #game-container.ch3-mode .continue-button:hover,
     #game-container.ch4-mode .continue-button:hover,
-    #game-container.ch5-mode .continue-button:hover {
+    #game-container.ch5-mode .continue-button:hover,
+    #game-container.ch2-mode .btn-main:hover,
+    #game-container.ch3-mode .btn-main:hover,
+    #game-container.ch4-mode .btn-main:hover,
+    #game-container.ch5-mode .btn-main:hover {
       box-shadow: 0 8px var(--theme-continue-hover-blur, 30px) var(--theme-continue-hover-shadow);
     }
     #game-container.ch2-mode .toast-notification,
@@ -1528,7 +1542,8 @@
 
     #game-container.ch4-mode .fade-in { animation: fadeIn 0.55s ease; }
 
-    #game-container.ch4-mode .btn-main {
+    #game-container.ch4-mode .btn-main,
+    #game-container.ch4-mode .continue-button {
       display: block;
       margin: 18px auto;
       padding: 14px 35px;
@@ -1545,7 +1560,8 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(14,165,233,0.3);
     }
-    #game-container.ch4-mode .btn-main::after {
+    #game-container.ch4-mode .btn-main::after,
+    #game-container.ch4-mode .continue-button::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -1556,10 +1572,14 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-    #game-container.ch4-mode .btn-main:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(14,165,233,0.5); }
-    #game-container.ch4-mode .btn-main:hover::after { opacity: 1; }
-    #game-container.ch4-mode .btn-main:active { transform: translateY(0) scale(0.97); }
-    #game-container.ch4-mode .btn-main:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
+    #game-container.ch4-mode .btn-main:hover,
+    #game-container.ch4-mode .continue-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 30px rgba(14,165,233,0.5); }
+    #game-container.ch4-mode .btn-main:hover::after,
+    #game-container.ch4-mode .continue-button:hover::after { opacity: 1; }
+    #game-container.ch4-mode .btn-main:active,
+    #game-container.ch4-mode .continue-button:active { transform: translateY(0) scale(0.97); }
+    #game-container.ch4-mode .btn-main:disabled,
+    #game-container.ch4-mode .continue-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; box-shadow: none !important; }
 
     #game-container.ch4-mode .energy-bar-wrap { margin: 20px 0; }
     #game-container.ch4-mode .energy-bar-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
@@ -7302,8 +7322,8 @@
             '<p style="color:#0ea5e9;font-weight:bold;font-size:18px;margin-bottom:5px;">你的電池，</p>' +
             '<p style="color:#38bdf8;font-weight:bold;font-size:18px;">只為值得的人充電。🐺</p>' +
             '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">' +
-              '<button class="btn-main" id="ch4-close-modal-btn" style="margin-top:10px;">關閉</button>' +
-              '<button class="btn-main" id="ch4-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
+              '<button class="continue-button" id="ch4-close-modal-btn" style="margin-top:10px;">關閉</button>' +
+              '<button class="continue-button" id="ch4-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
             '</div></div>'
         });
       }
@@ -7899,8 +7919,8 @@
             '<p style="color:#4ade80;font-weight:bold;font-size:18px;margin-bottom:5px;">你不再被劇本綁架，</p>' +
             '<p style="color:#16a34a;font-weight:bold;font-size:18px;">你開始書寫自己的規則。🐺</p>' +
             '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">' +
-              '<button class="btn-main" id="ch5-close-modal-btn" style="margin-top:10px;">關閉</button>' +
-              '<button class="btn-main" id="ch5-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
+              '<button class="continue-button" id="ch5-close-modal-btn" style="margin-top:10px;">關閉</button>' +
+              '<button class="continue-button" id="ch5-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
             '</div></div>'
         });
       }
@@ -8754,8 +8774,8 @@
             '<p style="color:#f59e0b;font-weight:bold;font-size:18px;margin-bottom:5px;">獠牙已就位，</p>' +
             '<p style="color:#fde68a;font-weight:bold;font-size:18px;">慈悲仍在你手中。🐺</p>' +
             '<div style="margin-top:25px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);">' +
-              '<button class="btn-main" id="ch6-close-modal-btn" style="margin-top:10px;">關閉</button>' +
-              '<button class="btn-main" id="ch6-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
+              '<button class="continue-button" id="ch6-close-modal-btn" style="margin-top:10px;">關閉</button>' +
+              '<button class="continue-button" id="ch6-menu-modal-btn" style="margin-top:10px;">返回課程地圖</button>' +
             '</div></div>'
         });
       }
