@@ -76,7 +76,7 @@
     }
     #game-menu .hero-tag {
       font-family: 'Space Mono', monospace;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 3px;
       color: var(--menu-gold);
       text-transform: uppercase;
@@ -126,7 +126,7 @@
     #game-menu .pr-info h4 { font-size: 14px; font-weight: 700; color: var(--menu-ink); }
     #game-menu .pr-info p {
       font-size: 11px;
-      color: rgba(232,224,240,0.5);
+      color: rgba(232,224,240,0.62);
       font-family: 'Space Mono', monospace;
       margin-top: 3px;
     }
@@ -175,7 +175,7 @@
     #game-menu .part-header-text h3 { font-size: clamp(15px, 2.2vw, 19px); font-weight: 700; }
     #game-menu .part-header-text p {
       font-size: 11px;
-      color: rgba(232,224,240,0.45);
+      color: rgba(232,224,240,0.58);
       font-family: 'Space Mono', monospace;
       margin-top: 2px;
       letter-spacing: 1px;
@@ -242,9 +242,9 @@
 
     #game-menu .ch-num {
       font-family: 'Space Mono', monospace;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 1.5px;
-      color: rgba(232,224,240,0.35);
+      color: rgba(232,224,240,0.5);
       margin-bottom: 8px;
       text-transform: uppercase;
     }
@@ -264,8 +264,8 @@
       color: var(--menu-ink);
     }
     #game-menu .ch-subtitle {
-      font-size: 10px;
-      color: rgba(232,224,240,0.4);
+      font-size: 11px;
+      color: rgba(232,224,240,0.55);
       line-height: 1.5;
       font-family: 'Space Mono', monospace;
     }
@@ -292,7 +292,7 @@
       position: absolute;
       top: 8px;
       right: 10px;
-      font-size: 9px;
+      font-size: 10px;
       color: var(--menu-gold);
       opacity: 0.6;
     }
@@ -328,7 +328,7 @@
       border-radius: 50px;
       padding: 7px 14px;
       font-family: 'Space Mono', monospace;
-      font-size: 10px;
+      font-size: 11px;
       color: rgba(232,224,240,0.6);
       letter-spacing: 0.5px;
     }
@@ -339,11 +339,11 @@
       padding: 18px 20px 28px;
       border-top: 1px solid rgba(255,255,255,0.05);
       font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: rgba(232,224,240,0.25);
+      font-size: 11px;
+      color: rgba(232,224,240,0.38);
       letter-spacing: 1px;
     }
-    #game-menu footer strong { color: rgba(251,191,36,0.45); }
+    #game-menu footer strong { color: rgba(251,191,36,0.62); }
 
     #menu-tooltip {
       position: absolute;
@@ -377,7 +377,17 @@
     .progress-track { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin: 0 15px; position: relative; }
     .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); transition: width 0.8s ease; position: relative; }
     .progress-fill::after { content: ''; position: absolute; right: 0; top: -2px; width: 10px; height: 10px; background: #fff; border-radius: 50%; box-shadow: 0 0 10px #667eea, 0 0 20px #764ba2; }
-    .scene-counter { color: rgba(255,255,255,0.7); font-size: 12px; font-family: 'Courier New', monospace; white-space: nowrap; }
+    .scene-counter {
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 1;
+      min-width: 0;
+      max-width: 40%;
+    }
 
     /* ===== XP INDICATOR ===== */
     #xp-bar {
@@ -681,9 +691,9 @@
 
     /* ===== RESET BUTTON ===== */
     #reset-btn {
-      position: absolute; top: 9%; left: 2%; z-index: 100; width: 32px; height: 32px;
+      position: absolute; top: 9%; left: 2%; z-index: 100; width: 40px; height: 40px;
       background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%;
-      color: rgba(255,255,255,0.4); font-size: 14px; cursor: pointer; display: flex;
+      color: rgba(255,255,255,0.55); font-size: 16px; cursor: pointer; display: flex;
       align-items: center; justify-content: center; transition: all 0.3s ease;
     }
     #reset-btn:hover { background: rgba(244,67,54,0.3); border-color: #F44336; color: #fff; transform: scale(1.1); }
@@ -2041,7 +2051,7 @@
       gap: 8px;
       border: 1px solid rgba(255,255,255,0.12);
     }
-    #game-container.ch6-mode .ch6-stat-pill .lbl { color: #888; font-size: 9px; }
+    #game-container.ch6-mode .ch6-stat-pill .lbl { color: #b8b8b8; font-size: 10px; }
     #game-container.ch6-mode .ch6-stat-pill .val {
       font-weight: bold;
       width: 26px;
@@ -2315,7 +2325,7 @@
       .drop-zone { min-height: 60px; }
       #moral-compass { width: 75px; height: 75px; top: 7%; right: 1%; }
       .compass-value { font-size: 12px; }
-      .compass-label { font-size: 7px; width: 28px; }
+      .compass-label { font-size: 9px; width: 30px; }
       .option-button { min-width: 120px; font-size: 13px; padding: 10px 14px; }
       .dialogue-options { flex-direction: column; }
       #dialogue-box { padding: 15px 20px; min-height: 30%; }
@@ -2329,7 +2339,7 @@
       .score-display { font-size: 12px; }
       .challenge-line { padding: 12px 15px; font-size: 13px; }
       .continue-button { padding: 12px 28px; font-size: 14px; }
-      #reset-btn { top: 7%; width: 28px; height: 28px; font-size: 12px; }
+      #reset-btn { top: 7%; width: 40px; height: 40px; font-size: 15px; }
       .drag-card.touch-dragging { width: 220px; font-size: 12px; }
 
       #game-container.ch2-mode .virus-container,
@@ -2388,14 +2398,14 @@
       #game-container.ch6-mode .signal-body .contrast { grid-template-columns: 1fr; }
       #game-container.ch6-mode #ch6-stats-bar { right: 1%; top: 7%; }
       #game-container.ch6-mode .ch6-stat-pill { padding: 4px 9px; gap: 6px; }
-      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 8px; }
+      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 9px; }
       #game-container.ch6-mode .ch6-stat-pill .val { width: 24px; font-size: 11px; }
     }
 
     @media (max-width: 380px) {
       #moral-compass { width: 60px; height: 60px; }
       .compass-value { font-size: 10px; }
-      .compass-label { font-size: 6px; width: 22px; }
+      .compass-label { font-size: 8px; width: 24px; }
       .compass-row { gap: 2px; margin: 1px 0; }
       .drag-card.touch-dragging { width: 180px; }
 
@@ -2404,24 +2414,24 @@
       #game-container.ch2-mode .compass-value,
       #game-container.ch3-mode .compass-value { font-size: 9px; width: 20px; }
       #game-container.ch2-mode .compass-label,
-      #game-container.ch3-mode .compass-label { font-size: 5px; width: 20px; }
+      #game-container.ch3-mode .compass-label { font-size: 7px; width: 22px; }
       #game-container.ch2-mode .compass-row,
       #game-container.ch3-mode .compass-row { gap: 1px; margin: 0; }
 
       #game-container.ch4-mode #moral-compass { width: 74px; height: 74px; }
-      #game-container.ch4-mode .compass-label { font-size: 5px; width: 20px; }
+      #game-container.ch4-mode .compass-label { font-size: 7px; width: 22px; }
       #game-container.ch4-mode .compass-value { font-size: 9px; width: 20px; }
       #game-container.ch4-mode .compass-row { gap: 1px; margin: 0; }
       #game-container.ch4-mode .sort-card.touch-dragging { width: 170px; }
 
       #game-container.ch5-mode #moral-compass { width: 70px; height: 70px; }
-      #game-container.ch5-mode .compass-label { font-size: 5px; width: 20px; }
+      #game-container.ch5-mode .compass-label { font-size: 7px; width: 22px; }
       #game-container.ch5-mode .compass-value { font-size: 9px; width: 20px; }
       #game-container.ch5-mode .compass-row { gap: 1px; margin: 0; }
 
       #game-container.ch6-mode #ch6-stats-bar { right: 1%; }
       #game-container.ch6-mode .ch6-stat-pill { padding: 4px 8px; }
-      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 7px; }
+      #game-container.ch6-mode .ch6-stat-pill .lbl { font-size: 8px; }
       #game-container.ch6-mode .ch6-stat-pill .val { width: 22px; font-size: 10px; }
     }
 
