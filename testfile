@@ -688,15 +688,182 @@
     }
     #reset-btn:hover { background: rgba(244,67,54,0.3); border-color: #F44336; color: #fff; transform: scale(1.1); }
 
+    /* ===== CHAPTER 2~5 THEME SKELETON ===== */
+    #game-container.ch2-mode,
+    #game-container.ch3-mode,
+    #game-container.ch4-mode,
+    #game-container.ch5-mode {
+      background: var(--theme-bg);
+    }
+    #game-container.ch2-mode .progress-fill,
+    #game-container.ch3-mode .progress-fill,
+    #game-container.ch4-mode .progress-fill,
+    #game-container.ch5-mode .progress-fill {
+      background: var(--theme-progress-gradient);
+    }
+    #game-container.ch2-mode .progress-fill::after,
+    #game-container.ch3-mode .progress-fill::after,
+    #game-container.ch4-mode .progress-fill::after,
+    #game-container.ch5-mode .progress-fill::after {
+      box-shadow: 0 0 10px var(--theme-progress-glow-a), 0 0 20px var(--theme-progress-glow-b);
+    }
+    #game-container.ch2-mode #dialogue-box,
+    #game-container.ch3-mode #dialogue-box,
+    #game-container.ch4-mode #dialogue-box,
+    #game-container.ch5-mode #dialogue-box {
+      border-top: 1px solid var(--theme-dialogue-border);
+    }
+    #game-container.ch2-mode .dialogue-speaker,
+    #game-container.ch3-mode .dialogue-speaker,
+    #game-container.ch4-mode .dialogue-speaker,
+    #game-container.ch5-mode .dialogue-speaker {
+      color: var(--theme-speaker-color);
+      text-shadow: 0 0 10px var(--theme-speaker-glow);
+    }
+    #game-container.ch2-mode .option-button,
+    #game-container.ch3-mode .option-button,
+    #game-container.ch4-mode .option-button,
+    #game-container.ch5-mode .option-button {
+      background: var(--theme-option-bg);
+      border-color: var(--theme-option-border);
+    }
+    #game-container.ch2-mode .option-button::before,
+    #game-container.ch3-mode .option-button::before,
+    #game-container.ch4-mode .option-button::before,
+    #game-container.ch5-mode .option-button::before {
+      background: linear-gradient(90deg, transparent, var(--theme-option-sheen), transparent);
+    }
+    #game-container.ch2-mode .option-button:hover,
+    #game-container.ch3-mode .option-button:hover,
+    #game-container.ch4-mode .option-button:hover,
+    #game-container.ch5-mode .option-button:hover {
+      background: var(--theme-option-hover-bg);
+      border-color: var(--theme-option-hover-border);
+      box-shadow: 0 8px 25px var(--theme-option-hover-shadow);
+    }
+    #game-container.ch2-mode .continue-button,
+    #game-container.ch3-mode .continue-button,
+    #game-container.ch4-mode .continue-button,
+    #game-container.ch5-mode .continue-button {
+      background: var(--theme-continue-gradient);
+      box-shadow: 0 4px 15px var(--theme-continue-shadow);
+    }
+    #game-container.ch2-mode .continue-button:hover,
+    #game-container.ch3-mode .continue-button:hover,
+    #game-container.ch4-mode .continue-button:hover,
+    #game-container.ch5-mode .continue-button:hover {
+      box-shadow: 0 8px var(--theme-continue-hover-blur, 30px) var(--theme-continue-hover-shadow);
+    }
+    #game-container.ch2-mode .toast-notification,
+    #game-container.ch3-mode .toast-notification,
+    #game-container.ch4-mode .toast-notification,
+    #game-container.ch5-mode .toast-notification {
+      border-color: var(--theme-toast-border);
+    }
+    #game-container.ch2-mode .loading-progress-fill,
+    #game-container.ch3-mode .loading-progress-fill,
+    #game-container.ch4-mode .loading-progress-fill,
+    #game-container.ch5-mode .loading-progress-fill {
+      background: var(--theme-loading-progress-gradient);
+    }
+    #game-container.ch2-mode .virus-container,
+    #game-container.ch2-mode .shield-container,
+    #game-container.ch2-mode .battle-container,
+    #game-container.ch2-mode .summary-container,
+    #game-container.ch3-mode .technique-container,
+    #game-container.ch3-mode .training-container,
+    #game-container.ch3-mode .warning-container,
+    #game-container.ch3-mode .summary-container,
+    #game-container.ch4-mode .scroll-page,
+    #game-container.ch5-mode .page {
+      width: 100%;
+      height: 100%;
+      padding: var(--theme-page-padding);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #game-container.ch2-mode .virus-container h2,
+    #game-container.ch2-mode .shield-container h2,
+    #game-container.ch2-mode .battle-container h2,
+    #game-container.ch2-mode .summary-container h2,
+    #game-container.ch3-mode .technique-container h2,
+    #game-container.ch3-mode .training-container h2,
+    #game-container.ch3-mode .warning-container h2,
+    #game-container.ch3-mode .summary-container h2,
+    #game-container.ch4-mode .scroll-page h2,
+    #game-container.ch5-mode .page h2 {
+      text-align: center;
+      margin-bottom: var(--theme-page-title-margin);
+      font-size: var(--theme-page-title-size);
+      background: var(--theme-page-title-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    #game-container.ch2-mode .virus-card,
+    #game-container.ch3-mode .technique-card,
+    #game-container.ch4-mode .box-card,
+    #game-container.ch5-mode .detector-card {
+      background: var(--theme-card-bg);
+      border: var(--theme-card-border);
+      border-radius: var(--theme-card-radius);
+      padding: var(--theme-card-padding);
+      margin-bottom: var(--theme-card-margin);
+      transition: var(--theme-card-transition);
+    }
+    #game-container.ch2-mode .virus-card,
+    #game-container.ch3-mode .technique-card {
+      border-left: 4px solid var(--theme-card-border-accent);
+    }
+    #game-container.ch2-mode .virus-card:hover,
+    #game-container.ch3-mode .technique-card:hover {
+      background: var(--theme-card-hover-bg);
+      transform: var(--theme-card-hover-transform);
+    }
+    #game-container.ch2-mode .virus-card h3,
+    #game-container.ch3-mode .technique-card h3,
+    #game-container.ch5-mode .detector-card h3 {
+      color: var(--theme-card-title-color);
+      margin-bottom: 12px;
+      font-size: var(--theme-card-title-size);
+    }
+
     /* ===== CHAPTER 2 THEME (container scoped) ===== */
     #game-container.ch2-mode {
-      background: linear-gradient(135deg, #2d1b4e 0%, #1a1a3e 100%);
-    }
-    #game-container.ch2-mode .progress-fill {
-      background: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
-    }
-    #game-container.ch2-mode .progress-fill::after {
-      box-shadow: 0 0 10px #9333ea, 0 0 20px #ec4899;
+      --theme-bg: linear-gradient(135deg, #2d1b4e 0%, #1a1a3e 100%);
+      --theme-progress-gradient: linear-gradient(90deg, #9333ea 0%, #ec4899 100%);
+      --theme-progress-glow-a: #9333ea;
+      --theme-progress-glow-b: #ec4899;
+      --theme-dialogue-border: rgba(147, 51, 234, 0.3);
+      --theme-speaker-color: #9333ea;
+      --theme-speaker-glow: rgba(147, 51, 234, 0.5);
+      --theme-option-bg: rgba(147, 51, 234, 0.15);
+      --theme-option-border: rgba(147, 51, 234, 0.4);
+      --theme-option-sheen: rgba(147, 51, 234, 0.2);
+      --theme-option-hover-bg: rgba(147, 51, 234, 0.35);
+      --theme-option-hover-border: #9333ea;
+      --theme-option-hover-shadow: rgba(147, 51, 234, 0.3);
+      --theme-continue-gradient: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+      --theme-continue-shadow: rgba(147, 51, 234, 0.3);
+      --theme-continue-hover-shadow: rgba(147, 51, 234, 0.5);
+      --theme-continue-hover-blur: 30px;
+      --theme-toast-border: rgba(147,51,234,0.4);
+      --theme-loading-progress-gradient: linear-gradient(90deg, #9333ea, #ec4899);
+      --theme-page-padding: 40px 30px;
+      --theme-page-title-margin: 20px;
+      --theme-page-title-size: 22px;
+      --theme-page-title-gradient: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+      --theme-card-bg: rgba(255,255,255,0.03);
+      --theme-card-border: none;
+      --theme-card-border-accent: #F44336;
+      --theme-card-radius: 8px;
+      --theme-card-padding: 20px;
+      --theme-card-margin: 20px;
+      --theme-card-transition: all 0.3s ease;
+      --theme-card-hover-bg: rgba(255,255,255,0.06);
+      --theme-card-hover-transform: translateX(5px);
+      --theme-card-title-color: #F44336;
+      --theme-card-title-size: 18px;
     }
     #game-container.ch2-mode #moral-compass {
       border: 2px solid rgba(147, 51, 234, 0.5);
@@ -713,72 +880,6 @@
       50% { box-shadow: 0 0 30px rgba(147,51,234,0.8); }
     }
 
-    #game-container.ch2-mode #dialogue-box {
-      border-top: 1px solid rgba(147, 51, 234, 0.3);
-    }
-    #game-container.ch2-mode .dialogue-speaker {
-      color: #9333ea;
-      text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
-    }
-    #game-container.ch2-mode .option-button {
-      background: rgba(147, 51, 234, 0.15);
-      border: 2px solid rgba(147, 51, 234, 0.4);
-    }
-    #game-container.ch2-mode .option-button::before {
-      background: linear-gradient(90deg, transparent, rgba(147, 51, 234, 0.2), transparent);
-    }
-    #game-container.ch2-mode .option-button:hover {
-      background: rgba(147, 51, 234, 0.35);
-      border-color: #9333ea;
-      box-shadow: 0 8px 25px rgba(147, 51, 234, 0.3);
-    }
-    #game-container.ch2-mode .continue-button {
-      background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
-      box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
-    }
-    #game-container.ch2-mode .continue-button:hover {
-      box-shadow: 0 8px 30px rgba(147, 51, 234, 0.5);
-    }
-    #game-container.ch2-mode .toast-notification {
-      border: 1px solid rgba(147,51,234,0.4);
-    }
-
-    #game-container.ch2-mode .virus-container,
-    #game-container.ch2-mode .shield-container,
-    #game-container.ch2-mode .battle-container,
-    #game-container.ch2-mode .summary-container {
-      width: 100%;
-      height: 100%;
-      padding: 40px 30px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    #game-container.ch2-mode .virus-container h2,
-    #game-container.ch2-mode .shield-container h2,
-    #game-container.ch2-mode .battle-container h2,
-    #game-container.ch2-mode .summary-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-      background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    #game-container.ch2-mode .virus-card {
-      background: rgba(255,255,255,0.03);
-      border-left: 4px solid #F44336;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    #game-container.ch2-mode .virus-card:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateX(5px);
-    }
-    #game-container.ch2-mode .virus-card h3 { color: #F44336; margin-bottom: 12px; font-size: 18px; }
     #game-container.ch2-mode .virus-example {
       background: rgba(244, 67, 54, 0.1);
       padding: 15px;
@@ -1018,9 +1119,6 @@
       font-size: 24px;
       z-index: 2;
     }
-    #game-container.ch2-mode .loading-progress-fill {
-      background: linear-gradient(90deg, #9333ea, #ec4899);
-    }
     @keyframes shield-pulse {
       0%, 100% { box-shadow: 0 0 20px rgba(147,51,234,0.4); }
       50% { box-shadow: 0 0 40px rgba(147,51,234,0.8), 0 0 60px rgba(236,72,153,0.3); }
@@ -1042,13 +1140,40 @@
 
     /* ===== CHAPTER 3 THEME (container scoped) ===== */
     #game-container.ch3-mode {
-      background: linear-gradient(135deg, #1e1e2e 0%, #2d1b3d 100%);
-    }
-    #game-container.ch3-mode .progress-fill {
-      background: linear-gradient(90deg, #dc2626 0%, #991b1b 100%);
-    }
-    #game-container.ch3-mode .progress-fill::after {
-      box-shadow: 0 0 10px #dc2626, 0 0 20px #991b1b;
+      --theme-bg: linear-gradient(135deg, #1e1e2e 0%, #2d1b3d 100%);
+      --theme-progress-gradient: linear-gradient(90deg, #dc2626 0%, #991b1b 100%);
+      --theme-progress-glow-a: #dc2626;
+      --theme-progress-glow-b: #991b1b;
+      --theme-dialogue-border: rgba(220, 38, 38, 0.3);
+      --theme-speaker-color: #dc2626;
+      --theme-speaker-glow: rgba(220, 38, 38, 0.5);
+      --theme-option-bg: rgba(220, 38, 38, 0.15);
+      --theme-option-border: rgba(220, 38, 38, 0.4);
+      --theme-option-sheen: rgba(220, 38, 38, 0.2);
+      --theme-option-hover-bg: rgba(220, 38, 38, 0.35);
+      --theme-option-hover-border: #dc2626;
+      --theme-option-hover-shadow: rgba(220, 38, 38, 0.3);
+      --theme-continue-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      --theme-continue-shadow: rgba(220, 38, 38, 0.3);
+      --theme-continue-hover-shadow: rgba(220, 38, 38, 0.5);
+      --theme-continue-hover-blur: 30px;
+      --theme-toast-border: rgba(220,38,38,0.4);
+      --theme-loading-progress-gradient: linear-gradient(90deg, #dc2626, #991b1b);
+      --theme-page-padding: 40px 30px;
+      --theme-page-title-margin: 20px;
+      --theme-page-title-size: 22px;
+      --theme-page-title-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      --theme-card-bg: rgba(255,255,255,0.03);
+      --theme-card-border: none;
+      --theme-card-border-accent: #dc2626;
+      --theme-card-radius: 8px;
+      --theme-card-padding: 20px;
+      --theme-card-margin: 20px;
+      --theme-card-transition: all 0.3s ease;
+      --theme-card-hover-bg: rgba(255,255,255,0.06);
+      --theme-card-hover-transform: translateX(5px);
+      --theme-card-title-color: #dc2626;
+      --theme-card-title-size: 18px;
     }
     #game-container.ch3-mode #moral-compass {
       border: 2px solid rgba(220, 38, 38, 0.5);
@@ -1064,59 +1189,6 @@
       50% { box-shadow: 0 0 30px rgba(220,38,38,0.8); }
     }
     #game-container.ch3-mode .compass-value.control { color: #dc2626; }
-
-    #game-container.ch3-mode #dialogue-box {
-      border-top: 1px solid rgba(220, 38, 38, 0.3);
-    }
-    #game-container.ch3-mode .dialogue-speaker {
-      color: #dc2626;
-      text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
-    }
-    #game-container.ch3-mode .option-button {
-      background: rgba(220, 38, 38, 0.15);
-      border: 2px solid rgba(220, 38, 38, 0.4);
-    }
-    #game-container.ch3-mode .option-button::before {
-      background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.2), transparent);
-    }
-    #game-container.ch3-mode .option-button:hover {
-      background: rgba(220, 38, 38, 0.35);
-      border-color: #dc2626;
-      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.3);
-    }
-    #game-container.ch3-mode .continue-button {
-      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-      box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
-    }
-    #game-container.ch3-mode .continue-button:hover {
-      box-shadow: 0 8px 30px rgba(220, 38, 38, 0.5);
-    }
-    #game-container.ch3-mode .toast-notification {
-      border: 1px solid rgba(220,38,38,0.4);
-    }
-
-    #game-container.ch3-mode .technique-container,
-    #game-container.ch3-mode .training-container,
-    #game-container.ch3-mode .warning-container,
-    #game-container.ch3-mode .summary-container {
-      width: 100%;
-      height: 100%;
-      padding: 40px 30px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    #game-container.ch3-mode .technique-container h2,
-    #game-container.ch3-mode .training-container h2,
-    #game-container.ch3-mode .warning-container h2,
-    #game-container.ch3-mode .summary-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
 
     #game-container.ch3-mode .silence-visual {
       position: relative;
@@ -1141,20 +1213,6 @@
       0%, 100% { transform: scale(1); opacity: 0.6; }
       50% { transform: scale(1.1); opacity: 1; }
     }
-
-    #game-container.ch3-mode .technique-card {
-      background: rgba(255,255,255,0.03);
-      border-left: 4px solid #dc2626;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    #game-container.ch3-mode .technique-card:hover {
-      background: rgba(255,255,255,0.06);
-      transform: translateX(5px);
-    }
-    #game-container.ch3-mode .technique-card h3 { color: #dc2626; margin-bottom: 12px; font-size: 18px; }
 
     #game-container.ch3-mode .step-list {
       background: rgba(0,0,0,0.3);
@@ -1385,10 +1443,6 @@
       50% { left: 32px; top: 28px; }
       75% { left: 26px; top: 36px; }
     }
-    #game-container.ch3-mode .loading-progress-fill {
-      background: linear-gradient(90deg, #dc2626, #991b1b);
-    }
-
     #game-container.ch3-mode .technique-container::-webkit-scrollbar,
     #game-container.ch3-mode .training-container::-webkit-scrollbar,
     #game-container.ch3-mode .warning-container::-webkit-scrollbar,
@@ -1405,42 +1459,35 @@
 
     /* ===== CHAPTER 4 THEME (container scoped) ===== */
     #game-container.ch4-mode {
-      background: linear-gradient(135deg, #0f1b2d 0%, #1a2744 100%);
-    }
-    #game-container.ch4-mode .progress-fill {
-      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
-    }
-    #game-container.ch4-mode .progress-fill::after {
-      box-shadow: 0 0 10px #0ea5e9, 0 0 20px #38bdf8;
-    }
-    #game-container.ch4-mode #dialogue-box {
-      border-top: 1px solid rgba(14, 165, 233, 0.3);
-    }
-    #game-container.ch4-mode .dialogue-speaker {
-      color: #0ea5e9;
-      text-shadow: 0 0 10px rgba(14,165,233,0.5);
-    }
-    #game-container.ch4-mode .option-button {
-      background: rgba(14,165,233,0.18);
-      border-color: rgba(14,165,233,0.45);
-    }
-    #game-container.ch4-mode .option-button::before {
-      background: linear-gradient(90deg, transparent, rgba(14,165,233,0.2), transparent);
-    }
-    #game-container.ch4-mode .option-button:hover {
-      background: rgba(14,165,233,0.35);
-      border-color: #0ea5e9;
-      box-shadow: 0 8px 25px rgba(14,165,233,0.3);
-    }
-    #game-container.ch4-mode .continue-button {
-      background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
-      box-shadow: 0 4px 15px rgba(14,165,233,0.3);
-    }
-    #game-container.ch4-mode .continue-button:hover {
-      box-shadow: 0 8px 30px rgba(14,165,233,0.5);
-    }
-    #game-container.ch4-mode .toast-notification {
-      border-color: rgba(14,165,233,0.4);
+      --theme-bg: linear-gradient(135deg, #0f1b2d 0%, #1a2744 100%);
+      --theme-progress-gradient: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      --theme-progress-glow-a: #0ea5e9;
+      --theme-progress-glow-b: #38bdf8;
+      --theme-dialogue-border: rgba(14, 165, 233, 0.3);
+      --theme-speaker-color: #0ea5e9;
+      --theme-speaker-glow: rgba(14,165,233,0.5);
+      --theme-option-bg: rgba(14,165,233,0.18);
+      --theme-option-border: rgba(14,165,233,0.45);
+      --theme-option-sheen: rgba(14,165,233,0.2);
+      --theme-option-hover-bg: rgba(14,165,233,0.35);
+      --theme-option-hover-border: #0ea5e9;
+      --theme-option-hover-shadow: rgba(14,165,233,0.3);
+      --theme-continue-gradient: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+      --theme-continue-shadow: rgba(14,165,233,0.3);
+      --theme-continue-hover-shadow: rgba(14,165,233,0.5);
+      --theme-continue-hover-blur: 30px;
+      --theme-toast-border: rgba(14,165,233,0.4);
+      --theme-loading-progress-gradient: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      --theme-page-padding: 38px 28px;
+      --theme-page-title-margin: 18px;
+      --theme-page-title-size: 21px;
+      --theme-page-title-gradient: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+      --theme-card-bg: transparent;
+      --theme-card-border: 2px solid transparent;
+      --theme-card-radius: 10px;
+      --theme-card-padding: 18px;
+      --theme-card-margin: 0;
+      --theme-card-transition: all 0.3s ease;
     }
     #game-container.ch4-mode #moral-compass {
       width: 128px;
@@ -1469,22 +1516,6 @@
     #game-container.ch4-mode .compass-value.kindness { color: #4CAF50; }
     #game-container.ch4-mode .compass-value.power { color: #F44336; }
 
-    #game-container.ch4-mode .scroll-page {
-      width: 100%;
-      height: 100%;
-      padding: 38px 28px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    #game-container.ch4-mode .scroll-page h2 {
-      text-align: center;
-      margin-bottom: 18px;
-      font-size: 21px;
-      background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
     #game-container.ch4-mode .fade-in { animation: fadeIn 0.55s ease; }
 
     #game-container.ch4-mode .btn-main {
@@ -1535,7 +1566,6 @@
     #game-container.ch4-mode .energy-bar-fill.low { background: linear-gradient(90deg,#F44336,#dc2626); }
 
     #game-container.ch4-mode .three-box { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 18px 0; }
-    #game-container.ch4-mode .box-card { border-radius: 10px; padding: 18px; border: 2px solid; transition: all 0.3s ease; }
     #game-container.ch4-mode .box-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
     #game-container.ch4-mode .box-card.charger { border-color: #4CAF50; background: rgba(76,175,80,0.08); }
     #game-container.ch4-mode .box-card.neutral { border-color: #FFC107; background: rgba(255,193,7,0.08); }
@@ -1748,7 +1778,6 @@
       animation: ch4-battery-fill 2s ease-in-out forwards;
     }
     #game-container.ch4-mode .loading-progress-fill {
-      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
       animation: ch4-battery-fill 2s ease-in-out forwards;
     }
     @keyframes ch4-battery-fill { to { width: 100%; } }
@@ -1758,42 +1787,37 @@
 
     /* ===== CHAPTER 5 THEME (container scoped) ===== */
     #game-container.ch5-mode {
-      background: linear-gradient(135deg, #051a05 0%, #0f2e0f 100%);
-    }
-    #game-container.ch5-mode .progress-fill {
-      background: linear-gradient(90deg, #16a34a 0%, #4ade80 100%);
-    }
-    #game-container.ch5-mode .progress-fill::after {
-      box-shadow: 0 0 10px #16a34a, 0 0 20px #4ade80;
-    }
-    #game-container.ch5-mode #dialogue-box {
-      border-top: 1px solid rgba(22, 163, 74, 0.4);
-    }
-    #game-container.ch5-mode .dialogue-speaker {
-      color: #4ade80;
-      text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
-    }
-    #game-container.ch5-mode .option-button {
-      background: rgba(22, 163, 74, 0.15);
-      border-color: rgba(22, 163, 74, 0.4);
-    }
-    #game-container.ch5-mode .option-button::before {
-      background: linear-gradient(90deg, transparent, rgba(22, 163, 74, 0.2), transparent);
-    }
-    #game-container.ch5-mode .option-button:hover {
-      background: rgba(22, 163, 74, 0.3);
-      border-color: #4ade80;
-      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.35);
-    }
-    #game-container.ch5-mode .continue-button {
-      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-      box-shadow: 0 4px 15px rgba(22, 163, 74, 0.3);
-    }
-    #game-container.ch5-mode .continue-button:hover {
-      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.5);
-    }
-    #game-container.ch5-mode .toast-notification {
-      border-color: rgba(22,163,74,0.4);
+      --theme-bg: linear-gradient(135deg, #051a05 0%, #0f2e0f 100%);
+      --theme-progress-gradient: linear-gradient(90deg, #16a34a 0%, #4ade80 100%);
+      --theme-progress-glow-a: #16a34a;
+      --theme-progress-glow-b: #4ade80;
+      --theme-dialogue-border: rgba(22, 163, 74, 0.4);
+      --theme-speaker-color: #4ade80;
+      --theme-speaker-glow: rgba(74, 222, 128, 0.3);
+      --theme-option-bg: rgba(22, 163, 74, 0.15);
+      --theme-option-border: rgba(22, 163, 74, 0.4);
+      --theme-option-sheen: rgba(22, 163, 74, 0.2);
+      --theme-option-hover-bg: rgba(22, 163, 74, 0.3);
+      --theme-option-hover-border: #4ade80;
+      --theme-option-hover-shadow: rgba(22, 163, 74, 0.35);
+      --theme-continue-gradient: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      --theme-continue-shadow: rgba(22, 163, 74, 0.3);
+      --theme-continue-hover-shadow: rgba(22, 163, 74, 0.5);
+      --theme-continue-hover-blur: 25px;
+      --theme-toast-border: rgba(22,163,74,0.4);
+      --theme-loading-progress-gradient: linear-gradient(90deg, #16a34a, #4ade80);
+      --theme-page-padding: 30px 20px;
+      --theme-page-title-margin: 20px;
+      --theme-page-title-size: 22px;
+      --theme-page-title-gradient: linear-gradient(135deg, #4ade80, #16a34a);
+      --theme-card-bg: rgba(0,0,0,0.4);
+      --theme-card-border: 1px solid rgba(22, 163, 74, 0.4);
+      --theme-card-radius: 10px;
+      --theme-card-padding: 20px;
+      --theme-card-margin: 16px;
+      --theme-card-transition: none;
+      --theme-card-title-color: #4ade80;
+      --theme-card-title-size: 15px;
     }
     #game-container.ch5-mode #moral-compass {
       width: 124px;
@@ -1814,23 +1838,6 @@
     #game-container.ch5-mode .compass-value.kindness { color: #4CAF50; }
     #game-container.ch5-mode .compass-value.power { color: #F44336; }
     #game-container.ch5-mode .compass-label { width: 35px; }
-
-    #game-container.ch5-mode .page {
-      width: 100%;
-      height: 100%;
-      padding: 30px 20px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    #game-container.ch5-mode .page h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 22px;
-      background: linear-gradient(135deg, #4ade80, #16a34a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
 
     #game-container.ch5-mode .loop-viz {
       width: 100%;
@@ -1857,14 +1864,6 @@
     }
     #game-container.ch5-mode .loop-arrow { text-align: center; color: #666; font-size: 18px; margin: 4px 0; }
 
-    #game-container.ch5-mode .detector-card {
-      background: rgba(0,0,0,0.4);
-      border: 1px solid rgba(22, 163, 74, 0.4);
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 16px;
-    }
-    #game-container.ch5-mode .detector-card h3 { color: #4ade80; margin-bottom: 12px; font-size: 15px; }
     #game-container.ch5-mode .clue-list { list-style: none; }
     #game-container.ch5-mode .clue-list li {
       padding: 10px 12px;
